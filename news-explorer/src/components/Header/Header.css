@@ -1,0 +1,13 @@
+.header {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 41px;
+    align-items: center;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.8);
+    box-sizing: border-box;
+    padding-top: 44px;
+    padding: ;
+  }
