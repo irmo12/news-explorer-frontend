@@ -1,21 +1,21 @@
 import React from "react";
-import './header.css';
+import './Header.css';
 import {  NavLink } from 'react-router-dom';
-import { Navigation } from './navigation';
+// import { Navigation } from './navigation/Navigation.js';
 
 
-function Header({ loggedIn, userName, signOut }) {
+function Header({ loggedIn = true, userName, signOut }) {
 
   return (
-    <header classname="header">
-      <h1 classname="header__title">NewsExplorer</h1>
-      <Navigation />
-      <div classname="header__button-logic">
+    <header className="header">
+      <h1 className="header__title">NewsExplorer</h1>
+      {/* <Navigation /> */}
+      <div className="header__button-logic">
         {loggedIn ? (
           <button
-            classname="header__login"
+            className="header__logout-button"
             onClick={signOut}
-          >{loggedIn ? userName : <img className="header__logout-icon" src="../../images/logout.svg" alt="logout" />}
+          >{ userName }  <img className="header__logout-icon" src='../../images/Union.svg' alt="logout" />
           </button>
         ) : (
           <NavLink

@@ -1,24 +1,30 @@
-import logo from '../../logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Header from '../Header/Header.js';
+
+
+
 
 function App() {
+
+  // const [isLoggedIn, setIsLoggedIn] = useState(false)
+  // const [userData, setUserData] = useState({
+  //   _id: '',
+  //   email: '',
+  //   name: '',  
+  // })
+
+
   return (
     <>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="page">
+      {/* <UserContext.Provider value={userData}> */}
+          <Header
+            // loggedIn={isLoggedIn}
+            // signOut={signOut}
+            // name={userData.name}
+          />
+      {/* </UserContext.Provider> */}
       </div>
     </>
   );

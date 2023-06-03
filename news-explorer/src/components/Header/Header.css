@@ -1,13 +1,45 @@
 .header {
-    max-width: 1440px;
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    gap: 41px;
-    align-items: center;
-    border-bottom: 1px solid rgba(84, 84, 84, 0.8);
-    box-sizing: border-box;
-    padding-top: 44px;
-    padding: ;
-  }
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 64x;
+  align-items: center;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.8);
+  box-sizing: border-box;
+  padding: 1% 6.5%;
+}
+
+.header__title {
+  font-family: 'Roboto slab 700', sans-serif;
+  font-size: 20px;
+  line-height: 120%;  
+}
+
+.header__button-logic {
+  font-family: 'Roboto',sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  padding: 1.1% 5.47%;
+  border: 1px solid;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+} 
+
+.header__auth-link {
+  text-decoration: none;
+}
+
+.header__logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 133%;
+  background-color: transparent;
+  border: none;
+  
+}
