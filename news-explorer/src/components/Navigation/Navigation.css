@@ -1,0 +1,12 @@
+.nav-link {
+font-family: 'Roboto' sans-serif;
+font-weight: 500;
+font-size: 18px;
+font-style: normal;
+line-height: 133%;
+}
+
+.nav-link:active {
+    border-bottom: 3px solid #1A1B22;
+} 
+

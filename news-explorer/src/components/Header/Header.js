@@ -1,15 +1,15 @@
 import React from "react";
 import './Header.css';
-import {  NavLink } from 'react-router-dom';
-// import { Navigation } from './navigation/Navigation.js';
+import {  Link } from 'react-router-dom';
+ import { Navigation } from './navigation/Navigation.js';
 
 
 function Header({ loggedIn = true, userName, signOut }) {
 
   return (
     <header className="header">
-      <h1 className="header__title">NewsExplorer</h1>
-      {/* <Navigation /> */}
+      <Link className="header__title" to='/saved-news'>NewsExplorer</Link>
+      { <Navigation /> }
       <div className="header__button-logic">
         {loggedIn ? (
           <button
@@ -18,12 +18,12 @@ function Header({ loggedIn = true, userName, signOut }) {
           >{ userName }  <img className="header__logout-icon" src='../../images/Union.svg' alt="logout" />
           </button>
         ) : (
-          <NavLink
+          <Link
             className="header__auth-link"
             to={'/signin'}
           >
             Sign in
-          </NavLink>
+          </Link>
         )}
       </div>
     </header>
