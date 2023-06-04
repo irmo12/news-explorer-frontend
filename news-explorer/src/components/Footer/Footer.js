@@ -1,14 +1,16 @@
 import React, { link } from "react";
 import './Footer.css';
+import fblogo from '../../images/fb.svg'
+import github from '../../images/github.svg'
 
 function Footer(props) {
   <><div className='footer-signature'>
-    © 2020 Supersite, Powered by News API
+    © {new Date().getFullYear()} Supersite, Powered by News API
   </div><div className='footer-links'>
       <Link to={'/'} className='footer-link'>Home</Link>
       <a href="www.practicum.com" className='footer-link'>Practicum</a>
-      <a href="#" className='footer-link'><img src='../../images/github.svg' alt='github' /></a>
-      <a href="#" className='footer-link'><img src='../../images/fb.svg' alt='facebook' /></a>
+      <a href="#" className='footer-link'><img src={github} alt='github' /></a>
+      <a href="#" className='footer-link'><img src={fblogo} alt='facebook' /></a>
 
     </div></>;
 }

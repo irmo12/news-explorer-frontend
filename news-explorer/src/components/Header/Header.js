@@ -2,6 +2,7 @@ import React from "react";
 import './Header.css';
 import {  Link } from 'react-router-dom';
  import { Navigation } from './navigation/Navigation.js';
+ import logout from '../../images/Union.svg';
 
 
 function Header({ loggedIn = true, userName, signOut }) {
@@ -15,7 +16,7 @@ function Header({ loggedIn = true, userName, signOut }) {
           <button
             className="header__logout-button"
             onClick={signOut}
-          >{ userName }  <img className="header__logout-icon" src='../../images/Union.svg' alt="logout" />
+          >{ userName }  <img className="header__logout-icon" src={logout} alt="logout" />
           </button>
         ) : (
           <Link
