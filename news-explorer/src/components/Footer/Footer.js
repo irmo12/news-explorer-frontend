@@ -1,4 +1,4 @@
-import React, { link } from "react";
+import React, { Link } from "react";
 import './Footer.css';
 import fblogo from '../../images/fb.svg'
 import github from '../../images/github.svg'
@@ -14,3 +14,5 @@ function Footer(props) {
 
     </div></>;
 }
+
+export default Footer;

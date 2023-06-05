@@ -1,7 +1,7 @@
 import React from "react";
 import './Header.css';
 import {  Link } from 'react-router-dom';
- import { Navigation } from './navigation/Navigation.js';
+//  import { Navigation } from './navigation/Navigation.js';
  import logout from '../../images/Union.svg';
 
 
@@ -10,7 +10,7 @@ function Header({ loggedIn = true, userName, signOut }) {
   return (
     <header className="header">
       <Link className="header__title" to='/saved-news'>NewsExplorer</Link>
-      { <Navigation /> }
+      {/* { <Navigation /> } */}
       <div className="header__button-logic">
         {loggedIn ? (
           <button

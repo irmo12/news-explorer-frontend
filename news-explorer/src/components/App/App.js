@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from '../Header/Header.js';
+import About from '../About/About.js';
 import Footer from '../Footer/Footer.js';
-import { Route } from 'react-router-dom';
+
+import { Router, Routes, Route } from 'react-router-dom';
 
 
 
@@ -21,24 +23,25 @@ function App() {
     <>
       <div className="page">
         {/* <UserContext.Provider value={userData}> */}
-        <Header
-        // loggedIn={isLoggedIn}
-        // signOut={signOut}
-        // name={userData.name}
-        />
-        {/* </UserContext.Provider> */}
+        <Header />
+          <About />
+
+            {/* </UserContext.Provider> */}
+            {/* <Routes>
+          <About />
         <Route exact path='/'>
 
         </Route>
         <Route path='/saved-news'>
 
         </Route>
-        <Footer>
+        </Routes> */}
+            <Footer />
 
-        </Footer>
-      </div>
-    </>
-  );
+           
+          </div>
+        </>
+        );
 }
 
-export default App;
+        export default App;
