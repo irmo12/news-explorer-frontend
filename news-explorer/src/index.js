@@ -19,7 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
     content="web development, JS web development, website development project, web development education"
   />
   <meta name="author" content="Omri Ben Tal at Practicum" />
-  <link rel="favicon" href="./favicon.ico" />
+  <link rel="favicon" href="./src/images/favicon.ico" />
 </head>;
 root.render(
   <React.StrictMode>

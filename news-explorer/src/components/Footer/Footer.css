@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0 7.3%;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.footer-signature {
+  color: #B6BCBF;
+  font-size: 16px;
+  line-height: 138%
+}
+
+.footer-links {
+  font-size: 18px;
+  line-height: 133%;
+  color: #1A1B22;
+}
+ 

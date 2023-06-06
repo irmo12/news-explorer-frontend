@@ -2,7 +2,7 @@ import React from "react";
 import './Header.css';
 import {  Link } from 'react-router-dom';
 //  import { Navigation } from './navigation/Navigation.js';
- import logout from '../../images/Union.svg';
+ import logout from '../../images/logout.svg';
 
 
 function Header({ loggedIn = true, userName, signOut }) {
