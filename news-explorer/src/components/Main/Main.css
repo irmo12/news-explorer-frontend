@@ -4,11 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .main__header-search-container {
-    background-image: url('../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png');
-    background-position: center;
-    background-size: cover;
-    overflow: hidden;
+  width: 100%;
+  background-image: url('../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png');
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
 }
