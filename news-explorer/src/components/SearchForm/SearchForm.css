@@ -4,6 +4,7 @@
   max-width: 57%;
   margin: 80px auto;
   gap: 88px;
+  width: 100%;
 }
 
 .search-form__txtcontainer {
@@ -68,7 +69,7 @@
   outline: none;
 }
 
-.search-form__input:placeholder {
+.search-form__input::placeholder {
   color:#B6BCBF;
 }
 
@@ -93,6 +94,6 @@
   background: #347EFF;
 }
 
-.search-form__submit:click {
+.search-form__submit:active {
   background: #2A65CC;
 }

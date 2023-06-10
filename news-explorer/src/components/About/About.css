@@ -1,17 +1,17 @@
 .about {
     display: flex;
-    gap: 56px;
     max-width: 1440px;
-    margin: 0 auto;
+    margin: 0 0;
     background-color: #fff;
     align-items: flex-start;
+    width: 100%;
   }
   
   .about__content {
     display: flex;
     flex-flow: column nowrap;
-    gap: 24px;
-    margin: 0 auto;
+    margin: 12.6vh 0 0 5.5vh;
+    width: 100;
   }
   
   .about__image {
@@ -19,8 +19,10 @@
     max-height: 464px;
     border-radius: 50%;
     object-fit: cover;
-    margin: 80px 0 80px 6.5%;
+    margin: 77px 0 80px 7.25%;
     overflow: hidden;
+    position: relative;
+    width: 100%;
   }
   
   .about__title {
@@ -33,7 +35,7 @@
     font-size: 40px;
     line-height: 46px;
     color: #1A1B22;
-    margin: 0;
+    margin: 0 0 2vh 0;
   }
   
   .about__description {
@@ -45,11 +47,21 @@
     font-size: 18px;
     line-height: 24px;
     color: #1A1B22;
-    margin: 0;
+    margin: .3vh 0 0 0;
   }
   
-  .about__description--blank {
-    height: 24px; 
+  .about__description-blank {
+    height: 20px; 
     background-color: transparent;
     border: none;
+    margin: 0;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
   }
+
+
+
+
+
