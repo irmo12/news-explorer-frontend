@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from '../Header/Header.js';
-import About from '../About/About.js';
+import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 
 import { Router, Routes, Route } from 'react-router-dom';
@@ -22,26 +22,17 @@ function App() {
   return (
     <>
       <div className="page">
-        {/* <UserContext.Provider value={userData}> */}
+
         <Header />
-          <About />
 
-            {/* </UserContext.Provider> */}
-            {/* <Routes>
-          <About />
-        <Route exact path='/'>
+        <Main />
 
-        </Route>
-        <Route path='/saved-news'>
+        <Footer />
 
-        </Route>
-        </Routes> */}
-            <Footer />
 
-           
-          </div>
-        </>
-        );
+      </div>
+    </>
+  );
 }
 
-        export default App;
+export default App;
