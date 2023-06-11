@@ -16,7 +16,7 @@ function Header({ loggedIn = true, userName, signOut }) {
           <button
             className="header__logout-button"
             onClick={signOut}
-          >{ userName }  <img className="header__logout-icon" src={logout} alt="logout" />
+          >{ userName }  <embed className="header__logout-icon" src={logout} alt="logout" />
           </button>
         ) : (
           <Link
