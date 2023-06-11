@@ -5,7 +5,7 @@ import {  Link } from 'react-router-dom';
  import logout from '../../images/logout.svg';
 
 
-function Header({ loggedIn = true, userName, signOut }) {
+function Header({ loggedIn = false, userName, signOut }) {
 
   return (
     <header className="header">

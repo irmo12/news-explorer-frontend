@@ -1,0 +1,16 @@
+.news-card-list {
+}
+
+.news-card-list__heading {
+  display: none;
+}
+
+.news-card-list__heading:hover {
+  display: block;
+}
+
+.news-card-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}

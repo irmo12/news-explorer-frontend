@@ -72,8 +72,17 @@
 @font-face {
     font-family: 'Roboto 400';
     font-style: normal;
-    font-weight: 400;;
+    font-weight: 400;
+    font-display: swap;
     src: url(./roboto-400-regular.woff2) format("woff2"),
     url(./roboto-400-regular.woff) format("woff");
 }
 
+@font-face {
+    font-family: 'Source Sans 3';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/SourceSans3-Regular.ttf') format('ttf'),
+  }
+  

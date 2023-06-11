@@ -10,13 +10,7 @@ import { Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false)
-  // const [userData, setUserData] = useState({
-  //   _id: '',
-  //   email: '',
-  //   name: '',  
-  // })
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
