@@ -1,10 +1,9 @@
 .search-form {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 57%;
+  max-width: 59vh;
   margin: 0 auto;
   gap: 88px;
-  width: 80%;
   margin-top: 10vh;
   margin-bottom: 3vh;
 }
@@ -43,6 +42,7 @@
   min-height: 64px;
   justify-content: space-between;
   gap: 40px;
+  margin-bottom: 5vh;
 }
 
 .search-form__input {
@@ -52,7 +52,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   margin-left: 4%;
-  flex: 72;
+  flex: 70;
   caret-color:  #2F71E5;
   box-shadow: 0;
   font-family: 'Roboto';
@@ -82,7 +82,7 @@
   border-radius: 100px;
   height: 64px;
   box-sizing: border-box;
-  flex: 28;
+  flex: 30;
   cursor: pointer;
   border-width: 0;
   border-style: none;

@@ -1,23 +1,44 @@
 .footer {
   display: flex;
   flex-flow: row nowrap;
-  padding: 0 7.3%;
   align-items: center;
   justify-content: space-between;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
+  background-color: #E5E5E5;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 8vh;
 }
 
 .footer-signature {
   color: #B6BCBF;
   font-size: 16px;
-  line-height: 138%
+  line-height: 138%;
+  margin-left: 10vh;
 }
 
 .footer-links {
   font-size: 18px;
   line-height: 133%;
   color: #1A1B22;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  gap: 41px;
+  margin-right: 10vh;
 }
- 
+
+.footer-links__icons {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 28px;
+  align-items: center ;
+}
+
+.footer-link {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 133%;
+}
