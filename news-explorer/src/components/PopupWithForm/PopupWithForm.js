@@ -1,5 +1,5 @@
 function PopupWithForm({
-    isOpen,
+    isOpen = true,
     name,
     onClose,
     onSubmit,
@@ -35,5 +35,5 @@ function PopupWithForm({
     )
   }
   
-  export default PopupWithForm
+  export default PopupWithForm;
   
