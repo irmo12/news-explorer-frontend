@@ -89,6 +89,7 @@
   border-color: transparent;
   border-image: none;
   padding: 0;
+  transition: background-color 0.2s ease;
 }
 
 

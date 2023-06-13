@@ -8,8 +8,17 @@
   width: 100%;
 }
 
-.popup__form-info-couple {
+.popup__form-field-group {
   margin-bottom: 10px;
+}
+
+.popup__form-field-heading {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2f71e5;
 }
 
 .popup__form-field {
@@ -29,10 +38,16 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   min-width: 100%;
   width: 100%;
+  transition: border-color 0.3s ease;
 }
 
 .popup__form-field::placeholder {
   color: rgba(0, 0, 0, 0.2);
+}
+
+.popup__form-field:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .popup__form-field_error {
