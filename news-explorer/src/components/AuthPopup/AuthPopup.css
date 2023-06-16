@@ -1,15 +1,10 @@
 .popup__form-inputs {
   display: flex;
   flex-flow: column nowrap;
-  gap: 13px;
+  gap: 27px;
   padding: 0;
-  margin-top: 44px;
   border: 0;
   width: 100%;
-}
-
-.popup__form-field-group {
-  margin-bottom: 10px;
 }
 
 .popup__form-field-heading {
@@ -19,6 +14,15 @@
   font-size: 12px;
   line-height: 15px;
   color: #2f71e5;
+  margin: 0;
+}
+
+.popup__form-field-group_invisible {
+  display: none;
+}
+
+.popup__form-field-group {
+  display: block;
 }
 
 .popup__form-field {
@@ -33,7 +37,7 @@
   font-size: 14px;
   line-height: 1.2;
   color: #000;
-  padding: 9px 0;
+  padding: 8px 0;
   margin: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   min-width: 100%;
@@ -66,13 +70,14 @@
   visibility: hidden;
 }
 
+.popup__form-link {
+  text-decoration: none;
+  color: #2f71e5;
+}
+
 @media screen and (max-width: 796px) {
   .popup__form-inputs {
     margin-top: 76px;
     margin-bottom: 0;
-  }
-
-  .popup__form-field:last-of-type {
-    margin-bottom: 45px;
   }
 }

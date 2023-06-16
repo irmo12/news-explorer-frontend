@@ -4,7 +4,7 @@ import { useFormValidation } from '../../utils/useFormValidation.js';
 import './AuthPopup.css';
 
 export default function AuthPopup({
-  inOrUp,
+  isSignIn,
   isOpen,
   onClose,
   onSubmit,
@@ -21,18 +21,6 @@ export default function AuthPopup({
     resetForm();
   }, [isOpen, resetForm]);
 
-  function setFormType() {
-    let heading = '';
-    let submitText = '';
-    if (inOrUp) {
-      heading = 'Sign in';
-      submitText = 'Sign in';
-    } else {
-      heading = 'Sign up';
-      submitText = 'Sign up';
-    }
-    return { heading, submitText };
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -43,17 +31,14 @@ export default function AuthPopup({
     });
   }
 
-  const { heading, submitText } = setFormType();
-
   return (
     <PopupWithForm
       name="authPopup"
-      heading={heading}
-      submitText={submitText}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
       isValid={isValid}
+      signInOrUp={isSignIn}
     >
       <fieldset className="popup__form-inputs">
         <div className="popup__form-field-group">
@@ -114,37 +99,36 @@ export default function AuthPopup({
             {errors.userPW}
           </span>
         </div>
-        {inOrUp && (
-          <div className="popup__form-field-group">
-            <label htmlFor="user-name" className="popup__form-field-heading">
-              Username
-            </label>
-            <input
-              type="text"
-              className={
-                !errors.userName
-                  ? 'popup__form-field'
-                  : 'popup__form-field popup__form-field_error'
-              }
-              placeholder="Enter your username"
-              name="userName"
-              required
-              id="user-name"
-              value={values.userName || ''}
-              onChange={handleChange}
-            />
-            <span
-              className={
-                !errors.userName
-                  ? 'popup__form-error-msg popup__form-error-msg_inactive'
-                  : 'popup__form-error-msg'
-              }
-              id="userName"
-            >
-              {errors.userName}
-            </span>
-          </div>
-        )};
+        <div className={isSignIn ? 'popup__form-field-group_invisible' : 'popup__form-field-group'}>
+          <label htmlFor="user-name" className="popup__form-field-heading">
+            Username
+          </label>
+          <input
+            type="text"
+            className={
+              !errors.userName
+                ? 'popup__form-field'
+                : 'popup__form-field popup__form-field_error'
+            }
+            placeholder="Enter your username"
+            name="userName"
+            required
+            id="user-name"
+            value={values.userName || ''}
+            onChange={handleChange}
+          />
+          <span
+            className={
+              !errors.userName
+                ? 'popup__form-error-msg popup__form-error-msg_inactive'
+                : 'popup__form-error-msg'
+            }
+            id="userName"
+          >
+            {errors.userName}
+          </span>
+        </div>
+
       </fieldset>
     </PopupWithForm>
   );

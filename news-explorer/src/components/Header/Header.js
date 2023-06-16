@@ -1,30 +1,30 @@
 import React from "react";
 import './Header.css';
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //  import { Navigation } from './navigation/Navigation.js';
- import logout from '../../images/logout.svg';
+import logout from '../../images/logout.svg';
 
 
-function Header({ loggedIn = false, userName, signOut }) {
+function Header({ isLoggedIn, userName, signOut, openAuthPopup }) {
 
   return (
     <header className="header">
       <Link className="header__title" to='/saved-news'>NewsExplorer</Link>
       {/* { <Navigation /> } */}
       <div className="header__button-logic">
-        {loggedIn ? (
+        {isLoggedIn ? (
           <button
-            className="header__logout-button"
+            className="header__log-button"
             onClick={signOut}
-          >{ userName }  <embed className="header__logout-icon" src={logout} alt="logout" />
+          >{userName}  <embed className="header__logout-icon" src={logout} alt="logout" />
           </button>
         ) : (
-          <Link
-            className="header__auth-link"
-            to={'/signin'}
+          <button
+            className="header__log-button"
+            onClick={openAuthPopup}
           >
             Sign in
-          </Link>
+          </button>
         )}
       </div>
     </header>

@@ -9,13 +9,17 @@
   border-bottom: 1px solid rgba(84, 84, 84, 0.8);
   box-sizing: border-box;
   padding: 1% 7.25%;
+  color: #fff;
+}
+
+.header_logged-in{
+  color:#000; 
 }
 
 .header__title {
   font-family: 'Roboto slab 700', sans-serif;
   font-size: 20px;
   line-height: 120%;  
-  color: #fff;
 }
 
 .header__button-logic {
@@ -31,16 +35,15 @@
   text-align: center;
 } 
 
-.header__auth-link {
-  text-decoration: none;
-}
 
-.header__logout-button {
+
+.header__log-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   line-height: 133%;
   background-color: transparent;
   border: none;
+  cursor: pointer;
   
 }

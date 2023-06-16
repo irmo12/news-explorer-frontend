@@ -1,0 +1,24 @@
+.saved-news {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.saved-news__heading {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: rgba(26, 27, 34, 0.5);
+}
+
+.saved-news__user-message {
+  font-family: "Roboto Slab 400", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 115%;
+  color: #1a1b22;
+}
