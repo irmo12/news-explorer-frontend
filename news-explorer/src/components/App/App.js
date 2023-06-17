@@ -114,32 +114,31 @@ function App() {
         onClose={closePopups}
         onSubmit={handleAuthSubmit}
       />
-<Routes>
-  <Route
-    path="/"
-    element={<Main isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} newsData={newsData} username={username} />}
-  />
+      <Routes>
+        <Route
+          path="/"
+          element={<Main isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} newsData={newsData} username={username} />}
+        />
 
-  {true && (      //Isloggedin
-    <Route
-      path="/saved-news"
-      element={
-        <>
-          <Header isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} />
-          <SavedNewsHeader username={username} newsData={newsData} />
-          <SavedNews newsData={newsData} />
-        </>
-      }
-    />
-  )}
+        {true && (      //Isloggedin
+          <Route
+            path="/saved-news"
+            element={
+              <>
+                <Header isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} />
+                <SavedNewsHeader username={username} newsData={newsData} />
+              </>
+            }
+          />
+        )}
 
-  {!isLoggedIn && (
-    <Route
-      path="/"
-      element={<Navigate to="/signin" />}
-    />
-  )}
-</Routes>
+        {!isLoggedIn && (
+          <Route
+            path="/"
+            element={<Navigate to="/signin" />}
+          />
+        )}
+      </Routes>
       <Footer />
     </div>
   );
