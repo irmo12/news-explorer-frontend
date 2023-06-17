@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  background-color: #F5F6F7;
+  background-color: #e5e5e5;
   margin: 62px auto;
   padding: 0 16px; /* Add padding to align with grid gap */
 }

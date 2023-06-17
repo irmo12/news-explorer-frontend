@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import logout from '../../images/logout.svg';
 
 
-function Header({ isLoggedIn, userName, signOut, openAuthPopup }) {
+function Header({ isLoggedIn = true, userName, signOut, openAuthPopup }) {
 
   return (
-    <header className="header">
+    <header className={isLoggedIn ? "header_logged-in" : "header"}>
       <Link className="header__title" to='/saved-news'>NewsExplorer</Link>
       {/* { <Navigation /> } */}
       <div className="header__button-logic">

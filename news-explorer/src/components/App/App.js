@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import './App.css';
+import Header from '../Header/Header';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 import AuthPopup from '../AuthPopup/AuthPopup.js';
@@ -9,15 +10,15 @@ import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 
 function App() {
   const location = useLocation();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
-  const [isSignIn, setIsSignIn] = useState(true); 
-  
+  const [isSignIn, setIsSignIn] = useState(true);
+
   const username = 'Elise';   //tmp to be replaced by usercontext, and api
 
 
   //tmp code to be replaced by api
- const newsData = [
+  const newsData = [
     {
       "Owner": "648b4ce303546a4ad50c54a7",
       "title": "Everyone Needs a Special 'Sit Spot' in Nature",
@@ -73,8 +74,8 @@ function App() {
       "keyword": "Photography",
       "_id": "0cca9c79626a410b9d71724c"
     }
-  ]
-  
+  ];
+
   // endof tmp db to be replaced by API
 
 
@@ -113,31 +114,32 @@ function App() {
         onClose={closePopups}
         onSubmit={handleAuthSubmit}
       />
-      <Routes>
-        {/* Route for main page */}
-        <Route
-          path="/"
-          element={<Main isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} newsData={newsData} username={username} />}
-        />
+<Routes>
+  <Route
+    path="/"
+    element={<Main isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} newsData={newsData} username={username} />}
+  />
 
-        {/* Route for logged-in users */}
-        {isLoggedIn && (
-          <Route
-            path="/saved-news">
-            <SavedNewsHeader username={username} newsData={newsData} />
-            <SavedNews newsData={newsData} />
-          </Route>
+  {true && (      //Isloggedin
+    <Route
+      path="/saved-news"
+      element={
+        <>
+          <Header isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} />
+          <SavedNewsHeader username={username} newsData={newsData} />
+          <SavedNews newsData={newsData} />
+        </>
+      }
+    />
+  )}
 
-        )}
-
-        {/* Default route for non-logged-in users */}
-        {!isLoggedIn && (
-          <Route
-            path="/"
-            element={<Navigate to="/signin" />}
-          />
-        )}
-      </Routes>
+  {!isLoggedIn && (
+    <Route
+      path="/"
+      element={<Navigate to="/signin" />}
+    />
+  )}
+</Routes>
       <Footer />
     </div>
   );
