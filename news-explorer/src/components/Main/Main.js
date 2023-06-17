@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import './Main.css';
 import Header from '../Header/Header';
-import About from '../About/About';
 import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
-import SavedNews from '../SavedNews/SavedNews';
-
+import NewsCardList from '../NewsCardList/NewsCardList';
 
 function Main({ isLoggedIn, openAuthPopup, newsData }) {
-
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
 
+  const articleList = Object.values(newsData); // Convert object to array
 
   return (
     <>
@@ -21,9 +19,7 @@ function Main({ isLoggedIn, openAuthPopup, newsData }) {
           <SearchForm />
         </div>
         <Preloader isLoading={isLoading} hasResults={hasResults} />
-        <SavedNews newsData={newsData}/>
-        <About />
-
+        <NewsCardList articleList={articleList} /> {/* Pass the converted array */}
       </div>
     </>
   );

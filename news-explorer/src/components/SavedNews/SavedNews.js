@@ -5,10 +5,11 @@ import './SavedNews.css'
 function SavedNews({ newsData }) {
 
   return (
-    <div className="news__grid">
+    <div className="news-grid">
       {newsData.map(news => (
         <NewsCard
           article={news}
+          key={news._id}
         />
       ))}
     </div>
