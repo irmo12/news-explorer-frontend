@@ -9,7 +9,7 @@ function Main({ isLoggedIn, openAuthPopup, newsData }) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
 
-  const articleList = Object.values(newsData); // Convert object to array
+  const articleList = Object.values(newsData); 
 
   return (
     <>
@@ -19,7 +19,7 @@ function Main({ isLoggedIn, openAuthPopup, newsData }) {
           <SearchForm />
         </div>
         <Preloader isLoading={isLoading} hasResults={hasResults} />
-        <NewsCardList articleList={articleList} /> {/* Pass the converted array */}
+        <NewsCardList articleList={articleList} />
       </div>
     </>
   );
