@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 
-function PopupWithForm({
+function InfoPopup({
   isOpen = true,
   name,
   onClose,
-  heading,
 }) {
   return (
     <div className={`popup ${isOpen ? 'popup_active' : ''}`} id={name}>
@@ -22,4 +21,4 @@ function PopupWithForm({
   );
 }
 
-export default PopupWithForm;
+export default InfoPopup;
