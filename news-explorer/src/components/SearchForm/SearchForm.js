@@ -1,25 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import './SearchForm.css';
+import { SmallScreenContext } from '../../contexts/SmallScreenContext';
 
 const SearchForm = () => {
-
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.matchMedia('(max-width: 480px)').matches);
-    };
-
-    handleResize(); // Call it initially to set the initial state
-
-    window.addEventListener('resize', handleResize); // Listen for resize events
-
-    return () => {
-      window.removeEventListener('resize', handleResize); // Clean up the event listener
-    };
-  }, []);
-
-
+  const isSmallScreen = useContext(SmallScreenContext);
   return (
     <div className="search-form">
       <div className="search-form__txtcontainer">

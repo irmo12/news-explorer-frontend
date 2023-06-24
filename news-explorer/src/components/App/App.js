@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer.js';
 import AuthPopup from '../AuthPopup/AuthPopup.js';
 import SavedNews from '../SavedNews/SavedNews';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
+import { SmallScreenProvider } from '../../contexts/SmallScreenContext';
 
 function App() {
   const location = useLocation();
@@ -105,42 +106,43 @@ function App() {
   }
 
 
-
   return (
-    <div className="page">
-      <AuthPopup
-        isSignIn={isSignIn}
-        isOpen={isAuthPopupOpen}
-        onClose={closePopups}
-        onSubmit={handleAuthSubmit}
-      />
-      <Routes>
-        <Route
-          path="/"
-          element={<Main isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} newsData={newsData} username={username} />}
+    <SmallScreenProvider>
+      <div className="page">
+        <AuthPopup
+          isSignIn={isSignIn}
+          isOpen={isAuthPopupOpen}
+          onClose={closePopups}
+          onSubmit={handleAuthSubmit}
         />
-
-        {true && (      //Isloggedin
-          <Route
-            path="/saved-news"
-            element={
-              <>
-                <Header isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} />
-                <SavedNewsHeader username={username} newsData={newsData} />
-              </>
-            }
-          />
-        )}
-
-        {!isLoggedIn && (
+        <Routes>
           <Route
             path="/"
-            element={<Navigate to="/signin" />}
+            element={<Main isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} newsData={newsData} username={username} />}
           />
-        )}
-      </Routes>
-      <Footer />
-    </div>
+
+          {true && (      //Isloggedin
+            <Route
+              path="/saved-news"
+              element={
+                <>
+                  <Header isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} />
+                  <SavedNewsHeader username={username} newsData={newsData} />
+                </>
+              }
+            />
+          )}
+
+          {!isLoggedIn && (
+            <Route
+              path="/"
+              element={<Navigate to="/signin" />}
+            />
+          )}
+        </Routes>
+        <Footer />
+      </div>
+    </SmallScreenProvider>
   );
 }
 
