@@ -1,25 +1,45 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Main.css';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import NewsCardList from '../NewsCardList/NewsCardList';
+import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
+import SavedNews from '../SavedNews/SavedNews';
+import About from '../About/About';
+import { AuthContext } from '../../contexts/AuthContext';
+import { Route, Routes, } from 'react-router-dom';
 
-function Main({ isLoggedIn, openAuthPopup, newsData }) {
+
+function Main({ openAuthPopup, newsData, username }) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
-
-  const articleList = Object.values(newsData); 
+  const isLoggedIn = useContext(AuthContext);
+  const articleList = Object.values(newsData);
 
   return (
     <>
       <div className="main">
-        <div className="main__header-search-container">
-          <Header isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} />
-          <SearchForm />
-        </div>
-        <Preloader isLoading={isLoading} hasResults={hasResults} />
-        <NewsCardList articleList={articleList} />
+        <Routes>
+          <Route path='/'
+            element={<>
+              <div className="main__header-search-container">
+                <Header openAuthPopup={openAuthPopup} />
+                <SearchForm />
+              </div>
+              <Preloader isLoading={isLoading} hasResults={hasResults} />
+              <NewsCardList articleList={articleList} />
+              <About />
+            </>} />
+          {isLoggedIn && (
+            <Route path='/saved-news'
+              element={<>
+                <Header openAuthPopup={openAuthPopup} />
+                <SavedNewsHeader newsData={newsData} username={username} />
+                <SavedNews newsData={newsData} />
+              </>} />
+          )}
+        </Routes>
       </div>
     </>
   );

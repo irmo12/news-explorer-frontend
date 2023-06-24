@@ -14,7 +14,7 @@
 
 .header_logged-in {
   color: #000;
-  /* background-color: #fff; */
+  background-color: #fff;
 }
 
 .header__title {
@@ -52,6 +52,12 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  flex-grow: 1;
+  flex-shrink: 1;
+  box-sizing: content-box; 
+  padding: 10px 0; 
+  padding-left: calc(2% + 4px);
+  padding-right: calc(2% + 4px);
 }
 
 @media screen and (max-width: 480px) {

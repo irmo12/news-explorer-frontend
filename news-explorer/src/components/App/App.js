@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import './App.css';
-import Header from '../Header/Header';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 import AuthPopup from '../AuthPopup/AuthPopup.js';
-import SavedNews from '../SavedNews/SavedNews';
-import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import { SmallScreenProvider } from '../../contexts/SmallScreenContext';
+import { AuthProvider } from '../../contexts/AuthContext';
 
 function App() {
-  const location = useLocation();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
   const [isSignIn, setIsSignIn] = useState(true);
 
@@ -107,42 +102,20 @@ function App() {
 
 
   return (
-    <SmallScreenProvider>
-      <div className="page">
-        <AuthPopup
-          isSignIn={isSignIn}
-          isOpen={isAuthPopupOpen}
-          onClose={closePopups}
-          onSubmit={handleAuthSubmit}
-        />
-        <Routes>
-          <Route
-            path="/"
-            element={<Main isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} newsData={newsData} username={username} />}
+    <AuthProvider>
+      <SmallScreenProvider>
+        <div className="page">
+          <AuthPopup
+            isSignIn={isSignIn}
+            isOpen={isAuthPopupOpen}
+            onClose={closePopups}
+            onSubmit={handleAuthSubmit}
           />
-
-          {true && (      //Isloggedin
-            <Route
-              path="/saved-news"
-              element={
-                <>
-                  <Header isLoggedIn={isLoggedIn} openAuthPopup={openAuthPopup} />
-                  <SavedNewsHeader username={username} newsData={newsData} />
-                </>
-              }
-            />
-          )}
-
-          {!isLoggedIn && (
-            <Route
-              path="/"
-              element={<Navigate to="/signin" />}
-            />
-          )}
-        </Routes>
-        <Footer />
-      </div>
-    </SmallScreenProvider>
+          <Main openAuthPopup={openAuthPopup} newsData={newsData} username={username} />
+          <Footer />
+        </div>
+      </SmallScreenProvider>
+    </AuthProvider>
   );
 }
 

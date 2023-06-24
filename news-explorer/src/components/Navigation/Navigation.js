@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from "../../contexts/AuthContext";
+import './Navigation.css';
 
-function Navigation(props) {
-  <>
-    <NavLink className='nav-link' activeClassName='active' to='/'>Home</NavLink>
-    <NavLink className='nav-link' activeClassName='active' to='/saved-news'>Saved articles</NavLink>
-  </>;
+function Navigation() {
+  const isLoggedIn = useContext(AuthContext);
+  return (
+    <>
+    <div className="navigation-container">
+      <NavLink className={isLoggedIn ? 'nav-link nav-link_logged-in' : 'nav-link nav-link_logged-out'} activeClassName='active' exact to='/' >Home</NavLink>
+      <NavLink className={isLoggedIn ? 'nav-link nav-link_logged-in' : 'nav-link nav-link_logged-out'} activeClassName='active' to='/saved-news'>Saved articles</NavLink>
+      </div>
+    </>
+  );
 }
 export default Navigation;

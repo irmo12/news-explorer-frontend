@@ -1,12 +1,32 @@
+.navigation-container {
+  margin-left: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+}
+
 .nav-link {
-font-family: 'Roboto' sans-serif;
-font-weight: 500;
-font-size: 18px;
-font-style: normal;
-line-height: 133%;
+  font-family: "Roboto" sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 133%;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  min-width: 140px;
 }
 
 .nav-link:active {
-    border-bottom: 3px solid #1A1B22;
-} 
+  border-bottom: 3px solid;
+}
 
+.nav-link_logged-in {
+  border-color: #000;
+}
+
+.nav-link_logged-out {
+  border-color: #fff;
+}

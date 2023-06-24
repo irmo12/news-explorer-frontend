@@ -2,8 +2,11 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: left;
   background-color: #e5e5e5;
+  padding-left: 12vh;
+  padding-right: 60vh;
+  margin: 0 105px;
 }
 
 .saved-news__heading {
@@ -22,4 +25,15 @@
   font-size: 40px;
   line-height: 115%;
   color: #1a1b22;
+}
+
+.saved-news__saved-summary {
+  color: #1a1b22;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+}
+
+.saved-news__summary-string {
+  font-weight: bold;
 }
