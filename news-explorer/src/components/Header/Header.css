@@ -12,19 +12,19 @@
   color: #fff;
 }
 
-.header_logged-in{
-  color:#000; 
-  background-color: #fff;
+.header_logged-in {
+  color: #000;
+  /* background-color: #fff; */
 }
 
 .header__title {
-  font-family: 'Roboto slab 700', sans-serif;
+  font-family: "Roboto slab 700", sans-serif;
   font-size: 20px;
-  line-height: 120%;  
+  line-height: 120%;
 }
 
 .header__button-logic {
-  font-family: 'Roboto',sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 133%;
@@ -34,9 +34,15 @@
   display: flex;
   align-items: center;
   text-align: center;
-} 
+}
 
+.header__auth-email {
+  color: #000;
+}
 
+.header__userName {
+  margin-right: 16px;
+}
 
 .header__log-button {
   display: flex;
@@ -46,5 +52,4 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  
 }

@@ -1,11 +1,9 @@
 .search-form {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 59vh;
-  margin: 0 auto;
+  max-width: 73vh;
   gap: 88px;
-  margin-top: 10vh;
-  margin-bottom: 3vh;
+  margin: 10vh 22vh 8vh;
 }
 
 .search-form__txtcontainer {
@@ -34,6 +32,7 @@
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #d1d2d6;
+  border-right: none;
   backdrop-filter: blur(4px);
   border-radius: 100px;
   display: flex;
@@ -42,7 +41,7 @@
   min-height: 64px;
   justify-content: space-between;
   gap: 40px;
-  margin-bottom: 5vh;
+  position: relative;
 }
 
 .search-form__input {
@@ -53,9 +52,9 @@
   overflow: hidden;
   margin-left: 4%;
   flex: 70;
-  caret-color:  #2F71E5;
+  caret-color: #2f71e5;
   box-shadow: 0;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -65,6 +64,7 @@
   border-style: none;
   border-color: transparent;
   border-image: none;
+  position: relative;
 }
 
 .search-form__input:focus {
@@ -72,12 +72,12 @@
 }
 
 .search-form__input::placeholder {
-  color:#B6BCBF;
+  color: #b6bcbf;
 }
 
 .search-form__submit {
   color: #fff;
-  background: #2F71E5;
+  background: #2f71e5;
   box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
   border-radius: 100px;
   height: 64px;
@@ -90,12 +90,65 @@
   border-image: none;
   padding: 0;
   transition: background-color 0.2s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .search-form__submit:hover {
-  background: #347EFF;
+  background: #347eff;
 }
 
 .search-form__submit:active {
-  background: #2A65CC;
+  background: #2a65cc;
+}
+
+@media screen and (max-width: 1024px) {
+  .search-form {
+    margin: 7vh 12vh 6vh;
+  }
+
+  .search-form__search-bar {
+    height: 56px;
+    min-height: 0;
+  }
+
+  .search-form__input {
+    height: 56px;
+  }
+  .search-form__submit {
+    height: 56px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    margin: 5vh 10vh 3vh;
+  }
+
+  .search-form__heading {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .search-form__search-bar_stacked {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 90vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search-form {
+    margin: 5vh 16px 32px;
+    gap: 16px;
+  }
+
+  .search-form__txtcontainer {
+    margin-bottom: 120px;
+  }
+
+  .search-form__submit,
+  .search-form__submit_stacked {
+    flex: 56px;
+  }
 }

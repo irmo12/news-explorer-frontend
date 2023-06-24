@@ -1,14 +1,13 @@
 .news-card {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  flex: 1;
   width: 100%;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
   max-height: 576px;
   justify-content: center;
-  height: 100vh;
 }
 
 .news-card__header {
@@ -40,6 +39,8 @@
   align-items: center;
   justify-content: center;
   padding: 8px 22px;
+  margin-right: 4px;
+  overflow: ellipsis;
 }
 
 .news-card__tooltip {
@@ -58,6 +59,7 @@
   margin-right: 5px;
   margin-left: auto;
   padding: 0 26px;
+  overflow: ellipsis;
 }
 
 .news-card__tooltip_hide {
@@ -105,8 +107,9 @@
 .news-card__img {
   width: 100%;
   max-width: 400px;
-  min-height: 272px;
+  min-height: 0;
   max-height: 47.22%;
+  flex: 0 0 auto;
   background-color: #000;
   align-self: flex-start;
   display: block;
@@ -120,7 +123,7 @@
   align-items: flex-start;
   justify-content: space-between;
   margin: 20px 24px 24px;
-  height: 100vh;
+  flex: 1;
 }
 
 .news-card__text {
@@ -129,6 +132,7 @@
   font-size: 16px;
   line-height: 22px;
   color: #1a1b22;
+  overflow: ellipsis;
 }
 
 .news-card__date {
@@ -138,6 +142,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 133%;
+  overflow: ellipsis;
 }
 
 .news-card__title {
@@ -146,6 +151,7 @@
   font-weight: bold;
   font-family: "Roboto Slab 400", sans-serif;
   color: #1a1b22;
+  overflow: ellipsis;
 }
 
 .news-card__source {
@@ -157,16 +163,25 @@
   font-weight: 700;
   line-height: 125%;
   margin-top: auto;
+  overflow: ellipsis;
 }
 
 @media screen and (max-width: 1024px) {
   .news-card__texts {
     margin: 20px 0 16px;
   }
+
+  .news-card__tooltip {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .news-card__texts {
     margin: 16px;
+  }
+
+  .news-card__tooltip {
+    display: none;
   }
 }

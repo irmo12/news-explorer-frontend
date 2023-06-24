@@ -13,4 +13,7 @@
   background-position: center;
   background-size: cover;
   overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
