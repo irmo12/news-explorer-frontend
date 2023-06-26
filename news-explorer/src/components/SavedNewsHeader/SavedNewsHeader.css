@@ -4,10 +4,8 @@
   justify-content: space-around;
   align-items: left;
   background-color: #e5e5e5;
-  padding-left: 12vh;
-  padding-right: 60vh;
-  margin: 0 105px;
-}
+  padding: 1% 7.25%;
+ }
 
 .saved-news__heading {
   font-family: "Roboto", sans-serif;

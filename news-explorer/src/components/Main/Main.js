@@ -36,7 +36,6 @@ function Main({ openAuthPopup, newsData, username }) {
               element={<>
                 <Header openAuthPopup={openAuthPopup} />
                 <SavedNewsHeader newsData={newsData} username={username} />
-                <SavedNews newsData={newsData} />
               </>} />
           )}
         </Routes>
