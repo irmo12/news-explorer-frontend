@@ -1,0 +1,37 @@
+.saved-news {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: left;
+  background-color: #e5e5e5;
+  padding: 1% 7.25%;
+ }
+
+.saved-news__heading {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: rgba(26, 27, 34, 0.5);
+}
+
+.saved-news__user-message {
+  font-family: "Roboto Slab 400", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 115%;
+  color: #1a1b22;
+}
+
+.saved-news__saved-summary {
+  color: #1a1b22;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  line-height: 24px;
+}
+
+.saved-news__summary-string {
+  font-weight: bold;
+}
