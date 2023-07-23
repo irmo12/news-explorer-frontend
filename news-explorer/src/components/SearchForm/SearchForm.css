@@ -134,6 +134,7 @@
     display: flex;
     flex-flow: column nowrap;
     max-width: 90vh;
+    align-items: flex-start;
   }
 }
 

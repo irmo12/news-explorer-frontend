@@ -28,7 +28,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 133%;
-  padding: 1.1% 5.47%;
+  padding: 0.1% 4.8%; /*6.2*/
   border: 1px solid;
   border-radius: 100px;
   display: flex;
@@ -58,6 +58,13 @@
   padding: 10px 0; 
   padding-left: calc(2% + 4px);
   padding-right: calc(2% + 4px);
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin: 0 40px;
+  }
+
 }
 
 @media screen and (max-width: 480px) {

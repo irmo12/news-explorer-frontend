@@ -8,7 +8,7 @@ import { AuthProvider } from '../../contexts/AuthContext';
 
 function App() {
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignIn, setIsSignIn] = useState(false);
 
   const username = 'Elise';   //tmp to be replaced by usercontext, and api
 

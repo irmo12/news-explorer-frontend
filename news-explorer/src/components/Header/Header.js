@@ -6,8 +6,13 @@ import logout from '../../images/logout.svg';
 import { AuthContext } from "../../contexts/AuthContext";
 
 
-function Header({  userName = 'Elise', signOut, openAuthPopup }) {
-  const isLoggedIn = useContext(AuthContext);
+function Header({  userName = 'Elise', openAuthPopup }) {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+
+  function signOut() {
+    setIsLoggedIn(false);
+  }
+
   return (
     <header className={isLoggedIn ? "header_logged-in header" : "header"}>
       <Link className="header__title" to='/saved-news'>NewsExplorer</Link>
@@ -24,7 +29,7 @@ function Header({  userName = 'Elise', signOut, openAuthPopup }) {
             className="header__log-button"
             onClick={openAuthPopup}
           >
-            Sign in
+            Sign&nbsp;in
           </button>
         )}
       </div>
