@@ -130,11 +130,9 @@
     line-height: 40px;
   }
 
-  .search-form__search-bar_stacked {
-    display: flex;
-    flex-flow: column nowrap;
-    max-width: 90vh;
-    align-items: flex-start;
+  .search-form__submit {
+    flex: 56px;
+    min-width: 160px;
   }
 }
 
@@ -150,6 +148,17 @@
 
   .search-form__submit,
   .search-form__submit_stacked {
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 90vh;
     flex: 56px;
+  }
+
+  .search-form__input {
+    align-items: flex-start;
+  }
+
+  .search-form__submit {
+    justify-content: center;
   }
 }

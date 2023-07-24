@@ -31,4 +31,17 @@
   border-color: #fff;
 }
 
+@media screen and (max-width: 768px) {
+  .navigation-container {
+    gap: 1%;
+  }
+  .nav-link {
+    min-width: 70px;
+  }
+}
 
+@media screen and (max-width: 480px) {
+  .navigation-container {
+    display: none;
+  }
+}

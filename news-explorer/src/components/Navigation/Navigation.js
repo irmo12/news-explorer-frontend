@@ -1,33 +1,29 @@
 import React, { useContext } from "react";
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from "../../contexts/AuthContext";
-import { SmallScreenContext } from "../../contexts/SmallScreenContext";
 import './Navigation.css';
 
 function Navigation() {
   const isLoggedIn = useContext(AuthContext);
-  const isSmallScreen = useContext(SmallScreenContext);
 
   return (
-    !isSmallScreen && (
-      <div className="navigation-container">
+    <div className="navigation-container">
+      <NavLink
+        className={isLoggedIn ? 'nav-link nav-link_logged-in' : 'nav-link nav-link_logged-out'}
+        activeClassName='active'
+        to='/'
+      >
+        Home
+      </NavLink>
+      {isLoggedIn && (
         <NavLink
-          className={isLoggedIn ? 'nav-link nav-link_logged-in' : 'nav-link nav-link_logged-out'}
+          className='nav-link nav-link_logged-in'
           activeClassName='active'
-          to='/'
+          to='/saved-news'
         >
-          Home
-        </NavLink>
-        {isLoggedIn && (
-          <NavLink
-            className='nav-link nav-link_logged-in'
-            activeClassName='active'
-            to='/saved-news'
-          >
-            Saved articles
-          </NavLink>)}
-      </div>
-    )
+          Saved articles
+        </NavLink>)}
+    </div>
   );
 }
 
