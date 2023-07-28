@@ -35,9 +35,13 @@ function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
               Sign&nbsp;in
             </button>
           ))}
-          {isSmallScreen && (
-            <button className="phone-button" onClick={openPhonePopup} />
-          )}
+        {isSmallScreen && (!isLoggedIn ? (
+          <button className="phone-button" onClick={openPhonePopup} />
+        ) : (
+          <button className="phone-button phone-button_black" onClick={openPhonePopup} />
+        )
+        )
+        }
       </div>
     </header>
   );

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import './PopupWithForm.css';
 
 
@@ -11,10 +10,12 @@ export default function PopupWithForm({
   onSubmit,
   children,
   isValid,
-  signInOrUp,
-})
+  isSignIn,
+  toggleSignInUp
+}) {
 
-{
+  
+
   return (
     <div className={`popup ${isOpen ? 'popup_active' : ''}`} id={name}>
       <button
@@ -25,17 +26,20 @@ export default function PopupWithForm({
       />
       <div className="popup__container">
         <form name={name} className="popup__form" onSubmit={onSubmit}>
-          <h2 className="popup__form-heading">{signInOrUp ? 'Sign in' : 'Sign up'}</h2>
+          <h2 className="popup__form-heading">{isSignIn ? 'Sign in' : 'Sign up'}</h2>
           {children}
           <button
             type="submit"
             className="popup__form-submit"
             disabled={!isValid}
           >
-            {signInOrUp ? 'Sign in' : 'Sign up'}
+            {isSignIn ? 'Sign in' : 'Sign up'}
           </button>
-          <div className="popup__link-container">
-          <span className='popup__form-in-or-up'>or</span><Link to={signInOrUp ? '/' : '/signin'  } className='popup__form-link'>{signInOrUp ? 'Sign up' : 'Sign in'}</Link>
+          <div className="popup__form-toggle-container">
+            <span className='popup__form-in-or-up'>or</span>
+            <button type='button' className='popup__form-toggle' onClick={toggleSignInUp}>
+              {isSignIn ? 'Sign in' : 'Sign up'}
+            </button>
           </div>
         </form>
       </div>

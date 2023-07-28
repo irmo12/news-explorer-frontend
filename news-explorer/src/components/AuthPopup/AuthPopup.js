@@ -8,6 +8,7 @@ export default function AuthPopup({
   isOpen,
   onClose,
   onSubmit,
+  toggleSignInUp,
 }) {
   const {
     values,
@@ -38,7 +39,8 @@ export default function AuthPopup({
       onClose={onClose}
       onSubmit={handleSubmit}
       isValid={isValid}
-      signInOrUp={isSignIn}
+      isSignIn={isSignIn}
+      toggleSignInUp={toggleSignInUp}
     >
       <fieldset className="popup__form-inputs">
         <div className="popup__form-field-group">
@@ -99,36 +101,36 @@ export default function AuthPopup({
             {errors.userPW}
           </span>
         </div>
-        <div className={isSignIn ? 'popup__form-field-group_invisible' : 'popup__form-field-group'}>
-          <label htmlFor="user-name" className="popup__form-field-heading">
-            Username
-          </label>
-          <input
-            type="text"
-            className={
-              !errors.userName
-                ? 'popup__form-field'
-                : 'popup__form-field popup__form-field_error'
-            }
-            placeholder="Enter your username"
-            name="userName"
-            required
-            id="user-name"
-            value={values.userName || ''}
-            onChange={handleChange}
-          />
-          <span
-            className={
-              !errors.userName
-                ? 'popup__form-error-msg popup__form-error-msg_inactive'
-                : 'popup__form-error-msg'
-            }
-            id="userName"
-          >
-            {errors.userName}
-          </span>
-        </div>
-
+        {!isSignIn && (
+          <div className='popup__form-field-group'>
+            <label htmlFor="user-name" className="popup__form-field-heading">
+              Username
+            </label>
+            <input
+              type="text"
+              className={
+                !errors.userName
+                  ? 'popup__form-field'
+                  : 'popup__form-field popup__form-field_error'
+              }
+              placeholder="Enter your username"
+              name="userName"
+              required
+              id="user-name"
+              value={values.userName || ''}
+              onChange={handleChange}
+            />
+            <span
+              className={
+                !errors.userName
+                  ? 'popup__form-error-msg popup__form-error-msg_inactive'
+                  : 'popup__form-error-msg'
+              }
+              id="userName"
+            >
+              {errors.userName}
+            </span>
+          </div>)}
       </fieldset>
     </PopupWithForm>
   );

@@ -32,7 +32,7 @@
   align-items: center;
   justify-content: space-around;
   border: none;
-  padding: 0 36px;
+  padding: 0 36px 81px;
   background-color: #fff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -79,7 +79,7 @@
   color: #000000;
   text-align: left;
   width: 100%;
-  margin: 34px 0 22px;
+  margin: 34px 22px 23px;
 }
 
 .popup__form-submit {
@@ -111,14 +111,13 @@
   cursor: default;
 }
 
-.popup__link-container {
+.popup__form-toggle-container {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-
   color: #000000;
   display: flex;
   flex-flow: row nowrap;
@@ -126,6 +125,17 @@
   justify-content: center;
   gap: 6px;
   margin: 16px 0 28px;
+}
+
+.popup__form-in-or-up {
+  font-weight: bold;
+}
+
+.popup__form-toggle {
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  color: #2f71e5;
 }
 
 @media screen and (max-width: 796px) {
@@ -138,7 +148,7 @@
   .popup__form-inputs {
     margin-top: 0px;
   }
-  
+
   .popup__form-submit {
     font-size: 14px;
     line-height: 1.2;
@@ -152,6 +162,7 @@
     min-width: 260px;
     padding: 0 22px;
   }
+
   .popup__container-close {
     height: 26px;
     width: 26px;
@@ -185,5 +196,5 @@
     max-width: 288px;
     padding: 14px 79px;
   }
-
 }
+

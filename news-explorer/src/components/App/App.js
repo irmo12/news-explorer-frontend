@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
@@ -9,7 +10,6 @@ import { AuthProvider } from '../../contexts/AuthContext';
 function App() {
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
   const [isSignIn, setIsSignIn] = useState(false);
-
   const username = 'Elise';   //tmp to be replaced by usercontext, and api
 
 
@@ -75,8 +75,7 @@ function App() {
   // endof tmp db to be replaced by API
 
 
-  function openAuthPopup(isSignIn) {
-    setIsSignIn(isSignIn);
+  function openAuthPopup() {
     setIsAuthPopupOpen(true);
   }
 
@@ -100,6 +99,9 @@ function App() {
     // Handle authentication submit logic
   }
 
+  const toggleSignInUp = () => {
+    setIsSignIn((prevIsSignIn) => !prevIsSignIn);
+  };
 
   return (
     <AuthProvider>
@@ -110,7 +112,7 @@ function App() {
             isOpen={isAuthPopupOpen}
             onClose={closePopups}
             onSubmit={handleAuthSubmit}
-          />
+            toggleSignInUp={toggleSignInUp} />
           <Main openAuthPopup={openAuthPopup} newsData={newsData} username={username} />
           <Footer />
         </div>

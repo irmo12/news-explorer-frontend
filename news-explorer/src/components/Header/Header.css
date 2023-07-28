@@ -54,10 +54,21 @@
   cursor: pointer;
   flex-grow: 1;
   flex-shrink: 1;
-  box-sizing: content-box; 
-  padding: 10px 0; 
+  box-sizing: content-box;
+  padding: 10px 0;
   padding-left: calc(2% + 4px);
   padding-right: calc(2% + 4px);
+}
+
+.phone-button {
+  background-image: url("../../images/phonemenu.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.phone-button_black {
+  fill: black;
 }
 
 @media (max-width: 768px) {
@@ -66,7 +77,7 @@
     gap: 1%;
   }
   .header__button-logic {
-    padding: .1% 2.4%;
+    padding: 0.1% 2.4%;
   }
 }
 
