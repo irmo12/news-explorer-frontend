@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
 import './PopupWithForm.css';
-
-
 
 export default function PopupWithForm({
   isOpen,
@@ -24,7 +21,7 @@ export default function PopupWithForm({
         aria-label="close"
         onClick={onClose}
       />
-      <div className="popup__container">
+      <div className={isSignIn ? "popup__container" : 'popup__container popup__container_signUp'}>
         <form name={name} className="popup__form" onSubmit={onSubmit}>
           <h2 className="popup__form-heading">{isSignIn ? 'Sign in' : 'Sign up'}</h2>
           {children}
