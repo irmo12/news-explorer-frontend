@@ -75,9 +75,4 @@
   color: #2f71e5;
 }
 
-@media screen and (max-width: 796px) {
-  .popup__form-inputs {
-    margin-top: 76px;
-    margin-bottom: 0;
-  }
-}
+
