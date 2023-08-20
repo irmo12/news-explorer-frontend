@@ -106,8 +106,6 @@
 
 .news-card__img {
   width: 100%;
-  max-width: 400px;
-  min-height: 0;
   max-height: 47.22%;
   flex: 0 0 auto;
   background-color: #000;
@@ -174,6 +172,13 @@
   .news-card__tooltip {
     display: none;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .news-card {
+    max-width: 224px;
+  }
+  
 }
 
 @media screen and (max-width: 480px) {

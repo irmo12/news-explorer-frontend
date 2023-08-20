@@ -22,7 +22,7 @@ function App() {
       "date": "November 4, 2020",
       "source": "treehugger",
       "link": "https://www.example.com/article",
-      "image": "C:\\Users\\Omri\\Desktop\\image_06.png",
+      "image": "image_06.png",
       "keyword": "nature",
       "_id": "12165e9a37f9426bb2e8e719"
     },
@@ -33,7 +33,7 @@ function App() {
       "date": "February 19, 2019",
       "source": "national geographic",
       "link": "https://www.example.com/article",
-      "image": "C:\\Users\\Omri\\Desktop\\image_07.png",
+      "image": "image_01.png",
       "keyword": "nature",
       "_id": "39cac4d615b343648f6aff6c"
     },
@@ -44,7 +44,7 @@ function App() {
       "date": "October 19, 2020",
       "source": "national geographic",
       "link": "https://www.example.com/article",
-      "image": "C:\\Users\\Omri\\Desktop\\image_05.png",
+      "image": "image_05.png",
       "keyword": "Yellowstone",
       "_id": "2a35d3161596422aa548f45e"
     },
@@ -55,7 +55,7 @@ function App() {
       "date": "November 4, 2020",
       "source": "national parks traveller",
       "link": "https://www.example.com/article",
-      "image": "C:\\Users\\Omri\\Desktop\\elk.png",
+      "image": "elk.png",
       "keyword": "Parks",
       "_id": "98d89c9e0f4e4806976d4356"
     },
@@ -66,7 +66,7 @@ function App() {
       "date": "March 16,2020",
       "source": "treehugger",
       "link": "https://www.example.com/article",
-      "image": "C:\\Users\\Omri\\Desktop\\nightsky.png",
+      "image": "nightsky.png",
       "keyword": "Photography",
       "_id": "0cca9c79626a410b9d71724c"
     }
