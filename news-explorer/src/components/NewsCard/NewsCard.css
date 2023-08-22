@@ -166,19 +166,12 @@
 
 @media screen and (max-width: 1024px) {
   .news-card__texts {
-    margin: 20px 0 16px;
+    margin: 20px 7% 16px;
   }
 
   .news-card__tooltip {
     display: none;
   }
-}
-
-@media screen and (max-width: 768px) {
-  .news-card {
-    max-width: 224px;
-  }
-  
 }
 
 @media screen and (max-width: 480px) {

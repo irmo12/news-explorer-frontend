@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 
 function InfoPopup({
   isOpen = true,
@@ -15,7 +14,7 @@ function InfoPopup({
       />
       <div className="popup__container">
         <h2 className="popup__heading">Registration successfully completed!</h2>
-        <Link className='popup__link' to='/' />
+        <button className='popup__link'>SIgn in</button>
       </div>
     </div>
   );
