@@ -16,7 +16,7 @@ function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
   }
 
   return (
-    <header className={isLoggedIn ? "header_logged-in header" : "header"}>
+    <header className={isLoggedIn ? "header_logged_in header" : "header"}>
       <Link className="header__title" to='/saved-news'>NewsExplorer</Link>
       <Navigation />
       <div className="header__button-logic">

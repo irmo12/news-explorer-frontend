@@ -64,7 +64,7 @@ export default function AuthPopup({
           <span
             className={
               !errors.userEmail
-                ? 'popup__form-error-msg popup__form-error-msg_inactive'
+                ? 'popup__form-error-msg popup__form-error-msg_hidden'
                 : 'popup__form-error-msg'
             }
             id="userEmail"
@@ -93,7 +93,7 @@ export default function AuthPopup({
           <span
             className={
               !errors.userPW
-                ? 'popup__form-error-msg popup__form-error-msg_inactive'
+                ? 'popup__form-error-msg popup__form-error-msg_hidden'
                 : 'popup__form-error-msg'
             }
             id="userPW"
@@ -123,7 +123,7 @@ export default function AuthPopup({
             <span
               className={
                 !errors.userName
-                  ? 'popup__form-error-msg popup__form-error-msg_inactive'
+                  ? 'popup__form-error-msg popup__form-error-msg_hidden'
                   : 'popup__form-error-msg'
               }
               id="userName"

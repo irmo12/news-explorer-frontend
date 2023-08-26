@@ -23,11 +23,11 @@
   border-bottom: 3px solid;
 }
 
-.nav-link_logged-in {
+.nav-link_logged_in {
   border-color: #000;
 }
 
-.nav-link_logged-out {
+.nav-link_logged_out {
   border-color: #fff;
 }
 

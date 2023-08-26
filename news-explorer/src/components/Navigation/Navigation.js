@@ -9,7 +9,7 @@ function Navigation() {
   return (
     <div className="navigation-container">
       <NavLink
-        className={isLoggedIn ? 'nav-link nav-link_logged-in' : 'nav-link nav-link_logged-out'}
+        className={isLoggedIn ? 'nav-link nav-link_logged_in' : 'nav-link nav-link_logged_out'}
         activeClassName='active'
         to='/'
       >
@@ -17,7 +17,7 @@ function Navigation() {
       </NavLink>
       {isLoggedIn && (
         <NavLink
-          className='nav-link nav-link_logged-in'
+          className='nav-link nav-link_logged_in'
           activeClassName='active'
           to='/saved-news'
         >
