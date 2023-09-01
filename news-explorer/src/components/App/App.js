@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';

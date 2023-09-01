@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 64px;
   align-items: center;
   border-bottom: 1px solid rgba(84, 84, 84, 0.8);
@@ -23,11 +23,16 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 120%;
-  color:#fff
+  color:#fff;
+  margin-right: auto;
 }
 
 .header__title_logged_in {
   color: #000;
+}
+
+.header__nav {
+  justify-self: end;
 }
 
 .header__button-logic {
@@ -35,7 +40,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 133%;
-  padding: 0.1% 4.8%; /*6.2*/
+  padding: 0.1% 6.2%; 
   border: 1px solid;
   border-radius: 100px;
   display: flex;
@@ -66,13 +71,14 @@
   padding-left: calc(2% + 4px);
   padding-right: calc(2% + 4px);
   color: #fff;
+  width: auto;
 }
 
 .header__log-button_logged_in {
   color: #000;
 }
 
-.phone-button {
+.header__phone-button {
   background-image: url("../../images/phonemenu.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -80,19 +86,22 @@
   fill: #fff;
 }
 
-.phone-button_black {
+.header__phone-button_black {
   fill: black;
 }
 
 @media screen and (max-width: 768px) {
   .header {
     margin: 0 40px;
-    gap: 1%;
+    gap: 4%;
     padding: 1.5% 5%;
   }
   .header__button-logic {
-    padding: 0.1% 2.4%;
+    padding: 0 6.8%;
     font-size: 16px;
+  }
+  .header__button-logic_logged_in {
+    padding: 0 2.5%;
   }
 }
 

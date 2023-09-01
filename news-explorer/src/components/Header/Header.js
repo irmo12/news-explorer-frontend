@@ -26,13 +26,15 @@ function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
     ? "header__title header__title_logged_in"
     : "header__title";
 
-  
+  const buttonLogicClasses = isLoggedIn
+    ? "header__button-logic header__button-logic_logged_in"
+    : "header__button-logic";
 
   return (
     <header className={headerClasses}>
       <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
-      <Navigation />
-      <div className="header__button-logic">
+      <Navigation className='header__nav' />
+      <div className={buttonLogicClasses}>
         {!isSmallScreen && (
           isLoggedIn ? (
             <button
@@ -51,12 +53,12 @@ function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
             </button>
           ))}
         {isSmallScreen && (!isLoggedIn ? (
-          <button className="phone-button" onClick={openPhonePopup} />
+          <button className="header__phone-button" onClick={openPhonePopup} />
         ) : (
-          <button className="phone-button phone-button_black" onClick={openPhonePopup} />
+          <button className="header__phone-button header__phone-button_black" onClick={openPhonePopup} />
         ))}
       </div>
-    </header>
+    </header >
   );
 }
 

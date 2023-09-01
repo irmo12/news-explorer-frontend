@@ -4,12 +4,11 @@ import { AuthContext } from "../../contexts/AuthContext";
 import './Navigation.css';
 
 function Navigation() {
-  const isLoggedIn = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const linkClasses = isLoggedIn
     ? "nav-link nav-link_logged_in"
     : "nav-link";
-
   return (
     <div className="navigation-container">
       <NavLink
@@ -25,7 +24,7 @@ function Navigation() {
           activeClassName='active'
           to='/saved-news'
         >
-          Saved articles
+          Saved&nbsp;articles
         </NavLink>)}
     </div>
   );
