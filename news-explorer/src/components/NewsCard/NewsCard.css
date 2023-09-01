@@ -147,17 +147,18 @@
   margin: 8px 0;
   font-size: 22px;
   font-weight: bold;
-  font-family: "Roboto Slab 400", sans-serif;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
   color: #1a1b22;
   overflow: ellipsis;
 }
 
 .news-card__source {
   font-size: 16px;
-  color: #777;
+  color: #b6bcbf;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  font-family: "Roboto Slab 700", sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
   line-height: 125%;
   margin-top: auto;

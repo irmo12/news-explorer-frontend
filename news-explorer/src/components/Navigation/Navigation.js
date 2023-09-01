@@ -6,12 +6,16 @@ import './Navigation.css';
 function Navigation() {
   const isLoggedIn = useContext(AuthContext);
 
+  const linkClasses = isLoggedIn
+    ? "nav-link nav-link_logged_in"
+    : "nav-link";
+
   return (
     <div className="navigation-container">
       <NavLink
-        className={isLoggedIn ? 'nav-link nav-link_logged_in' : 'nav-link nav-link_logged_out'}
+        className={linkClasses}
         activeClassName='active'
-        to='/'
+        exact to='/'
       >
         Home
       </NavLink>

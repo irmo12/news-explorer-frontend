@@ -18,9 +18,16 @@
 }
 
 .header__title {
-  font-family: "Roboto slab 700", sans-serif;
+  text-decoration: none;
+  font-family: "Roboto slab", sans-serif;
+  font-weight: 700;
   font-size: 20px;
   line-height: 120%;
+  color:#fff
+}
+
+.header__title_logged_in {
+  color: #000;
 }
 
 .header__button-logic {
@@ -58,6 +65,11 @@
   padding: 10px 0;
   padding-left: calc(2% + 4px);
   padding-right: calc(2% + 4px);
+  color: #fff;
+}
+
+.header__log-button_logged_in {
+  color: #000;
 }
 
 .phone-button {
@@ -65,19 +77,22 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  fill: #fff;
 }
 
 .phone-button_black {
   fill: black;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .header {
     margin: 0 40px;
     gap: 1%;
+    padding: 1.5% 5%;
   }
   .header__button-logic {
     padding: 0.1% 2.4%;
+    font-size: 16px;
   }
 }
 
@@ -86,3 +101,11 @@
     font-size: 16px;
   }
 }
+
+
+
+
+
+
+
+

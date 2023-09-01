@@ -52,7 +52,7 @@
 }
 
 @font-face {
-  font-family: "Roboto Slab 400";
+  font-family: "Roboto Slab";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -61,7 +61,7 @@
 }
 
 @font-face {
-    font-family: "Roboto Slab 700";
+    font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
     font-display: swap;;
@@ -70,7 +70,7 @@
 }
 
 @font-face {
-    font-family: 'Roboto 400';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
