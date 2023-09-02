@@ -10,10 +10,13 @@
   gap: 16px;
   background-color: #e5e5e5;
   width: 100%;
-
 }
 
 @media screen and (max-width: 1024px) {
+  .news-grid-container {
+    padding: 0;
+  }
+
   .news-grid {
     margin-left: 40px;
     margin-right: 40px;
