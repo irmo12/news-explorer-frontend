@@ -1,9 +1,13 @@
-.navigation-container {
+.nav-container {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  gap: 2%;
+  margin-left: auto;
+}
+
+.nav-container_logged_in {
+  gap: 32%;
 }
 
 .nav-link {
@@ -50,10 +54,14 @@
   .active::before {
     top:196%;
   }
+  .nav-container {
+    gap: 32%;
+    margin-left: auto;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .navigation-container {
+  .nav-container {
     display: none;
   }
  }

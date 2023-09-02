@@ -9,8 +9,13 @@ function Navigation() {
   const linkClasses = isLoggedIn
     ? "nav-link nav-link_logged_in"
     : "nav-link";
+
+  const navContainerClasses = isLoggedIn
+    ? "nav-container nav-container_logged_in"
+    : "nav-container";
+    
   return (
-    <div className="navigation-container">
+    <div className={navContainerClasses}>
       <NavLink
         className={linkClasses}
         activeClassName='active'
