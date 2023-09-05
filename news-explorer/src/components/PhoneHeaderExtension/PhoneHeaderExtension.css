@@ -1,0 +1,9 @@
+.phone-header-extension {
+    position: absolute; /* Position the component relative to the body or parent container */
+    top: 100%; /* Position it just below the Header component */
+    left: 0; /* Align it to the left */
+    background-color: #eee; /* Example background color */
+    padding: 10px;
+    width: 100%; /* Make it full-width */
+    z-index: 1; /* Ensure it's above the content below */
+  }

@@ -18,7 +18,7 @@ function Navigation() {
     <div className={navContainerClasses}>
       <NavLink
         className={linkClasses}
-        activeClassName='active'
+        activeclassname='active'
         exact to='/'
       >
         Home
@@ -26,7 +26,7 @@ function Navigation() {
       {isLoggedIn && (
         <NavLink
           className='nav-link nav-link_logged_in'
-          activeClassName='active'
+          activeclassname='active'
           to='/saved-news'
         >
           Saved&nbsp;articles

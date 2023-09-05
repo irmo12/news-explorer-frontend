@@ -5,10 +5,11 @@ import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
-import SavedNews from '../SavedNews/SavedNews';
 import About from '../About/About';
+import PhoneHeaderExtension from '../PhoneHeaderExtension/PhoneHeaderExtension';
 import { AuthContext } from '../../contexts/AuthContext';
 import { Route, Routes, } from 'react-router-dom';
+
 
 
 function Main({ openAuthPopup, newsData, username }) {
@@ -25,6 +26,7 @@ function Main({ openAuthPopup, newsData, username }) {
             element={<>
               <div className="main__header-search-container">
                 <Header openAuthPopup={openAuthPopup} />
+                <PhoneHeaderExtension openAuthPopup={openAuthPopup} />
                 <SearchForm />
               </div>
               <Preloader isLoading={isLoading} hasResults={hasResults} />

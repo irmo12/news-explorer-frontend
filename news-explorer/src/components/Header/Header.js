@@ -8,7 +8,7 @@ import { SmallScreenContext } from "../../contexts/SmallScreenContext";
 
 function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-  const { isSmallScreen } = useContext(SmallScreenContext);
+  const  isSmallScreen  = useContext(SmallScreenContext);
 
   function signOut() {
     setIsLoggedIn(false);
@@ -29,6 +29,8 @@ function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
   const buttonLogicClasses = isLoggedIn
     ? "header__button-logic header__button-logic_logged_in"
     : "header__button-logic";
+
+  console.log(isSmallScreen);
 
   return (
     <header className={headerClasses}>

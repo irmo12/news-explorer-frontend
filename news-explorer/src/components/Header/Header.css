@@ -10,6 +10,7 @@
   box-sizing: border-box;
   padding: 1% 7.25%;
   color: #fff;
+  min-height: 56px;
 }
 
 .header_logged_in {
@@ -89,6 +90,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   fill: #fff;
+  border: none;
+  cursor: pointer;
+  box-sizing: content-box;
+  height: 17px;
+  width: 17px;
+  background-color: transparent;
 }
 
 .header__phone-button_black {
@@ -125,5 +132,9 @@
 @media screen and (max-width: 480px) {
   .header__title {
     font-size: 16px;
+  }
+  .header__button-logic {
+    border: none;
+    padding: 0;
   }
 }
