@@ -30,8 +30,6 @@ function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
     ? "header__button-logic header__button-logic_logged_in"
     : "header__button-logic";
 
-  console.log(isSmallScreen);
-
   return (
     <header className={headerClasses}>
       <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>

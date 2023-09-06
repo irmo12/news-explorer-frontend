@@ -8,11 +8,11 @@ import { NavLink } from 'react-router-dom';
 
 function PhoneHeaderExtension({ openAuthPopup }) {
 
-  const isLoggedIn = useContext(AuthContext);
-  const isSmallScreen = useContext(SmallScreenContext);
+  const {isLoggedIn} = useContext(AuthContext);
+  const {isSmallScreen} = useContext(SmallScreenContext);
 
 
-  return (<>{isSmallScreen && (isLoggedIn (
+  return (<>{isSmallScreen && (isLoggedIn  (
     <div className='phone-header'>
       <NavLink className={'phone-header__link'} exact to='/'>Home</NavLink>
       <button className='phone-header__button' onClick={openAuthPopup}>Sign in</button>

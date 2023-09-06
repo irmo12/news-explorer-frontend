@@ -1,67 +1,72 @@
 .about {
-    display: flex;
-    max-width: 1440px;
-    margin: 0 0;
-    background-color: #fff;
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  .about__content {
-    display: flex;
-    flex-flow: column nowrap;
-    margin: 12.6vh 0 0 5.5vh;
-    width: 100;
-  }
-  
+  display: flex;
+  max-width: 1440px;
+  margin: 0 0;
+  background-color: #fff;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.about__content {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 12.6vh 0 0 5.5vh;
+  width: 100;
+}
+
+.about__image {
+  max-width: 464px;
+  max-height: 464px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 77px 0 80px 7.25%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.about__title {
+  margin-left: 56px;
+  max-width: 600px;
+  height: 46px;
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1a1b22;
+  margin: 0 0 2vh 0;
+}
+
+.about__description {
+  margin-left: 56px;
+  max-width: 600px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b22;
+  margin: 0.3vh 0 0 0;
+}
+
+.about__description-blank {
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+@media screen and (max-width: 768px) {
   .about__image {
-    max-width: 464px;
-    max-height: 464px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 77px 0 80px 7.25%;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
+    margin: 61px auto 61px 40px;
+    max-width: 232px;
+    max-height: 232px;
   }
   
-  .about__title {
-    margin-left: 56px;
-    max-width: 600px;
-    height: 46px;
-    font-family: 'Roboto Slab', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 40px;
-    line-height: 46px;
-    color: #1A1B22;
-    margin: 0 0 2vh 0;
-  }
-  
-  .about__description {
-    margin-left: 56px;
-    max-width: 600px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 24px;
-    color: #1A1B22;
-    margin: .3vh 0 0 0;
-  }
-  
-  .about__description-blank {
-    height: 20px; 
-    background-color: transparent;
-    border: none;
-    margin: 0;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-  }
-
-
-
-
-
+}
