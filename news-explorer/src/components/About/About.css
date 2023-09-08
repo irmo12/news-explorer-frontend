@@ -10,7 +10,7 @@
 .about__content {
   display: flex;
   flex-flow: column nowrap;
-  margin: 12.6vh 0 0 5.5vh;
+  margin: 12.6vh 5% 0 5.5vh;
   width: 100%;
 }
 
@@ -85,12 +85,20 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 580px) {
   .about {
     flex-flow: column nowrap;
     align-items: center;
-    margin: 0 5%;
+    margin: 0 16px;
     min-height: 752px;
+  }
+
+  .about__title {
+    margin: 0 4%;
+  }
+
+  .about__description {
+    margin: 0 4%;
   }
 
   .about__image {

@@ -56,21 +56,22 @@
 
   .footer-link-container {
     justify-content: space-between;
-    margin: 0 5%;
+    margin: 0 0 12% 0%;
   }
 
   .footer-links {
     display: flex;
     flex-flow: column nowrap;
-    margin-right: 5%;
+    gap: 23px;
+    margin-left: 5%;
   }
-  
+
   .footer-links__icons {
     align-items: start;
     margin: 0 5%;
   }
 
   .footer-signature {
-    margin: 0;
+    margin: 0 0 22px 0;
   }
 }

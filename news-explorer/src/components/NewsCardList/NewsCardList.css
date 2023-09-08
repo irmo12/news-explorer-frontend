@@ -24,7 +24,6 @@
   flex-wrap: wrap;
   overflow: hidden;
   max-height: 600px;
-  transition: max-height 0.3s ease;
 }
 
 .news-card-list__grid_show-more {
@@ -120,7 +119,6 @@
 
   .news-card-list__grid_show-more {
     overflow: visible;
-    max-height: none;
   }
 
   .news-card-list__button {
