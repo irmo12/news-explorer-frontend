@@ -7,7 +7,7 @@ import github from '../../images/github.svg';
 function Footer() {
   return (
     <div className="footer">
-      <div className="footer-link-container">
+      <div className="footer__link-container">
       <div className='footer-links'>
         <Link to={'/'} className='footer-link'>Home</Link>
         <a href="https://tripleten.com" target="_blank" rel="noopener noreferrer" className='footer-link'>TripleTen</a>

@@ -110,7 +110,7 @@
 
   .news-card-list__grid {
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     gap: 10px;
     margin-left: 16px;
     margin-right: 16px;
@@ -119,6 +119,7 @@
 
   .news-card-list__grid_show-more {
     overflow: visible;
+    max-height: none;
   }
 
   .news-card-list__button {

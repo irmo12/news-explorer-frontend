@@ -9,20 +9,20 @@
   background-color: #fff;
   width: 100%;
   max-width: 1440px;
-  min-height: 4vh;
+  min-height: 64px;
 }
 
-.footer-link-container {
+.footer__link-container {
   display: flex;
   flex-flow: row nowrap;
-  width: 100%;
+  margin-left: 5vh;
 }
 
 .footer-signature {
   color: #b6bcbf;
   font-size: 16px;
   line-height: 138%;
-  margin-left: 5vh;
+  margin-right: 5vh;
 }
 
 .footer-links {
@@ -49,14 +49,16 @@
   line-height: 133%;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 580px) {
   .footer {
     flex-flow: column nowrap;
+    min-height: none;
   }
 
-  .footer-link-container {
+  .footer__link-container {
     justify-content: space-between;
     margin: 0 0 12% 0%;
+    width: 100%;
   }
 
   .footer-links {

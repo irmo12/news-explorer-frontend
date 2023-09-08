@@ -16,7 +16,12 @@ function Main({ openAuthPopup, newsData, username }) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
   const isLoggedIn = useContext(AuthContext);
+  const [isPhonePopupOpen, setPhonePopupOpen] = useState(false);
   const articleList = Object.values(newsData);
+
+  function openPhonePopup() {
+    setPhonePopupOpen(!isPhonePopupOpen);
+  }
 
   return (
     <>
@@ -25,8 +30,9 @@ function Main({ openAuthPopup, newsData, username }) {
           <Route path='/'
             element={<>
               <div className="main__header-search-container">
-                <Header openAuthPopup={openAuthPopup} />
-                <PhoneHeaderExtension openAuthPopup={openAuthPopup} />
+                <Header openAuthPopup={openAuthPopup} openPhonePopup={openPhonePopup} />
+                {isPhonePopupOpen &&
+                  (<PhoneHeaderExtension openAuthPopup={openAuthPopup} />)}
                 <SearchForm />
               </div>
               <Preloader isLoading={isLoading} hasResults={hasResults} />
