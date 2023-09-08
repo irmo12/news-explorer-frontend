@@ -11,7 +11,7 @@
   display: flex;
   flex-flow: column nowrap;
   margin: 12.6vh 0 0 5.5vh;
-  width: 100;
+  width: 100%;
 }
 
 .about__image {
@@ -63,10 +63,39 @@
 }
 
 @media screen and (max-width: 768px) {
+  .about__title {
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0 0 0 0;
+  }
+
+  .about__content {
+    margin: 40px 5% 0 4%;
+  }
+
+  .about__description {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
   .about__image {
     margin: 61px auto 61px 40px;
-    max-width: 232px;
-    max-height: 232px;
+    max-width: 464px;
+    max-height: 464px;
   }
-  
+}
+
+@media screen and (max-width: 480px) {
+  .about {
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 0 5%;
+    min-height: 752px;
+  }
+
+  .about__image {
+    margin: 32px 0 24px 0;
+    max-width: 272px;
+    max-height: 272px;
+  }
 }
