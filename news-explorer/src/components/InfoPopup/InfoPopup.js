@@ -1,9 +1,13 @@
+import React from "react";
+import './InfoPopup.css'
 
 function InfoPopup({
-  isOpen = true,
+  isOpen,
   name,
   onClose,
-}) {
+  handleInfoLinkClick
+}) 
+{
   return (
     <div className={`popup ${isOpen ? 'popup_active' : ''}`} id={name}>
       <button
@@ -14,7 +18,7 @@ function InfoPopup({
       />
       <div className="popup__container">
         <h2 className="popup__heading">Registration successfully completed!</h2>
-        <button className='popup__link'>SIgn in</button>
+        <button type='button' className='popup__link' onClick={handleInfoLinkClick}>SIgn in</button>
       </div>
     </div>
   );

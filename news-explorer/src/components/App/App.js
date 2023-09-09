@@ -3,6 +3,7 @@ import './App.css';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 import AuthPopup from '../AuthPopup/AuthPopup.js';
+import InfoPopup from '../InfoPopup/InfoPopup';
 import { SmallScreenProvider } from '../../contexts/SmallScreenContext';
 import { AuthProvider } from '../../contexts/AuthContext';
 
@@ -10,6 +11,7 @@ function App() {
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
   const [isSignIn, setIsSignIn] = useState(false);
   const username = 'Elise';   //tmp to be replaced by usercontext, and api
+  const [isInfoOpen, setIsInfoOpen] = useState(false); //api to determine
 
 
   //tmp code to be replaced by api
@@ -80,6 +82,7 @@ function App() {
 
   function closePopups() {
     setIsAuthPopupOpen(false);
+    setIsInfoOpen(false);
   }
 
   useEffect(() => {
@@ -88,11 +91,11 @@ function App() {
         closePopups();
       }
     };
-    if (isAuthPopupOpen) {
+    if (isAuthPopupOpen || isInfoOpen) {
       document.addEventListener('keydown', closeByEscape);
     }
     return () => document.removeEventListener('keydown', closeByEscape);
-  }, [isAuthPopupOpen]);
+  }, [isAuthPopupOpen,isInfoOpen]);
 
   function handleAuthSubmit() {
     // Handle authentication submit logic
@@ -101,6 +104,11 @@ function App() {
   const toggleSignInUp = () => {
     setIsSignIn((prevIsSignIn) => !prevIsSignIn);
   };
+
+  function handleInfoLinkClick () {
+    openAuthPopup();
+    setIsSignIn(true);
+  }
 
   return (
     <AuthProvider>
@@ -112,6 +120,7 @@ function App() {
             onClose={closePopups}
             onSubmit={handleAuthSubmit}
             toggleSignInUp={toggleSignInUp} />
+          <InfoPopup isOpen={isInfoOpen} onClose={closePopups} handleInfoLinkClick={handleInfoLinkClick} />  
           <Main openAuthPopup={openAuthPopup} newsData={newsData} username={username} isOpen={isAuthPopupOpen} />
           <Footer />
         </div>
