@@ -63,6 +63,9 @@
 
 @media screen and (max-width: 480px) {
   .nav-container {
-    display: none;
+    margin: 0 auto 0 16px;
+  }
+  .active::before{
+    border: none;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import './Header.css';
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
@@ -6,12 +6,17 @@ import logout from '../../images/logout.svg';
 import { AuthContext } from "../../contexts/AuthContext";
 import { SmallScreenContext } from "../../contexts/SmallScreenContext";
 
-function Header({ userName = 'Elise', openAuthPopup }) {
+function Header({ userName = 'Elise', openAuthPopup, isOpen }) {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const isSmallScreen = useContext(SmallScreenContext);
-
+  const [isShowNav, setShowNav] = useState(false);
+  console.log(isOpen);
   function signOut() {
     setIsLoggedIn(false);
+  }
+
+  function showNav() {
+    setShowNav(!isShowNav);
   }
 
   const headerClasses = isLoggedIn
@@ -31,7 +36,7 @@ function Header({ userName = 'Elise', openAuthPopup }) {
     : "header__button-logic";
 
   return (
-    <header className={headerClasses}>
+    <header className={`${headerClasses} ${isShowNav ? 'header_show-nav' : ''}`}>
       {!isSmallScreen ? (
         <>
           <div className="header__content">
@@ -60,9 +65,30 @@ function Header({ userName = 'Elise', openAuthPopup }) {
         </>) : (<>
           <div className="header__content">
             <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
-            <button className={`header__phone-button ${isLoggedIn ? 'header__phone-button_black' : ''}`} onClick={openAuthPopup} />
+            <button className={`header__phone-button ${isLoggedIn ? 'header__phone-button_black' : ''} ${isShowNav ? 'header__phone-button_X' : ''} ${isOpen ? 'header__phone-button_invis' : ''}`} onClick={showNav} />
           </div>
-          <Navigation className="header_nav" />
+          {isShowNav && (<>
+            <Navigation className="header__nav" />
+            <div className={buttonLogicClasses}>
+              {
+                isLoggedIn ? (
+                  <button
+                    className={buttonClasses}
+                    onClick={signOut}
+                  >
+                    <span className="header__username">{userName}</span>
+                    <embed className="header__logout-icon" src={logout} alt="logout" />
+                  </button>
+                ) : (
+                  <button
+                    className={buttonClasses}
+                    onClick={openAuthPopup}
+                  >
+                    Sign&nbsp;in
+                  </button>
+                )}
+            </div>
+          </>)}
         </>)}
     </header>);
 }

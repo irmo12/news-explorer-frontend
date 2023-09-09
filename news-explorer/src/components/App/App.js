@@ -112,7 +112,7 @@ function App() {
             onClose={closePopups}
             onSubmit={handleAuthSubmit}
             toggleSignInUp={toggleSignInUp} />
-          <Main openAuthPopup={openAuthPopup} newsData={newsData} username={username} />
+          <Main openAuthPopup={openAuthPopup} newsData={newsData} username={username} isOpen={isAuthPopupOpen} />
           <Footer />
         </div>
       </SmallScreenProvider>
