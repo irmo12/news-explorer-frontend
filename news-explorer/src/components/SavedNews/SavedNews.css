@@ -1,11 +1,11 @@
 .news-grid-container {
   background-color: #e5e5e5;
   max-width: 1440px;
-  padding: 3vh 5vh 3.5vh;
+  padding: 6vh 9vh 3.5vh;
 }
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(300px, 500px));
   grid-auto-rows: minmax(350px, 1fr);
   gap: 16px;
   background-color: #e5e5e5;

@@ -6,9 +6,9 @@ import logout from '../../images/logout.svg';
 import { AuthContext } from "../../contexts/AuthContext";
 import { SmallScreenContext } from "../../contexts/SmallScreenContext";
 
-function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
+function Header({ userName = 'Elise', openAuthPopup }) {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-  const  isSmallScreen  = useContext(SmallScreenContext);
+  const isSmallScreen = useContext(SmallScreenContext);
 
   function signOut() {
     setIsLoggedIn(false);
@@ -32,34 +32,39 @@ function Header({ userName = 'Elise', openAuthPopup, openPhonePopup }) {
 
   return (
     <header className={headerClasses}>
-      <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
-      <Navigation className='header__nav' />
-      <div className={buttonLogicClasses}>
-        {!isSmallScreen && (
-          isLoggedIn ? (
-            <button
-              className={buttonClasses}
-              onClick={signOut}
-            >
-              <span className="header__username">{userName}</span>
-              <embed className="header__logout-icon" src={logout} alt="logout" />
-            </button>
-          ) : (
-            <button
-              className={buttonClasses}
-              onClick={openAuthPopup}
-            >
-              Sign&nbsp;in
-            </button>
-          ))}
-        {isSmallScreen && (!isLoggedIn ? (
-          <button className="header__phone-button" onClick={openPhonePopup} />
-        ) : (
-          <button className="header__phone-button header__phone-button_black" onClick={openPhonePopup} />
-        ))}
-      </div>
-    </header >
-  );
+      {!isSmallScreen ? (
+        <>
+          <div className="header__content">
+            <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
+            <Navigation className='header__nav' />
+            <div className={buttonLogicClasses}>
+              {
+                isLoggedIn ? (
+                  <button
+                    className={buttonClasses}
+                    onClick={signOut}
+                  >
+                    <span className="header__username">{userName}</span>
+                    <embed className="header__logout-icon" src={logout} alt="logout" />
+                  </button>
+                ) : (
+                  <button
+                    className={buttonClasses}
+                    onClick={openAuthPopup}
+                  >
+                    Sign&nbsp;in
+                  </button>
+                )}
+            </div>
+          </div>
+        </>) : (<>
+          <div className="header__content">
+            <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
+            <button className={`header__phone-button ${isLoggedIn ? 'header__phone-button_black' : ''}`} onClick={openAuthPopup} />
+          </div>
+          <Navigation className="header_nav" />
+        </>)}
+    </header>);
 }
 
 export default Header;
