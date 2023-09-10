@@ -17,6 +17,11 @@ function Main({ openAuthPopup, newsData, username, isOpen }) {
   const isLoggedIn = useContext(AuthContext);
   const articleList = Object.values(newsData);
 
+  function getArticleList() { /*call API*/
+    setHasResults(false);
+    setIsLoading(false);
+  }
+
   return (
     <>
       <div className="main">
@@ -25,7 +30,7 @@ function Main({ openAuthPopup, newsData, username, isOpen }) {
             element={<>
               <div className="main__header-search-container">
                 <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                <SearchForm />
+                <SearchForm getArticleList={getArticleList}/>
               </div>
               <Preloader isLoading={isLoading} hasResults={hasResults} />
               <NewsCardList articleList={articleList} />
@@ -35,7 +40,7 @@ function Main({ openAuthPopup, newsData, username, isOpen }) {
             <Route path='/saved-news'
               element={<>
                 <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                <SavedNewsHeader newsData={newsData} username={username} />
+                <SavedNewsHeader articleList={articleList} username={username} />
               </>} />
           )}
         </Routes>

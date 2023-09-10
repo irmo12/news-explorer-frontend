@@ -1,11 +1,11 @@
 import React from 'react';
-import SavedNews from '../SavedNews/SavedNews';
 import './SavedNewsHeader.css';
+import NewsCardList from '../NewsCardList/NewsCardList';
 
-function SavedNewsHeader({ newsData, username }) {
-  const numberOfSavedArticles = newsData.length;
+function SavedNewsHeader({ articleList, username }) {
+  const numberOfSavedArticles = articleList.length;
 
-  const distinctKeywords = [...new Set(newsData.map(news => capitalizeKeyword(news.keyword)))];
+  const distinctKeywords = [...new Set(articleList.map(news => capitalizeKeyword(news.keyword)))];
   const displayedKeywords = distinctKeywords.slice(0, 2);
   const remainingKeywordsCount = Math.max(0, distinctKeywords.length - 2);
 
@@ -21,7 +21,7 @@ function SavedNewsHeader({ newsData, username }) {
             </span></p>
         </div>
       </div>
-      <SavedNews className='saved-news__articles' newsData={newsData} />
+      <NewsCardList articleList={articleList} />
     </>
   );
 }

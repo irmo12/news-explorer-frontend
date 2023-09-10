@@ -45,3 +45,18 @@
 .saved-news__summary-string {
   font-weight: bold;
 }
+
+@media screen and (max-width: 768px) {
+  .saved-news__heading {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .saved-news__user-message {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+}
