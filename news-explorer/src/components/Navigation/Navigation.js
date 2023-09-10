@@ -15,7 +15,7 @@ function Navigation() {
     : "nav-container";
     
   return (
-    <div className={navContainerClasses}>
+    <nav className={navContainerClasses}>
       <NavLink
         className={linkClasses}
         activeclassname='active'
@@ -31,7 +31,7 @@ function Navigation() {
         >
           Saved&nbsp;articles
         </NavLink>)}
-    </div>
+    </nav>
   );
 }
 

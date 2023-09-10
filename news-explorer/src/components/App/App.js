@@ -113,7 +113,7 @@ function App() {
   return (
     <AuthProvider>
       <SmallScreenProvider>
-        <div className="page">
+        <page className="page">
           <AuthPopup
             isSignIn={isSignIn}
             isOpen={isAuthPopupOpen}
@@ -123,7 +123,7 @@ function App() {
           <InfoPopup isOpen={isInfoOpen} onClose={closePopups} handleInfoLinkClick={handleInfoLinkClick} />  
           <Main openAuthPopup={openAuthPopup} newsData={newsData} username={username} isOpen={isAuthPopupOpen} />
           <Footer />
-        </div>
+        </page>
       </SmallScreenProvider>
     </AuthProvider>
   );

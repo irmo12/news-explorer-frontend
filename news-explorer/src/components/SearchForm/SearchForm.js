@@ -5,7 +5,7 @@ import { SmallScreenContext } from '../../contexts/SmallScreenContext';
 const SearchForm = () => {
   const isSmallScreen = useContext(SmallScreenContext);
   return (
-    <div className="search-form">
+    <form className="search-form">
       <div className="search-form__txtcontainer">
         <h1 className='search-form__heading'>What's going on in the world?</h1>
         <p className='search-form__description'>Find the latest news on any topic and save them in your personal account.</p>
@@ -21,7 +21,7 @@ const SearchForm = () => {
         </div>
         <button className='search-form__submit search-form__submit_stacked'>Search</button>
       </>)}
-    </div>
+    </form>
   );
 };
 

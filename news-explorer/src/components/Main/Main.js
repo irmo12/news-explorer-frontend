@@ -24,7 +24,7 @@ function Main({ openAuthPopup, newsData, username, isOpen }) {
 
   return (
     <>
-      <div className="main">
+      <main className="main">
         <Routes>
           <Route path='/'
             element={<>
@@ -44,7 +44,7 @@ function Main({ openAuthPopup, newsData, username, isOpen }) {
               </>} />
           )}
         </Routes>
-      </div>
+      </main>
     </>
   );
 }

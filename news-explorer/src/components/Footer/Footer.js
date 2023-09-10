@@ -6,7 +6,7 @@ import github from '../../images/github.svg';
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__link-container">
       <div className='footer-links'>
         <Link to={'/'} className='footer-link'>Home</Link>
@@ -20,7 +20,7 @@ function Footer() {
       <div className='footer-signature'>
         © {new Date().getFullYear()} Supersite, Powered by News API
       </div>
-    </div>
+    </footer>
   );
 }
 
