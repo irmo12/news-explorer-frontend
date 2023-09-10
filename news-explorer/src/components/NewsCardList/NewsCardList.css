@@ -20,7 +20,7 @@
   grid-template-columns: repeat(3, minmax(280px, 1fr));
   grid-auto-rows: minmax(350px, auto);
   gap: 16px;
-  margin: 0 7.3%;
+  margin: 4.2% 7.3%;
   flex-wrap: wrap;
   overflow: hidden;
   max-height: 600px;
