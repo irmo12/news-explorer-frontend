@@ -15,6 +15,7 @@
   transition: opacity 0.4s ease-in, visibility 0ms ease-in 0.4s;
   z-index: 2;
   cursor: pointer;
+  gap: 1%;
 }
 
 .info-popup_active {
@@ -28,16 +29,17 @@
   min-width: 430px;
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-around;
+  align-items: flex-start;
+  justify-content: space-evenly;
   border: none;
-  padding: 0 36px;
+  padding: 0 35px;
   background-color: #fff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 16px;
   box-sizing: border-box;
   z-index: 5;
   cursor: default;
+  min-height: 182px;
 }
 
 .info-popup__container-close {
@@ -49,7 +51,7 @@
   width: 40px;
   height: 40px;
   border: 0;
-  margin-left: 470px;
+  margin-left: 484px;
   transition: opacity 0.3s;
   cursor: pointer;
   z-index: 5;
@@ -80,6 +82,8 @@
   color: #2f71e5;
   border: none;
   background-color: transparent;
+  margin-bottom: 37px;
+  margin-left: -4px;
 }
 
 @media screen and (max-width: 796px) {
