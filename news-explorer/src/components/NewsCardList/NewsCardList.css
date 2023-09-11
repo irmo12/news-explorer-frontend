@@ -49,6 +49,11 @@
   box-shadow: none;
   border: none;
   cursor: pointer;
+  transition: background-color 200ms ease;
+}
+
+.news-card-list__button:hover {
+  background-color: #e8e8e8;
 }
 
 @media screen and (max-width: 1024px) {

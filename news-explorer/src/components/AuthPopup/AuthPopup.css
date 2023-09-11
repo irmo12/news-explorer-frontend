@@ -17,10 +17,6 @@
   margin: 0;
 }
 
-.popup__form-field-group_invisible {
-  display: none;
-}
-
 .popup__form-field-group {
   display: block;
 }

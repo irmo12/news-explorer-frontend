@@ -17,9 +17,9 @@ function Footer() {
         <a href="https://www.facebook.com/TripleTen.Israel/" target="_blank" rel="noopener noreferrer" className='footer-link'><img src={fblogo} alt='facebook' /></a>
       </div>
       </div>
-      <div className='footer-signature'>
+      <span className='footer-signature'>
         © {new Date().getFullYear()} Supersite, Powered by News API
-      </div>
+      </span>
     </footer>
   );
 }

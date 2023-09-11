@@ -33,7 +33,6 @@
   border-color: #000;
 }
 
-
 .active {
   border-bottom: 3px solid;
   margin-top: 3vh;
@@ -44,9 +43,7 @@
   .nav-link {
     font-size: 16px;
   }
-  .active::before {
-    top: 196%;
-  }
+
   .nav-container {
     gap: 32%;
     margin-left: auto;
@@ -55,18 +52,19 @@
 
 @media screen and (max-width: 480px) {
   .nav-container {
-    margin: 0 auto 0 16px;
+    margin: 0 auto;
+    gap: 0;
   }
 
   .header__title_logged_in {
     color: #fff;
   }
-  
+
   .nav-link_logged_in {
     color: #fff;
   }
 
   .active {
-    border: none;
+    border: 0;
   }
 }

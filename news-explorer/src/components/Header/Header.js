@@ -43,7 +43,8 @@ function Header({ userName = 'Elise', openAuthPopup, isOpen }) {
             <HeaderButton userName={userName}
               openAuthPopup={openAuthPopup} />
           </>)}
-        </>)}
+        </>)
+      }
     </header>);
 }
 
