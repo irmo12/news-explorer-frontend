@@ -10,7 +10,6 @@ function Navigation() {
   const { isSmallScreen } = useContext(SmallScreenContext);
   const location = useLocation();
 
-
   const linkClasses = isLoggedIn
     ? "nav-link nav-link_logged_in"
     : "nav-link";
@@ -21,18 +20,19 @@ function Navigation() {
 
   return (
     <nav className={navContainerClasses}>
-      {!isSmallScreen && (
+      {!isSmallScreen ? (
         <>
           <NavLink
             className={linkClasses}
             activeClassName='active'
-            exact to='/'
+            exact
+            to='/'
           >
             Home
           </NavLink>
           {isLoggedIn && (
             <NavLink
-              className='nav-link nav-link_logged_in'
+              className={linkClasses}
               activeClassName='active'
               to='/saved-articles'
             >
@@ -40,24 +40,27 @@ function Navigation() {
             </NavLink>
           )}
         </>
-      )}
-      {isSmallScreen && location.pathname === '/' && isLoggedIn && (
-        <NavLink
-          className='nav-link nav-link_logged_in'
-          activeClassName='active'
-          to='/saved-articles'
-        >
-          Saved&nbsp;articles
-        </NavLink>
-      )}
-      {isSmallScreen && location.pathname === '/' && !isLoggedIn && (
-        <NavLink
-          className={linkClasses}
-          activeClassName='active'
-          exact to='/'
-        >
-          Home
-        </NavLink>
+      ) : (
+        location.pathname === '/' && isLoggedIn ? (
+          <NavLink
+            className={linkClasses}
+            activeClassName='active'
+            to='/saved-articles'
+          >
+            Saved&nbsp;articles
+          </NavLink>
+        ) : (
+          location.pathname === '/' && (
+            <NavLink
+              className={linkClasses}
+              activeClassName='active'
+              exact
+              to='/'
+            >
+              Home
+            </NavLink>
+          )
+        )
       )}
     </nav>
   );

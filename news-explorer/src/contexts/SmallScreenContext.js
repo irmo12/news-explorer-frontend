@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-export const SmallScreenContext = createContext();
+const SmallScreenContext = createContext();
 
-export const SmallScreenProvider = ({ children }) => {
+const SmallScreenProvider = ({ children }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -26,3 +26,5 @@ export const SmallScreenProvider = ({ children }) => {
     </SmallScreenContext.Provider>
   );
 };
+
+export { SmallScreenContext, SmallScreenProvider };
