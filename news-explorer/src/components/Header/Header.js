@@ -11,8 +11,6 @@ function Header({ userName = 'Elise', openAuthPopup, isOpen }) {
   const { isSmallScreen } = useContext(SmallScreenContext);
   const [isShowNav, setShowNav] = useState(false);
 
-  console.log(isSmallScreen);
-
   function showNav() {
     setShowNav(!isShowNav);
   }
@@ -24,7 +22,7 @@ function Header({ userName = 'Elise', openAuthPopup, isOpen }) {
   const titleClasses = isLoggedIn
     ? "header__title header__title_logged_in"
     : "header__title";
-    
+
   return (
     <header className={`${headerClasses} ${isShowNav ? 'header_show-nav' : ''}`}>
       {!isSmallScreen ? (

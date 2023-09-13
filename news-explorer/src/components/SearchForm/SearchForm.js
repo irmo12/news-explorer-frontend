@@ -3,7 +3,8 @@ import './SearchForm.css';
 import { SmallScreenContext } from '../../contexts/SmallScreenContext';
 
 const SearchForm = () => {
-  const isSmallScreen = useContext(SmallScreenContext);
+  const { isSmallScreen } = useContext(SmallScreenContext);
+  
   return (
     <form className="search-form">
       <div className="search-form__txtcontainer">

@@ -21,7 +21,7 @@ const SmallScreenProvider = ({ children }) => {
   }, []);
 
   return (
-    <SmallScreenContext.Provider value={isSmallScreen}>
+    <SmallScreenContext.Provider value={{ isSmallScreen,setIsSmallScreen }}>
       {children}
     </SmallScreenContext.Provider>
   );

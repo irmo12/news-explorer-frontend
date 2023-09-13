@@ -14,10 +14,10 @@ import { Route, Routes, } from 'react-router-dom';
 function Main({ openAuthPopup, newsData, username, isOpen }) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
-  const isLoggedIn = useContext(AuthContext);
+  const {isLoggedIn} = useContext(AuthContext);
   const articleList = Object.values(newsData);
 
-  function getArticleList() { /*call API*/
+  function getArticleList() { /*call API placeholder*/
     setHasResults(false);
     setIsLoading(false);
   }

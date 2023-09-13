@@ -9,8 +9,8 @@
 }
 
 .nav-container_logged_in {
-  gap: 42%;
-  margin-right: 7.5%;
+  gap: 28%;
+  margin-right: 8%;
 }
 
 .nav-link {
@@ -35,19 +35,25 @@
 
 .active {
   border-bottom: 3px solid;
-  margin-top: 3vh;
-  padding: 0 15% 3vh 15%;
+  margin-top: 2.4vh;
+  padding: 0 15% 2.4vh 15%;
+  max-height: 80px;
 }
 
 @media screen and (max-width: 768px) {
   .nav-link {
     font-size: 16px;
+    margin-right: 16px;
+  }
+
+  .active {
+    max-height: 66px;
   }
 
   .nav-container {
-    gap: 32%;
-    margin-left: auto;
+    gap: 20%;
   }
+
 }
 
 @media screen and (max-width: 480px) {

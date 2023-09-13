@@ -11,13 +11,14 @@
   padding: 0 7.25%;
   color: #fff;
   min-height: 56px;
+  max-height: 80px;
 }
 
 .header__content {
   display: flex;
   flex-flow: row nowrap;
   margin: 0 auto;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
   align-items: center;
 }
@@ -57,11 +58,13 @@
   align-items: center;
   text-align: center;
   max-width: 176px;
+  color: #fff;
 }
 
 .header__button-logic_logged_in {
   padding: 0 15px;
   margin-left: 8px;
+  color: #000;
 }
 
 .header__auth-email {
@@ -87,10 +90,15 @@
   padding-left: calc(2% + 4px);
   padding-right: calc(2% + 4px);
   color: #fff;
+  fill: #fff;
 }
 
 .header__log-button_logged_in {
   color: #000;
+}
+
+.header__logout-icon_small-screen {
+color: #fff;
 }
 
 .header__phone-button {
@@ -126,10 +134,13 @@
     margin: 0 40px;
     gap: 4%;
     padding: 0 5%;
+    max-height: 66px;
   }
-  .header__title {
-    margin-right: 132px;
+  
+  .header__content {
+    justify-content: unset;
   }
+  
   .header__button-logic {
     padding: 0 6.8%;
     font-size: 16px;
@@ -151,6 +162,7 @@
     flex-flow: column nowrap;
     border-bottom: none;
     justify-content: space-between;
+    max-height: 56px;
   }
 
   .header_show-nav {

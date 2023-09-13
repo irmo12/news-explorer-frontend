@@ -34,7 +34,7 @@ function Navigation() {
             <NavLink
               className={linkClasses}
               activeClassName='active'
-              to='/saved-articles'
+              to='/saved-news'
             >
               Saved&nbsp;articles
             </NavLink>
@@ -45,7 +45,7 @@ function Navigation() {
           <NavLink
             className={linkClasses}
             activeClassName='active'
-            to='/saved-articles'
+            to='/saved-news'
           >
             Saved&nbsp;articles
           </NavLink>
