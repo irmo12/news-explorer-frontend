@@ -13,7 +13,7 @@ function NewsCardList({ articleList }) {
   }
 
   return (
-    <div className="news-card-list">
+    <list className="news-card-list">
       {location.pathname === '/' && (<>
         <h2 className='news-card-list__heading'>Search results</h2>
         <div className={`news-card-list__grid ${showAll ? 'news-card-list__grid_show-more' : ``}`}>
@@ -32,7 +32,7 @@ function NewsCardList({ articleList }) {
           {articleList.map((article) => (<NewsCard article={article} key={article._id} />))}
         </div>
       </>)}
-    </div>
+    </list>
   );
 }
 

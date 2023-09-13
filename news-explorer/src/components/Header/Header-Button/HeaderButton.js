@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { SmallScreenContext } from "../../../contexts/SmallScreenContext";
 import logout from '../../../images/logout.svg';
+import logout_white from '../../../images/logout_white.svg';  
+import './HeaderButton.css'
 
 function HeaderButton({ userName, openAuthPopup }) {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
@@ -28,7 +30,7 @@ function HeaderButton({ userName, openAuthPopup }) {
             onClick={signOut}
           >
             <span className="header__username">{userName}</span>
-            <embed className={`header__logout-icon ${isSmallScreen ? 'header__logout-icon_small-screen' : ''}`} src={logout} alt="logout" />
+            <embed className='header__logout-icon' src={isSmallScreen ? logout_white : logout} alt="logout" style={{ fill: 'white' }} />
           </button>
         ) : (
           <button

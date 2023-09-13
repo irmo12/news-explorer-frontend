@@ -51,21 +51,22 @@
   }
 
   .nav-container {
-    gap: 20%;
+    gap: 5%;
   }
 
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 550px) {
   .nav-container {
-    margin: 0 auto;
     gap: 0;
+    align-self: flex-start;
+    height: 56px;
   }
 
   .header__title_logged_in {
     color: #fff;
   }
-
+  
   .nav-link_logged_in {
     color: #fff;
   }
