@@ -135,6 +135,7 @@
   box-shadow: none;
   background-color: transparent;
   color: #2f71e5;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 530px) {

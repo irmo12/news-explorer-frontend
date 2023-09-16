@@ -13,7 +13,7 @@
   flex-flow: column nowrap;
   visibility: hidden;
   transition: opacity 0.4s ease-in, visibility 0ms ease-in 0.4s;
-  z-index: 2;
+  z-index: 7;
   cursor: pointer;
   gap: 1%;
 }
