@@ -61,16 +61,6 @@ function Navigation() {
               Home
             </NavLink>
           )}
-          {location.pathname === '/saved-news' && isLoggedIn && (
-            <NavLink
-              className={linkClasses}
-              activeClassName='active'
-              exact
-              to='/'
-            >
-              Home
-            </NavLink>
-          )}
         </>
       )}
     </nav>

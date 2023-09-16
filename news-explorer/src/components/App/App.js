@@ -12,7 +12,7 @@ import { auth } from '../../utils/auth';
 
 function App() {
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
-  const [isSignIn, setIsSignIn] = useState(false);
+  const [isSignIn, setIsSignIn] = useState(true);
   const { userData, setUserData } = useContext(UserContext);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const { setIsLoggedIn } = useContext(AuthContext);
