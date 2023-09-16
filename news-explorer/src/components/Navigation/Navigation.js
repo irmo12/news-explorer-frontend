@@ -41,16 +41,17 @@ function Navigation() {
           )}
         </>
       ) : (
-        location.pathname === '/' && isLoggedIn ? (
-          <NavLink
-            className={linkClasses}
-            activeClassName='active'
-            to='/saved-news'
-          >
-            Saved&nbsp;articles
-          </NavLink>
-        ) : (
-          location.pathname === '/' && (
+        <>
+          {location.pathname === '/'
+            && isLoggedIn ? (
+            <NavLink
+              className={linkClasses}
+              activeClassName='active'
+              to='/saved-news'
+            >
+              Saved&nbsp;articles
+            </NavLink>
+          ) : (
             <NavLink
               className={linkClasses}
               activeClassName='active'
@@ -59,8 +60,18 @@ function Navigation() {
             >
               Home
             </NavLink>
-          )
-        )
+          )}
+          {location.pathname === '/saved-news' && isLoggedIn && (
+            <NavLink
+              className={linkClasses}
+              activeClassName='active'
+              exact
+              to='/'
+            >
+              Home
+            </NavLink>
+          )}
+        </>
       )}
     </nav>
   );

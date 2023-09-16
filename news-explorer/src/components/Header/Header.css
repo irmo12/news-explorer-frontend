@@ -126,6 +126,7 @@
   .header__title {
     font-size: 16px;
     margin: 0 50% 0 16px;
+    color: #fff;
   }
 
   .header__phone-button {
