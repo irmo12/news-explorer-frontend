@@ -1,19 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main.js';
 import Footer from '../Footer/Footer.js';
 import AuthPopup from '../AuthPopup/AuthPopup.js';
 import InfoPopup from '../InfoPopup/InfoPopup';
 import { SmallScreenProvider } from '../../contexts/SmallScreenContext';
-import { AuthProvider } from '../../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
+import { UserContext } from '../../contexts/UserContext';
+import { auth } from '../../utils/auth';
 
 function App() {
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
   const [isSignIn, setIsSignIn] = useState(false);
-  const username = 'Elise';   //tmp to be replaced by usercontext, and api
-  const [isInfoOpen, setIsInfoOpen] = useState(false); //api to determine
+  const { userData, setUserData } = useContext(UserContext);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const { setIsLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
+  function handleAuthSubmit(data) {
+    const { email, password } = data
 
+    if (isSignIn) {
+      auth
+        .signin({email, password})
+        .then(() => {
+          closePopups();
+          setIsLoggedIn(true);
+          auth.checkToken(localStorage.getItem('token')).then((resData) => {
+            setUserData(resData);
+          });
+          navigate('/saved-news');
+        })
+        .catch((err) => {
+          console.log(err.code, err.message);
+        });
+    }
+    else {
+      auth
+        .signup(data)
+        .then(() => {
+          closePopups();
+          setIsInfoOpen(true);
+        })
+        .catch((err) => {
+          closePopups();
+          console.log(err);
+        });
+    }
+  }
   //tmp code to be replaced by api
   const newsData = [
     {
@@ -95,37 +130,31 @@ function App() {
       document.addEventListener('keydown', closeByEscape);
     }
     return () => document.removeEventListener('keydown', closeByEscape);
-  }, [isAuthPopupOpen,isInfoOpen]);
-
-  function handleAuthSubmit() {
-    // Handle authentication submit logic
-  }
+  }, [isAuthPopupOpen, isInfoOpen]);
 
   const toggleSignInUp = () => {
     setIsSignIn((prevIsSignIn) => !prevIsSignIn);
   };
 
-  function handleInfoLinkClick () {
+  function handleInfoLinkClick() {
     openAuthPopup();
     setIsSignIn(true);
   }
 
   return (
-    <AuthProvider>
-      <SmallScreenProvider>
-        <page className="page">
-          <AuthPopup
-            isSignIn={isSignIn}
-            isOpen={isAuthPopupOpen}
-            onClose={closePopups}
-            onSubmit={handleAuthSubmit}
-            toggleSignInUp={toggleSignInUp} />
-          <InfoPopup isOpen={isInfoOpen} onClose={closePopups} handleInfoLinkClick={handleInfoLinkClick} />  
-          <Main openAuthPopup={openAuthPopup} newsData={newsData} username={username} isOpen={isAuthPopupOpen} />
-          <Footer />
-        </page>
-      </SmallScreenProvider>
-    </AuthProvider>
+    <SmallScreenProvider>
+      <page className="page">
+        <AuthPopup
+          isSignIn={isSignIn}
+          isOpen={isAuthPopupOpen}
+          onClose={closePopups}
+          onSubmit={handleAuthSubmit}
+          toggleSignInUp={toggleSignInUp} />
+        <InfoPopup isOpen={isInfoOpen} onClose={closePopups} handleInfoLinkClick={handleInfoLinkClick} />
+        <Main openAuthPopup={openAuthPopup} newsData={newsData} username={userData.name} isOpen={isAuthPopupOpen} />
+        <Footer />
+      </page>
+    </SmallScreenProvider>
   );
 }
 
