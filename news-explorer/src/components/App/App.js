@@ -19,16 +19,15 @@ function App() {
   const navigate = useNavigate();
 
   function handleAuthSubmit(data) {
-    const { email, password } = data
-
+    const { email, password } = data;
     if (isSignIn) {
       auth
-        .signin({email, password})
+        .signin({ email, password })
         .then(() => {
           closePopups();
           setIsLoggedIn(true);
           auth.checkToken(localStorage.getItem('token')).then((resData) => {
-            setUserData(resData);
+            setUserData({ ...userData, name: resData.data.userName });
           });
           navigate('/saved-news');
         })
@@ -151,7 +150,7 @@ function App() {
           onSubmit={handleAuthSubmit}
           toggleSignInUp={toggleSignInUp} />
         <InfoPopup isOpen={isInfoOpen} onClose={closePopups} handleInfoLinkClick={handleInfoLinkClick} />
-        <Main openAuthPopup={openAuthPopup} newsData={newsData} username={userData.name} isOpen={isAuthPopupOpen} />
+        <Main openAuthPopup={openAuthPopup} newsData={newsData} isOpen={isAuthPopupOpen} />
         <Footer />
       </page>
     </SmallScreenProvider>

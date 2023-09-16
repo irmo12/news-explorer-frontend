@@ -35,7 +35,7 @@ export default function PopupWithForm({
           <div className="popup__form-toggle-container">
             <span className='popup__form-in-or-up'>or</span>
             <button type='button' className='popup__form-toggle' onClick={toggleSignInUp}>
-              {isSignIn ? 'Sign in' : 'Sign up'}
+              {isSignIn ? 'Sign up' : 'Sign in'}
             </button>
           </div>
         </form>

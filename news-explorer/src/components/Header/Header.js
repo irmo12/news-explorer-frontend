@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { SmallScreenContext } from "../../contexts/SmallScreenContext";
 import HeaderButton from "./Header-Button/HeaderButton";
 
-function Header({ userName = 'Elise', openAuthPopup, isOpen }) {
+function Header({ openAuthPopup, isOpen }) {
   const { isLoggedIn } = useContext(AuthContext);
   const { isSmallScreen } = useContext(SmallScreenContext);
   const [isShowNav, setShowNav] = useState(false);
@@ -30,7 +30,7 @@ function Header({ userName = 'Elise', openAuthPopup, isOpen }) {
           <div className="header__content">
             <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
             <Navigation className='header__nav' />
-            <HeaderButton userName={userName}
+            <HeaderButton 
               openAuthPopup={openAuthPopup} />
           </div>
         </>) : (<>
@@ -40,7 +40,7 @@ function Header({ userName = 'Elise', openAuthPopup, isOpen }) {
           </div>
           {isShowNav && (<>
             <Navigation className="header__nav" />
-            <HeaderButton userName={userName}
+            <HeaderButton 
               openAuthPopup={openAuthPopup} />
           </>)}
         </>)

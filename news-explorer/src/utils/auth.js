@@ -5,7 +5,6 @@ const auth = {
   signin: (data) => {
     return api.authorizationParams(data)
       .then((data) => { localStorage.setItem('token', data.token); });
-
   },
 
   signup: (data) => {

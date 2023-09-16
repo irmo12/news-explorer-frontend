@@ -7,15 +7,17 @@ import NewsCardList from '../NewsCardList/NewsCardList';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import About from '../About/About';
 import { AuthContext } from '../../contexts/AuthContext';
+import { UserContext } from '../../contexts/UserContext';
 import { Route, Routes, } from 'react-router-dom';
 
 
 
-function Main({ openAuthPopup, newsData, username, isOpen }) {
+function Main({ openAuthPopup, newsData, isOpen }) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
-  const {isLoggedIn} = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const articleList = Object.values(newsData);
+  const { userData } = useContext(UserContext);
 
   function getArticleList() { /*call API placeholder*/
     setHasResults(false);
@@ -30,7 +32,7 @@ function Main({ openAuthPopup, newsData, username, isOpen }) {
             element={<>
               <div className="main__header-search-container">
                 <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                <SearchForm getArticleList={getArticleList}/>
+                <SearchForm getArticleList={getArticleList} />
               </div>
               <Preloader isLoading={isLoading} hasResults={hasResults} />
               <NewsCardList articleList={articleList} />
@@ -40,7 +42,7 @@ function Main({ openAuthPopup, newsData, username, isOpen }) {
             <Route path='/saved-news'
               element={<>
                 <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                <SavedNewsHeader articleList={articleList} username={username} />
+                <SavedNewsHeader articleList={articleList} username={userData.name} />
               </>} />
           )}
         </Routes>
