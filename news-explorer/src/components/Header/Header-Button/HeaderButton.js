@@ -34,7 +34,7 @@ function HeaderButton({ openAuthPopup }) {
             className={buttonClasses}
             onClick={signOut}
           >
-            <span className="header__username">{userData.name}</span>
+            <span className="header__username">{userData.name = 'PlaceHolder'}</span>
             <embed className='header__logout-icon' src={isSmallScreen ? logout_white : logout} alt="logout" style={{ fill: 'white' }} />
           </button>
         ) : (

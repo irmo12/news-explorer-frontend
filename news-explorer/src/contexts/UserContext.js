@@ -4,7 +4,7 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState({
-    userName: ''
+    name: ''
   });
 
   return (
