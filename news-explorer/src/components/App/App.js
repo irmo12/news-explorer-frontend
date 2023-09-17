@@ -54,24 +54,25 @@ function App() {
     }
   }
 
-  // useEffect(() => {
-  //   if (localStorage.getItem('token')) {
-  //     auth.checkToken(localStorage.getItem('token')).then((resData) => {
-  //       setUserData((prevUserData) => ({
-  //         ...prevUserData,
-  //         name: resData.data.userName,
-  //       }));
-  //       setIsLoggedIn(true);
-  //       navigate('/saved-news');
-  //     });
-  //     api
-  //       .getArticles(localStorage.getItem('token'))
-  //       .then((data) => setNewsData(data))
-  //       .catch((err) => {
-  //         console.log(err.code, err.message);
-  //       });
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      auth.checkToken(localStorage.getItem('token')).then((resData) => {
+        setUserData((prevUserData) => ({
+          ...prevUserData,
+          name: resData.data.name,
+        }));
+        setIsLoggedIn(true);
+        navigate('/saved-news');
+      });
+      api
+        .getArticles(localStorage.getItem('token'))
+        .then((data) => {setNewsData(data)
+        console.log(data)})
+        .catch((err) => {
+          console.log(err.code, err.message);
+        });
+    }
+  }, []);
 
 
   function openAuthPopup() {
