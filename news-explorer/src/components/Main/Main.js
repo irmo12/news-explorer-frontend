@@ -42,7 +42,7 @@ function Main({ openAuthPopup, newsData, isOpen }) {
             <Route path='/saved-news'
               element={<>
                 <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                <SavedNewsHeader articleList={articleList} username={userData.name = 'Placeholder'} />
+                <SavedNewsHeader articleList={articleList} username={userData.name} />
               </>} />
           )}
         </Routes>
