@@ -1,7 +1,15 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import './NewsCard.css';
 
-function NewsCard({ article, isSaved }) {
+function NewsCard({ article, saveOrDelArticle }) {
+  const location  = useLocation();
+  const isSaved = location.pathname === '/saved-news';
+
+  function handleButtonClick(e) {
+    e.preventDefault();
+    saveOrDelArticle(article, isSaved);
+  }
 
   return (
     <article className="news-card" id={article._id}>
@@ -17,7 +25,7 @@ function NewsCard({ article, isSaved }) {
           className='news-card__save-del'
           type="button"
           aria-label="save/delete"
-        // onClick={handleButtonClick}
+        onClick={handleButtonClick}
         />
       </div>
       <div className='news-card__texts'>

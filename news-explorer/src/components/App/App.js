@@ -66,8 +66,10 @@ function App() {
       });
       api
         .getArticles(localStorage.getItem('token'))
-        .then((data) => {setNewsData(data)
-        console.log(data)})
+        .then((data) => {
+          setNewsData(data);
+          console.log(data);
+        })
         .catch((err) => {
           console.log(err.code, err.message);
         });
@@ -105,6 +107,26 @@ function App() {
     setIsSignIn(true);
   }
 
+  function saveOrDelArticle(article, isSaved) {
+    if (!isSaved) {
+      api
+        .saveNewArticle(article, localStorage.getItem('token'))
+        .then((res) => {
+          setNewsData([res, ...newsData]);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      api
+        .deleteCard(article._id, localStorage.getItem('token'))
+        .then(() => {
+          setNewsData((current) =>
+            current.filter((newsCard) => newsCard._id !== article._id),
+          );
+        })
+        .catch((err) => console.log(err));
+    }
+  }
+
   return (
     <SmallScreenProvider>
       <page className="page">
@@ -115,7 +137,7 @@ function App() {
           onSubmit={handleAuthSubmit}
           toggleSignInUp={toggleSignInUp} />
         <InfoPopup isOpen={isInfoOpen} onClose={closePopups} handleInfoLinkClick={handleInfoLinkClick} />
-        <Main openAuthPopup={openAuthPopup} newsData={newsData} isOpen={isAuthPopupOpen} />
+        <Main openAuthPopup={openAuthPopup} newsData={newsData} isOpen={isAuthPopupOpen} saveOrDelArticle={saveOrDelArticle} />
         <Footer />
       </page>
     </SmallScreenProvider>

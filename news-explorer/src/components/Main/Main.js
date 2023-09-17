@@ -12,14 +12,14 @@ import { Route, Routes, } from 'react-router-dom';
 
 
 
-function Main({ openAuthPopup, newsData, isOpen }) {
+function Main({ openAuthPopup, newsData, isOpen, saveOrDelArticle }) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
   const { isLoggedIn } = useContext(AuthContext);
   const articleList = Object.values(newsData);
   const { userData } = useContext(UserContext);
 
-  function getArticleList() { /*call API placeholder*/
+  function getArticleList() { 
     setHasResults(false);
     setIsLoading(false);
   }
@@ -35,7 +35,7 @@ function Main({ openAuthPopup, newsData, isOpen }) {
                 <SearchForm getArticleList={getArticleList} />
               </div>
               <Preloader isLoading={isLoading} hasResults={hasResults} />
-              <NewsCardList articleList={articleList} />
+              <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle}/>
               <About />
             </>} />
           {isLoggedIn && (
