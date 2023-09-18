@@ -13,9 +13,12 @@
   color: #fff;
 }
 
-.header__button-logic_logged_in {
+.header__button-logic_logged-in {
   padding: 0 15px;
   margin-left: 8px;
+}
+
+.header__button-logic_saved-news {
   color: #000;
 }
 
@@ -37,7 +40,15 @@
   fill: #fff;
 }
 
-.header__log-button_logged_in {
+.header__log-button_home {
+  color: #000;
+}
+
+.header__username {
+  color: #fff;
+}
+
+.header__username_black {
   color: #000;
 }
 
@@ -46,7 +57,7 @@
     padding: 0 6.8%;
     font-size: 16px;
   }
-  .header__button-logic_logged_in {
+  .header__button-logic_home {
     padding: 0 2%;
   }
   .header__log-button {

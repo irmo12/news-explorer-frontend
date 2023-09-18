@@ -8,7 +8,8 @@ import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import About from '../About/About';
 import { AuthContext } from '../../contexts/AuthContext';
 import { UserContext } from '../../contexts/UserContext';
-import { Route, Routes, } from 'react-router-dom';
+import { HomeProvider } from '../../contexts/HomeContext';
+import { Route, Routes } from 'react-router-dom';
 
 
 
@@ -27,6 +28,7 @@ function Main({ openAuthPopup, newsData, isOpen, saveOrDelArticle }) {
   return (
     <>
       <main className="main">
+        <HomeProvider>
         <Routes>
           <Route path='/'
             element={<>
@@ -46,6 +48,7 @@ function Main({ openAuthPopup, newsData, isOpen, saveOrDelArticle }) {
               </>} />
           )}
         </Routes>
+        </HomeProvider>
       </main>
     </>
   );

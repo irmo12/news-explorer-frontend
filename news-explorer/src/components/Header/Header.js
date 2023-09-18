@@ -1,26 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import './Header.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
-import { AuthContext } from "../../contexts/AuthContext";
 import { SmallScreenContext } from "../../contexts/SmallScreenContext";
+import { HomeContext } from "../../contexts/HomeContext";
 import HeaderButton from "./Header-Button/HeaderButton";
 
+
 function Header({ openAuthPopup, isOpen }) {
-  const { isLoggedIn } = useContext(AuthContext);
+  const location = useLocation();
   const { isSmallScreen } = useContext(SmallScreenContext);
+  const { isHome, setHome } = useContext(HomeContext);
   const [isShowNav, setShowNav] = useState(false);
 
   function showNav() {
     setShowNav(!isShowNav);
   }
 
-  const headerClasses = isLoggedIn
-    ? "header_logged_in header"
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setHome(true);
+    } else {
+      setHome(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
+  const headerClasses = !isHome
+    ? "header_saved-news header"
     : "header";
 
-  const titleClasses = isLoggedIn
-    ? "header__title header__title_logged_in"
+  const titleClasses = !isHome
+    ? "header__title header__title_saved-news"
     : "header__title";
 
   return (
@@ -30,18 +41,20 @@ function Header({ openAuthPopup, isOpen }) {
           <div className="header__content">
             <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
             <Navigation className='header__nav' />
-            <HeaderButton 
-              openAuthPopup={openAuthPopup} />
+            <HeaderButton
+              openAuthPopup={openAuthPopup}
+              isHome={isHome} />
           </div>
         </>) : (<>
           <div className="header__content">
             <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
-            <button className={`header__phone-button ${isLoggedIn ? 'header__phone-button_black' : ''} ${isShowNav ? 'header__phone-button_X' : ''} ${isOpen ? 'header__phone-button_invis' : ''}`} onClick={showNav} />
+            <button className={`header__phone-button ${!isHome ? 'header__phone-button_black' : ''} ${isShowNav ? 'header__phone-button_X' : ''} ${isOpen ? 'header__phone-button_invis' : ''}`} onClick={showNav} />
           </div>
           {isShowNav && (<>
             <Navigation className="header__nav" />
-            <HeaderButton 
-              openAuthPopup={openAuthPopup} />
+            <HeaderButton
+              openAuthPopup={openAuthPopup}
+              isHome={isHome} />
           </>)}
         </>)
       }

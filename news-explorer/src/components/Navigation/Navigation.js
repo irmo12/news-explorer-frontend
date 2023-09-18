@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AuthContext } from "../../contexts/AuthContext";
 import { SmallScreenContext } from "../../contexts/SmallScreenContext";
+import { HomeContext } from "../../contexts/HomeContext";
 
 import './Navigation.css';
 
 function Navigation() {
   const { isLoggedIn } = useContext(AuthContext);
   const { isSmallScreen } = useContext(SmallScreenContext);
-  const location = useLocation();
+  const { isHome } = useContext(HomeContext);
 
-  const linkClasses = isLoggedIn
-    ? "nav-link nav-link_logged_in"
+  const linkClasses = !isHome
+    ? "nav-link nav-link_saved-news"
     : "nav-link";
 
   const navContainerClasses = isLoggedIn
-    ? "nav-container nav-container_logged_in"
+    ? "nav-container nav-container_logged-in"
     : "nav-container";
 
   return (
@@ -42,7 +43,7 @@ function Navigation() {
         </>
       ) : (
         <>
-          {location.pathname === '/'
+          {isHome
             && isLoggedIn ? (
             <NavLink
               className={linkClasses}

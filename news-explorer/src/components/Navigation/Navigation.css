@@ -8,7 +8,7 @@
   max-width: 100%;
 }
 
-.nav-container_logged_in {
+.nav-container_logged-in {
   gap: 28%;
   margin-right: 8%;
 }
@@ -28,7 +28,7 @@
   position: relative;
 }
 
-.nav-link_logged_in {
+.nav-link_saved-news {
   color: #000;
   border-color: #000;
 }
@@ -63,11 +63,11 @@
     height: 56px;
   }
 
-  .header__title_logged_in {
+  .header__title_home {
     color: #fff;
   }
   
-  .nav-link_logged_in {
+  .nav-link_home {
     color: #fff;
   }
 

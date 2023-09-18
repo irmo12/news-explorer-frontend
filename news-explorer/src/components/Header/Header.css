@@ -23,7 +23,7 @@
   align-items: center;
 }
 
-.header_logged_in {
+.header_saved-news {
   color: #000;
   background-color: #fff;
 }
@@ -34,13 +34,13 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 120%;
-  color: #fff;
   margin-right: auto;
+  color: #fff;
 }
 
-.header__title_logged_in {
+ .header__title_saved-news {
   color: #000;
-}
+} 
 
 .header__nav {
   justify-self: end;
