@@ -10,8 +10,7 @@
   box-sizing: border-box;
   padding: 0 7.25%;
   color: #fff;
-  min-height: 56px;
-  max-height: 80px;
+  min-height: 80px;
 }
 
 .header__content {
@@ -38,9 +37,9 @@
   color: #fff;
 }
 
- .header__title_saved-news {
+.header__title_saved-news {
   color: #000;
-} 
+}
 
 .header__nav {
   justify-self: end;
@@ -86,7 +85,7 @@
     margin: 0 40px;
     gap: 4%;
     padding: 0 5%;
-    max-height: 66px;
+    min-height: 66px;
   }
 
   .header__content {
@@ -102,7 +101,7 @@
     flex-flow: column nowrap;
     border-bottom: none;
     justify-content: space-between;
-    max-height: 56px;
+    min-height: 56px;
     margin: 0;
   }
 

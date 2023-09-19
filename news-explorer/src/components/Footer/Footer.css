@@ -16,6 +16,7 @@
   display: flex;
   flex-flow: row nowrap;
   margin-left: 5vh;
+  margin-right: 5%;
 }
 
 .footer-signature {
@@ -23,6 +24,7 @@
   font-size: 16px;
   line-height: 138%;
   margin-right: 5vh;
+  margin-left: 5%;
 }
 
 .footer-links {

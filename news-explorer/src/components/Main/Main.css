@@ -8,11 +8,20 @@
 
 .main__header-search-container {
   width: 100%;
+  height: auto;
   background-image: url("../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   overflow: hidden;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  min-height: 576px;
+}
+
+@media screen and (max-width: 550px) {
+  .main__header-search-container {
+    max-height: 536px;
+  }
 }

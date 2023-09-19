@@ -10,7 +10,7 @@
 .about__content {
   display: flex;
   flex-flow: column nowrap;
-  margin: 12.6vh 5% 0 5.5vh;
+  margin: 14vh 5% 0 5.5vh;
   width: 100%;
 }
 
@@ -80,8 +80,8 @@
 
   .about__image {
     margin: 61px auto 61px 40px;
-    max-width: 464px;
-    max-height: 464px;
+    max-width: 232px;
+    max-height: 232px;
   }
 }
 

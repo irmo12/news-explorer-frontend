@@ -7,7 +7,7 @@ const SearchForm = () => {
   
   return (
     <form className="search-form">
-      <div className="search-form__txtcontainer">
+      <div className="search-form__txt-container">
         <h1 className='search-form__heading'>What's going on in the world?</h1>
         <p className='search-form__description'>Find the latest news on any topic and save them in your personal account.</p>
       </div>
