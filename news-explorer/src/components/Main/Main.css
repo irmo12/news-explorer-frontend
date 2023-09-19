@@ -17,11 +17,16 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  min-height: 576px;
+}
+
+@media screen and (max-width: 768px) {
+  .main__header-search-container {
+    min-height: 400px;
+  }
 }
 
 @media screen and (max-width: 550px) {
   .main__header-search-container {
-    max-height: 536px;
+    max-height: 576px;
   }
 }
