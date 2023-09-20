@@ -93,17 +93,25 @@
     min-height: 752px;
   }
 
+  .about__content {
+    margin: 0 16px 0;
+  }
+
   .about__title {
-    margin: 0 4%;
+    margin: 0 16px 7px;
   }
 
   .about__description {
-    margin: 0 4%;
+    margin: 0 16px;
   }
 
   .about__image {
     margin: 32px 0 24px 0;
     max-width: 272px;
     max-height: 272px;
+  }
+
+  .about__description-blank {
+    height: 24px;
   }
 }

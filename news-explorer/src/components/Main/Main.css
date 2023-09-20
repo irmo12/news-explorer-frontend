@@ -27,6 +27,6 @@
 
 @media screen and (max-width: 550px) {
   .main__header-search-container {
-    max-height: 576px;
+    max-height: 536px;
   }
 }
