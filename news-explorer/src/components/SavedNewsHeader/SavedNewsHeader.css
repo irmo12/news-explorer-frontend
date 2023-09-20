@@ -30,7 +30,7 @@
   font-size: 40px;
   line-height: 115%;
   color: #1a1b22;
-  max-width: 40vh;
+  max-width: 60vh;
   margin: 1.5vh 0 0.5vh 0;
 }
 
@@ -55,6 +55,7 @@
   .saved-news__user-message {
     font-size: 30px;
     line-height: 34px;
+    max-width: 40vh;
   }
 }
 
