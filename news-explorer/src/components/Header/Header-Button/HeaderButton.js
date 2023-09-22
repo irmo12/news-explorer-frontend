@@ -8,13 +8,13 @@ import logout from '../../../images/logout.svg';
 import logout_white from '../../../images/logout_white.svg';
 import './HeaderButton.css';
 
-function HeaderButton({ openAuthPopup }) {
+function HeaderButton({ openAuthPopup, isShowNav }) {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const { isSmallScreen } = useContext(SmallScreenContext);
   const { userData } = useContext(UserContext);
   const { isHome } = useContext(HomeContext);
   const navigate = useNavigate();
- 
+
 
   function signOut() {
     setIsLoggedIn(false);
@@ -37,7 +37,7 @@ function HeaderButton({ openAuthPopup }) {
             className={`${buttonClasses} 'header__log-button_logged_in'`}
             onClick={signOut}
           >
-            <span className={`header__username ${isHome ? '' : 'header__username_black'}`}>{userData.name}</span>
+            <span className={`header__username ${isHome || isShowNav ? '' : 'header__username_black'}`}>{userData.name}</span>
             <embed className='header__logout-icon' src={(isHome || isSmallScreen) ? logout_white : logout} alt="logout" />
           </button>
         ) : (

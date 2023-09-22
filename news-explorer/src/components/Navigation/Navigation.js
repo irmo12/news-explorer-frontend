@@ -6,14 +6,16 @@ import { HomeContext } from "../../contexts/HomeContext";
 
 import './Navigation.css';
 
-function Navigation() {
+function Navigation({ isShowNav }) {
   const { isLoggedIn } = useContext(AuthContext);
   const { isSmallScreen } = useContext(SmallScreenContext);
   const { isHome } = useContext(HomeContext);
 
-  const linkClasses = !isHome
-    ? "nav-link nav-link_saved-news"
-    : "nav-link";
+  const linkClasses = (!isHome && isShowNav) 
+  ? 'nav-link' 
+  : (!isHome && !isShowNav) 
+    ? 'nav-link nav-link_saved-news' 
+    : 'nav-link';
 
   const navContainerClasses = isLoggedIn
     ? "nav-container nav-container_logged-in"

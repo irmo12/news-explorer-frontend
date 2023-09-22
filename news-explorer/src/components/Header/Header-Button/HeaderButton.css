@@ -54,7 +54,7 @@
 
 @media screen and (max-width: 768px) {
   .header__button-logic {
-    padding: 0 7.5%;
+    padding: 0 15px;
     font-size: 16px;
   }
   .header__button-logic_home {
@@ -67,8 +67,9 @@
 
 @media screen and (max-width: 550px) {
   .header__button-logic {
-    padding: 3% 37%;
-    max-width: 285px;
-    max-height: 55px;
+    padding: 9px 119px;
+    max-width: 288px;
+    max-height: 56px;
+    margin-top: 38px;
   }
 }

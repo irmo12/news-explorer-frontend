@@ -43,18 +43,20 @@ function Header({ openAuthPopup, isOpen }) {
             <Navigation className='header__nav' />
             <HeaderButton
               openAuthPopup={openAuthPopup}
-              isHome={isHome} />
+              isHome={isHome}
+              isShowNav={isShowNav} />
           </div>
         </>) : (<>
           <div className="header__content">
-            <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
+            <Link className={!isShowNav ? titleClasses : "header__title"} to='/saved-news'>NewsExplorer</Link>
             <button className={`header__phone-button ${!isHome ? 'header__phone-button_black' : ''} ${isShowNav ? 'header__phone-button_X' : ''} ${isOpen ? 'header__phone-button_invis' : ''}`} onClick={showNav} />
           </div>
           {isShowNav && (<>
             <Navigation className="header__nav" />
             <HeaderButton
               openAuthPopup={openAuthPopup}
-              isHome={isHome} />
+              isHome={isHome}
+              isShowNav={isShowNav} />
           </>)}
         </>)
       }
