@@ -7,7 +7,7 @@
 }    
     
 @font-face {
-    font-family: "Inter", Arial;
+    font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-display: swap;
@@ -16,7 +16,7 @@
 }
 
 @font-face {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -25,7 +25,7 @@
 }
 
 @font-face {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
     font-display: swap;
@@ -34,7 +34,7 @@
 }
 
 @font-face {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
     font-display: swap;
@@ -43,7 +43,7 @@
 }
 
 @font-face {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 900;
     font-display: swap;
@@ -52,7 +52,7 @@
 }
 
 @font-face {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto Slab";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -61,7 +61,7 @@
 }
 
 @font-face {
-    font-family: "Roboto Slab", sans-serif;
+    font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
     font-display: swap;;
@@ -70,7 +70,7 @@
 }
 
 @font-face {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -79,7 +79,7 @@
 }
 
 @font-face {
-    font-family: "Source Sans 3", sans-serif;
+    font-family: "Source Sans 3";
     font-style: normal;
     font-weight: 400;
     font-display: swap;

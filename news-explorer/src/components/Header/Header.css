@@ -75,6 +75,8 @@
 
 .header__phone-button_X {
   background-image: url("../../images/close.svg");
+  max-width: 24px;
+  max-height: 24px;
 }
 
 .header__phone-button_invis {
@@ -104,6 +106,7 @@
     justify-content: space-between;
     min-height: 56px;
     margin: 0;
+    max-width: 550px;
   }
 
   .header_show-nav {
@@ -113,7 +116,6 @@
     left: 0;
     padding-bottom: 22px;
     background-color: #1a1b22;
-
   }
 
   .header__content {
@@ -134,5 +136,6 @@
 
   .header__phone-button {
     margin-right: 19px;
+    width: 4%;
   }
 }

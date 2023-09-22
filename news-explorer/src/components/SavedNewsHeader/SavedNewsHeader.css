@@ -2,6 +2,7 @@
   background-color: #fff;
   width: 100%;
   max-width: 1440px;
+  height: 294px;
 }
 
 .saved-news__content {
@@ -30,7 +31,7 @@
   font-size: 40px;
   line-height: 115%;
   color: #1a1b22;
-  max-width: 60vh;
+  max-width: 45vh;
   margin: 1.5vh 0 0.5vh 0;
 }
 
