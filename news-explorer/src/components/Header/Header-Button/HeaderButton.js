@@ -30,7 +30,7 @@ function HeaderButton({ openAuthPopup, isShowNav }) {
     : "header__log-button";
 
   return (<>
-    <div className={buttonLogicClasses}>
+    <div className={`${buttonLogicClasses} ${isLoggedIn ? 'header__button-logic_logged-in' : '' }`}>
       {
         isLoggedIn ? (
           <button

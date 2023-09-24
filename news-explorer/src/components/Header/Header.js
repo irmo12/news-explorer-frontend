@@ -16,6 +16,11 @@ function Header({ openAuthPopup, isOpen }) {
   function showNav() {
     setShowNav(!isShowNav);
   }
+  useEffect(() => {
+    if (!isSmallScreen && isShowNav===true) setShowNav(false);
+    if (isOpen) setShowNav(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSmallScreen, isOpen, isShowNav]);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -40,7 +45,7 @@ function Header({ openAuthPopup, isOpen }) {
         <>
           <div className="header__content">
             <Link className={titleClasses} to='/saved-news'>NewsExplorer</Link>
-            <Navigation className='header__nav' />
+            <Navigation className='header__nav' isShowNav={isShowNav} />
             <HeaderButton
               openAuthPopup={openAuthPopup}
               isHome={isHome}
@@ -52,7 +57,7 @@ function Header({ openAuthPopup, isOpen }) {
             <button className={`header__phone-button ${!isHome ? 'header__phone-button_black' : ''} ${isShowNav ? 'header__phone-button_X' : ''} ${isOpen ? 'header__phone-button_invis' : ''}`} onClick={showNav} />
           </div>
           {isShowNav && (<>
-            <Navigation className="header__nav" />
+            <Navigation className="header__nav" isShowNav={isShowNav} />
             <HeaderButton
               openAuthPopup={openAuthPopup}
               isHome={isHome}

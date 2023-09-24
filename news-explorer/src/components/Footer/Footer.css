@@ -43,6 +43,7 @@
   flex-flow: row nowrap;
   gap: 28px;
   align-items: center;
+  color: #1a1b22;
 }
 
 .footer-link {

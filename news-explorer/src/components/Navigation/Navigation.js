@@ -20,7 +20,6 @@ function Navigation({ isShowNav }) {
   const navContainerClasses = isLoggedIn
     ? "nav-container nav-container_logged-in"
     : "nav-container";
-
   return (
     <nav className={navContainerClasses}>
       {!isSmallScreen ? (

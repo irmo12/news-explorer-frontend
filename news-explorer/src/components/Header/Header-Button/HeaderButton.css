@@ -4,6 +4,8 @@
   font-size: 18px;
   line-height: 133%;
   padding: 0.1% 4.5%;
+  display: flex;
+  justify-content: center;
   border: 1px solid;
   border-radius: 100px;
   display: flex;
@@ -11,6 +13,7 @@
   text-align: center;
   max-width: 176px;
   color: #fff;
+  box-sizing: border-box;
 }
 
 .header__button-logic_logged-in {
@@ -38,6 +41,9 @@
   padding-right: calc(2% + 4px);
   color: #fff;
   fill: #fff;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
 }
 
 .header__log-button_home {
@@ -46,20 +52,46 @@
 
 .header__username {
   color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
 }
 
 .header__username_black {
   color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.header__logout-icon {
+  margin-right: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
 }
 
 @media screen and (max-width: 768px) {
   .header__button-logic {
-    padding: 0 15px;
+    padding: 0 16px;
     font-size: 16px;
+    width: 50%;
+    max-width: 22%;
   }
+
   .header__button-logic_home {
     padding: 0 2%;
   }
+
+  .header__button-logic_logged-in {
+    width: unset;
+  }
+  
   .header__log-button {
     padding: 8px 0;
   }
@@ -73,3 +105,37 @@
     margin-top: 38px;
   }
 }
+
+
+
+
+
+
+
+/* NOT LOGGED IN 768/
+
+
+
+@media screen and (max-width: 768px) {
+  .header__button-logic {
+      padding: 0 16px;
+    max-width: 150px;
+    width: 50%;
+    max-width: 22%;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .nav-link {
+    /* margin-right: 16px; */
+  
+  /* .nav-container { */
+    /* margin-right: 8%; */
+  
+
+
+
