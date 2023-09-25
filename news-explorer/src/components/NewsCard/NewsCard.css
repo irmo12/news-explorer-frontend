@@ -7,7 +7,7 @@
   border-radius: 10px;
   position: relative;
   max-height: 576px;
-  min-height: 420px;
+  min-height: 400px;
   justify-content: center;
 }
 
@@ -41,7 +41,8 @@
   justify-content: center;
   padding: 8px 22px;
   margin-right: 4px;
-  overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .news-card__tooltip {
@@ -60,7 +61,9 @@
   margin-right: 5px;
   margin-left: auto;
   padding: 0 26px;
-  overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .news-card__tooltip_hide {
@@ -107,7 +110,7 @@
 
 .news-card__img {
   width: 100%;
-  max-height: 47.22%;
+  max-height: 272px;
   flex: 0 0 auto;
   background-color: #000;
   align-self: flex-start;
@@ -120,9 +123,9 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
-  justify-content: space-between;
-  margin: 20px 24px 24px;
   flex: 1;
+  justify-content: space-around;
+  padding: 0 20px;
 }
 
 .news-card__text {
@@ -131,27 +134,33 @@
   font-size: 16px;
   line-height: 22px;
   color: #1a1b22;
-  overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 110px;
 }
 
 .news-card__date {
-  margin: 0;
+  margin: 3px 0;
   color: #b6bcbf;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 133%;
-  overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-card__title {
-  margin: 8px 0;
-  font-size: 22px;
+  margin: 12px 0 16px;
+  font-size: 26px;
+  line-height: 115%;
   font-weight: bold;
   font-family: "Roboto Slab", sans-serif;
   font-weight: 400;
   color: #1a1b22;
-  overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  min-height: 60px
 }
 
 .news-card__source {
@@ -163,7 +172,9 @@
   font-weight: 700;
   line-height: 125%;
   margin-top: auto;
-  overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 24px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -186,6 +197,7 @@
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
     min-height: 150px;
+    max-height: 224px;
   }
 
   .news-card__header {
@@ -201,14 +213,24 @@
     padding: 1px 16px 5p;
     gap: 4px;
     max-height: 270px;
+    margin: 4px 14px 16px;
+    max-width: 192px;
   }
 
   .news-card__text {
     margin: 2px 0 0;
+    max-height: 88px;
   }
 
   .news-card__title {
     margin: 8px 0 0;
+    min-height: 77px;
+  }
+
+  .news-card__source {
+    margin-top: 8px;
+    white-space: nowrap;
+    max-width: 192px;
   }
 }
 
