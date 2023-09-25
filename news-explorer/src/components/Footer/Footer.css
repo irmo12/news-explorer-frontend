@@ -15,16 +15,17 @@
 .footer__link-container {
   display: flex;
   flex-flow: row nowrap;
-  margin-left: 5vh;
-  margin-right: 5%;
+  margin-right: 9.2%;
+  justify-content: space-evenly;
 }
 
 .footer-signature {
   color: #b6bcbf;
   font-size: 16px;
   line-height: 138%;
-  margin-right: 5vh;
-  margin-left: 5%;
+  margin-left: 7%;
+  margin-right: 5%;
+  white-space: nowrap;
 }
 
 .footer-links {
@@ -34,16 +35,18 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  gap: 41px;
-  margin-right: 5vh;
+  align-items: center;
+  gap: 40px;
+  margin-right: 21%;
 }
 
 .footer-links__icons {
   display: flex;
   flex-flow: row nowrap;
-  gap: 28px;
   align-items: center;
   color: #1a1b22;
+  gap: 24px;
+  margin-top: 5px;
 }
 
 .footer-link {

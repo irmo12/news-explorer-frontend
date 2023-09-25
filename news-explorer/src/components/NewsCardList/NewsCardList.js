@@ -23,7 +23,7 @@ function NewsCardList({ articleList, saveOrDelArticle }) {
         </div>
         {articleList.length > 3 && (
           <button className='news-card-list__button' onClick={handleShowMoreClick}>
-            {showAll ? 'Show Less' : 'Show More'}
+            {showAll ? 'Show Less' : 'Show more'}
           </button>
         )}
       </>)}
