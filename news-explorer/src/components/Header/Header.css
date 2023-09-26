@@ -10,7 +10,8 @@
   box-sizing: border-box;
   padding: 0 7.25%;
   color: #fff;
-  min-height: 80px;
+  height: 80px;
+  padding-top:4px;
 }
 
 .header__content {

@@ -8,7 +8,7 @@
 
 .main__header-search-container {
   width: 100%;
-  height: auto;
+  height: 576px;
   background-image: url("../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png");
   background-position: center;
   background-size: cover;
@@ -17,6 +17,10 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+
+@media screen and (max-width: 1100px) {
+  
 }
 
 @media screen and (max-width: 768px) {

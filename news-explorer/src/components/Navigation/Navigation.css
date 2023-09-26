@@ -37,8 +37,8 @@
 
 .active {
   border-bottom: 3px solid;
-  margin-top: 28px;
-  padding: 0 15% 28px 15%;
+  margin-top: 21px;
+  padding: 0 15% 24px 15%;
 }
 
 @media screen and (max-width: 768px) {
