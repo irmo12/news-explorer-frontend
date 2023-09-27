@@ -20,17 +20,19 @@
 }
 
 @media screen and (max-width: 1100px) {
-  
+  .main__header-search-container {
+    height: 488px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .main__header-search-container {
-    min-height: 400px;
+    height: 400px;
   }
 }
 
 @media screen and (max-width: 550px) {
   .main__header-search-container {
-    max-height: 536px;
+    height: 536px;
   }
 }

@@ -1,7 +1,6 @@
 .news-card {
   display: flex;
   flex-direction: column;
-  flex: 1;
   width: 100%;
   background-color: #fff;
   border-radius: 10px;
@@ -207,17 +206,24 @@
 
   .news-card__date {
     font-size: 16px;
-    margin-top: 13px;
+    /* margin-top: 13px; */
     overflow: hidden;
     white-space: nowrap;
+    justify-self: flex-start;
+    align-self: flex-start;
   }
 
   .news-card__texts {
     padding: unset;
-    gap: 4px;
-    max-height: 270px;
-    margin: 4px 16px 16px;
-    max-width: 192px;
+    height: 270px;
+    grid-template-rows: 30px 77px 1fr 20px;
+    margin: 1px 0 16px 16px;
+    justify-self: start;
+    gap: 12px;
+    min-width: 0;
+    max-width: 224px;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .news-card__text {
@@ -231,11 +237,13 @@
 
   .news-card__title {
     margin: 8px 0 0;
-    min-height: 77px;
+    min-height: 60px;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 22px;
     line-height: 24px;
+    align-self: self-start;
+    min-width: 0px;
   }
 
   .news-card__source {
@@ -244,7 +252,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     align-self: flex-end;
-    margin: 0 0 20px;
+    margin: 0 0 0;
   }
 }
 
