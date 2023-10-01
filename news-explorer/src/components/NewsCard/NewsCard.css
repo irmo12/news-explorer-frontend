@@ -122,13 +122,13 @@
   justify-content: flex-start;
   display: grid;
   padding: 0 23px;
-  grid-template-rows: 0.2fr 2.2fr 3.5fr .8fr;
-  gap: 12px;
+  grid-template-rows: 0.2fr 2.2fr 3.5fr 0.8fr;
+  grid-template-columns: auto;
+  grid-gap: 12px;
   height: 100%;
   max-height: 304px;
   overflow: hidden;
 }
-
 
 .news-card__text {
   font-family: "Roboto", sans-serif;
@@ -142,7 +142,9 @@
   min-height: 0;
   min-width: 0;
   max-width: 100%;
-  flex-wrap: wrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6; 
 }
 
 .news-card__date {
@@ -169,6 +171,9 @@
   min-height: 60px;
   max-width: 315px;
   align-self: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
 }
 
 .news-card__source {
@@ -206,7 +211,7 @@
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
     height: 35.7%;
-    max-height: 150px;
+    height: 150px;
   }
 
   .news-card__header {
@@ -215,7 +220,7 @@
 
   .news-card__date {
     font-size: 16px;
-    margin-top: 13px;
+    margin-top: 16px;
     overflow: hidden;
     white-space: nowrap;
     justify-self: flex-start;
@@ -230,13 +235,14 @@
     justify-self: start;
     gap: 12px;
     min-width: 0;
-    max-width: 224px;
     align-items: flex-start;
     justify-content: flex-start;
+    height: 270px;
+    gap: 19px;
   }
 
   .news-card__text {
-    margin: 2px 0 0;
+    margin: 0;
     max-height: 88px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -246,7 +252,6 @@
   }
 
   .news-card__title {
-    margin: 8px 0 0;
     min-height: 60px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -254,6 +259,7 @@
     line-height: 24px;
     align-self: start;
     min-width: 0px;
+    margin: 13px 0 0;
   }
 
   .news-card__source {
@@ -266,9 +272,41 @@
   }
 }
 
+
+
 @media screen and (max-width: 550px) {
+  .news-card {
+    height: 440px;
+    max-height: unset;
+  }
+
+  .news-card__img {
+    height: 196px;
+  }
+
+  .news-card__header {
+    padding: 16px;
+  }
+
+  .news-card__date {
+    margin-top: 3px;
+  }
+
+  .news-card__title {
+    -webkit-line-clamp: 2;
+    margin-top: 3px;
+    max-height: 48px;
+    min-height: 0px;
+  }
+
   .news-card__texts {
     margin: 16px;
+    height: 244px;
+    grid-gap: 5px;
+    grid-template-rows: .22fr .22fr .8fr 1fr;
+  }
+
+  .news-card__text {
   }
 
   .news-card__tooltip {

@@ -31,7 +31,7 @@ function NewsCard({ article, saveOrDelArticle }) {
       <div className='news-card__texts'>
         <h4 className="news-card__date">{article.date}</h4>
         <h5 className="news-card__title">{article.title}</h5>
-        <p className="news-card__text"><p className="news-card__text-overflow">{article.text}</p></p>
+        <p className="news-card__text">{article.text}</p>
         <span className="news-card__source">{article.source}</span>
       </div>
     </article >
