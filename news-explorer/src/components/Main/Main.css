@@ -31,7 +31,7 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .main__header-search-container {
     height: 536px;
   }

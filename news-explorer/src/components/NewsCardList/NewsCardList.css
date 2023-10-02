@@ -111,7 +111,7 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .news-card-list__heading {
     margin-top: 32px;
     margin-bottom: 58px;

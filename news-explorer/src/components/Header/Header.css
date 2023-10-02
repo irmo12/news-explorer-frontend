@@ -11,7 +11,7 @@
   padding: 0 7.25%;
   color: #fff;
   height: 80px;
-  padding-top:4px;
+  padding-top: 4px;
 }
 
 .header__content {
@@ -24,7 +24,7 @@
 }
 
 .header_saved-news {
-  color: #1A1B22;
+  color: #1a1b22;
   background-color: #fff;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .header__title_saved-news {
-  color: #1A1B22;
+  color: #1a1b22;
 }
 
 .header__nav {
@@ -100,7 +100,7 @@
 @media screen and (max-width: 580px) {
   .header {
     background-color: transparent;
-    padding: 10px 0 0;
+    padding: 0 0 0;
     width: 100%;
     flex-flow: column nowrap;
     border-bottom: none;
@@ -110,13 +110,15 @@
   }
 
   .header_show-nav {
-    max-height: 230px;
+    max-height: unset;
+    height: 230px;
     position: absolute;
     top: 0;
     left: 0;
-    padding-bottom: 22px;
     background-color: #1a1b22;
     color: #fff;
+    gap: 0;
+    justify-content: normal;
   }
 
   .header__content {
@@ -125,8 +127,10 @@
     border-bottom: 1px solid rgba(84, 84, 84, 0.8);
     justify-content: space-evenly;
     align-items: center;
-    padding: 0 0 14px 0;
-    margin-top: 4px;
+    padding: 0;
+    margin-top: 0px;
+    height: 56px;
+    box-sizing: border-box;
   }
 
   .header__title {
@@ -140,7 +144,7 @@
   }
 
   .header__title_saved-news {
-    color: #1A1B22;
+    color: #1a1b22;
   }
 
   .header__phone-button {

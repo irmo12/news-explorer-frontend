@@ -150,10 +150,10 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .search-form {
-    margin: 30px 16px 32px;
-    gap: 16px;
+    margin: 14px 15px 32px;
+    gap: 15px;
   }
 
   .search-form__txt-container {

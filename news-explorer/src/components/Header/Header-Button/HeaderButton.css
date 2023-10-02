@@ -97,12 +97,12 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 580px) {
   .header__button-logic {
-    padding: 9px 119px;
     max-width: 288px;
     max-height: 56px;
-    margin-top: 38px;
+    padding: 9px 142px;
+    margin: 43px 0 15px;
   }
 }
 
