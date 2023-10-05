@@ -13,14 +13,14 @@ function NewsCardList({ articleList, saveOrDelArticle }) {
   }
 
   return (
-    <list className="news-card-list">
+    <div className="news-card-list">
       {location.pathname === '/' && (<>
         <h2 className='news-card-list__heading'>Search results</h2>
-        <div className={`news-card-list__grid ${showAll ? 'news-card-list__grid_show-more' : ``}`}>
+        <ul className={`news-card-list__grid ${showAll ? 'news-card-list__grid_show-more' : ``}`}>
           {articleList.slice(0, visibleCards).map((article) => (
             <NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} />
           ))}
-        </div>
+        </ul>
         {articleList.length > 3 && (
           <button className='news-card-list__button' onClick={handleShowMoreClick}>
             {showAll ? 'Show Less' : 'Show more'}
@@ -32,7 +32,7 @@ function NewsCardList({ articleList, saveOrDelArticle }) {
           {articleList.map((article) => (<NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} />))}
         </div>
       </>)}
-    </list>
+    </div>
   );
 }
 

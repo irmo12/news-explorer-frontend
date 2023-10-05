@@ -14,7 +14,7 @@ import { api } from '../../utils/api';
 function App() {
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
   const [isSignIn, setIsSignIn] = useState(true);
-  const { userData, setUserData } = useContext(UserContext);
+  const { setUserData } = useContext(UserContext);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const { setIsLoggedIn } = useContext(AuthContext);
   // const [newsData, setNewsData] = useState([]);
@@ -74,6 +74,7 @@ function App() {
           console.log(err.code, err.message);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
