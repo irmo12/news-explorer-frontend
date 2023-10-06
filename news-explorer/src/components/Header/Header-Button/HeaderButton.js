@@ -15,6 +15,7 @@ function HeaderButton({ openAuthPopup, isShowNav }) {
   const { isHome } = useContext(HomeContext);
   const navigate = useNavigate();
 
+  userData.name = 'Elise';//tmp
 
   function signOut() {
     setIsLoggedIn(false);
@@ -30,7 +31,7 @@ function HeaderButton({ openAuthPopup, isShowNav }) {
     : "header__log-button";
 
   return (<>
-    <div className={`${buttonLogicClasses} ${isLoggedIn ? 'header__button-logic_logged-in' : '' }`}>
+    <div className={`${buttonLogicClasses} ${isLoggedIn ? 'header__button-logic_logged-in' : ''}`}>
       {
         isLoggedIn ? (
           <button

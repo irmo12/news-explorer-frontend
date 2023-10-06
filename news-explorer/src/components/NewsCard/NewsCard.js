@@ -12,7 +12,7 @@ function NewsCard({ article, saveOrDelArticle }) {
   }
 
   return (
-    <li className="newsCard-li">
+    <li className="news-card-li">
       <article className="news-card" id={article._id}>
         <img
           className="news-card__img"
