@@ -1,10 +1,24 @@
 import React, { useContext } from 'react';
 import './SearchForm.css';
 import { SmallScreenContext } from '../../contexts/SmallScreenContext';
+import { useFormValidation } from '../../utils/useFormValidation.js';
 
-const SearchForm = () => {
+
+const SearchForm = ({getArticleList, setInfoPopup}) => {
   const { isSmallScreen } = useContext(SmallScreenContext);
-  
+  const {
+    values,
+    errors,
+    isValid,
+  } = useFormValidation();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // isValid ? 
+    //callnewsapi
+    setInfoPopup({isInfoOpen: true, msg: errors.message, displayLink: false})
+  }
+
   return (
     <form className="search-form">
       <div className="search-form__txt-container">
@@ -18,9 +32,18 @@ const SearchForm = () => {
         </div></>
       ) : (<>
         <div className="search-form__search-bar search-form__search-bar_stacked">
-          <input className="search-form__input" type="text" placeholder="Enter topic" />
+          <input className="search-form__input"
+            type="search"
+            required
+            placeholder="Enter topic"
+            id="search"
+            name='newsSearch'
+            value={values.newsSearch || ''}
+             />
         </div>
-        <button className='search-form__submit search-form__submit_stacked'>Search</button>
+        <button className='search-form__submit search-form__submit_stacked'
+        onSubmit={handleSubmit}
+        >Search</button>
       </>)}
     </form>
   );

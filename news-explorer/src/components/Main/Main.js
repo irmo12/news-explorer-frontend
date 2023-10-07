@@ -13,7 +13,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 
-function Main({ openAuthPopup, newsData, isOpen, saveOrDelArticle }) {
+function Main({ openAuthPopup, newsData, isOpen, saveOrDelArticle, setInfoOpen }) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasResults, setHasResults] = useState(false);
   const { isLoggedIn } = useContext(AuthContext);
@@ -34,7 +34,7 @@ function Main({ openAuthPopup, newsData, isOpen, saveOrDelArticle }) {
             element={<>
               <div className="main__header-search-container">
                 <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                <SearchForm getArticleList={getArticleList} />
+                <SearchForm getArticleList={getArticleList} setInfoOpen={setInfoOpen} />
               </div>
               <Preloader isLoading={isLoading} hasResults={hasResults} />
               <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle}/>
