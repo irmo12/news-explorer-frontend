@@ -8,10 +8,11 @@ export default function PopupWithForm({
   children,
   isValid,
   isSignIn,
-  toggleSignInUp
+  toggleSignInUp,
+  failureMessage,
 }) {
 
-  
+
 
   return (
     <div className={`popup ${isOpen ? 'popup_active' : ''}`} id={name}>
@@ -25,6 +26,12 @@ export default function PopupWithForm({
         <form name={name} className="popup__form" onSubmit={onSubmit}>
           <h2 className="popup__form-heading">{isSignIn ? 'Sign in' : 'Sign up'}</h2>
           {children}
+          <span
+            className={failureMessage ?
+              'popup__signup-login-fail-msg'
+              : 'popup__signup-login-fail-msg_hidden'}>
+            {failureMessage}
+          </span>
           <button
             type="submit"
             className="popup__form-submit"
