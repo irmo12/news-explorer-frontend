@@ -8,7 +8,6 @@ const SearchForm = ({getArticleList, setInfoPopup}) => {
   const { isSmallScreen } = useContext(SmallScreenContext);
   const {
     values,
-    errors,
     isValid,
   } = useFormValidation();
 
@@ -16,7 +15,7 @@ const SearchForm = ({getArticleList, setInfoPopup}) => {
     e.preventDefault();
     // isValid ? 
     //callnewsapi
-    setInfoPopup({isInfoOpen: true, msg: errors.message, displayLink: false})
+    setInfoPopup({isInfoOpen: true, msg: 'Please enter a keyword', displayLink: false})
   }
 
   return (

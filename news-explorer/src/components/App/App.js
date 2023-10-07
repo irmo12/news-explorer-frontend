@@ -9,7 +9,7 @@ import { SmallScreenProvider } from '../../contexts/SmallScreenContext';
 import { AuthContext } from '../../contexts/AuthContext';
 import { UserContext } from '../../contexts/UserContext';
 import { auth } from '../../utils/auth';
-import { api } from '../../utils/MainApi';
+import { mainApi } from '../../utils/MainApi';
 
 function App() {
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
@@ -70,7 +70,7 @@ function App() {
         setIsLoggedIn(true);
         navigate('/saved-news');
       });
-      api
+      mainApi
         .getArticles(localStorage.getItem('token'))
         .then((data) => {
           setNewsData(data);
@@ -116,14 +116,14 @@ function App() {
 
   function saveOrDelArticle(article, isSaved) {
     if (!isSaved) {
-      api
+      mainApi
         .saveNewArticle(article, localStorage.getItem('token'))
         .then((res) => {
           setNewsData([res, ...newsData]);
         })
         .catch((err) => console.log(err));
     } else {
-      api
+      mainApi
         .deleteCard(article._id, localStorage.getItem('token'))
         .then(() => {
           setNewsData((current) =>

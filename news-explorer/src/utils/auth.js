@@ -1,17 +1,17 @@
-import { api } from './MainApi';
+import { mainApi } from './MainApi';
 
 const auth = {
 
   signin: (data) => {
-    return api.authorizationParams(data)
+    return mainApi.authorizationParams(data)
       .then((data) => { localStorage.setItem('token', data.token); });
   },
 
   signup: (data) => {
-    return api.registerParams(data);
+    return mainApi.registerParams(data);
   },
 
-  checkToken: (token) => { return api.getUserAuth(token); },
+  checkToken: (token) => { return mainApi.getUserAuth(token); },
 
 };
 
