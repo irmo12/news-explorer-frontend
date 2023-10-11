@@ -10,6 +10,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { UserContext } from '../../contexts/UserContext';
 import { auth } from '../../utils/auth';
 import { mainApi } from '../../utils/MainApi';
+import { newsApi } from '../../utils/NewsApi';
 
 function App() {
   const [isAuthPopupOpen, setIsAuthPopupOpen] = useState(false);
@@ -21,7 +22,8 @@ function App() {
     displayLink: false
   });
   const { setIsLoggedIn } = useContext(AuthContext);
-  const [newsData, setNewsData] = useState([]);
+  const [newsData, setNewsData] = useState([]); // from saved
+  const [newsResults, setNewsResults] = useState([]); // from newsApi
   const navigate = useNavigate();
 
   function handleAuthSubmit(data) {
@@ -49,9 +51,11 @@ function App() {
         .signup(data)
         .then(() => {
           closePopups();
-          setInfoPopup({isInfoOpen: true,
+          setInfoPopup({
+            isInfoOpen: true,
             msg: 'Registration successfully completed!',
-            displayLink: true});
+            displayLink: true
+          });
         })
         .catch((err) => {
           closePopups();
@@ -90,7 +94,7 @@ function App() {
 
   function closePopups() {
     setIsAuthPopupOpen(false);
-    setInfoPopup(prev=>({...prev, isInfoOpen: false}));
+    setInfoPopup(prev => ({ ...prev, isInfoOpen: false }));
   }
 
   useEffect(() => {
@@ -113,6 +117,25 @@ function App() {
     setIsSignIn(true);
     openAuthPopup();
   }
+
+  function sendSearchQuery(q) {
+    newsApi
+      .searchArticles(q)
+      .then((data) => {
+        if (data.totalResults !== 0) {
+          localStorage.setItem('searchResults', data.articles);
+          setNewsResults(localStorage.getItem, 'searchResults');
+        }
+        else { setNewsResults([]); }
+      }).catch((error) => {
+        localStorage.removeItem('searchResults');
+        setNewsResults([]);
+        setInfoPopup({  isInfoOpen: true,
+          msg: 'error: ' + error.message,
+          displayLink: false})
+      });
+  }
+
 
   function saveOrDelArticle(article, isSaved) {
     if (!isSaved) {
@@ -203,7 +226,8 @@ function App() {
           newsData={newsData}
           isOpen={isAuthPopupOpen}
           saveOrDelArticle={saveOrDelArticle}
-          setInfoPopup={setInfoPopup} />
+          setInfoPopup={setInfoPopup}
+          newsResults={newsResults} />
         <Footer />
       </page>
     </SmallScreenProvider>

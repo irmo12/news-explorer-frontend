@@ -31,12 +31,10 @@ fromDate = fromDate.toISOString().split('T')[0];
 const newsApi = new NewsApi({
     baseURL: 'https://newsapi.org/everything',
     headers: { 'Content-Type': 'application/json' },
-    params: {
-        apiKey: '1d69077a4808446e9ba0af576fa91c61',
-        from: fromDate,
-        to: toDate,
-        pageSize: 100
-    }
+    apiKey: '1d69077a4808446e9ba0af576fa91c61',
+    from: fromDate,
+    to: toDate,
+    pageSize: 100,
 });
 
 export { newsApi };

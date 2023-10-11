@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Main.css';
 import Header from '../Header/Header';
 import SearchForm from '../SearchForm/SearchForm';
@@ -13,41 +13,39 @@ import { Route, Routes } from 'react-router-dom';
 
 
 
-function Main({ openAuthPopup, newsData, isOpen, saveOrDelArticle, setInfoOpen }) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [hasResults, setHasResults] = useState(false);
+function Main({ openAuthPopup, newsData, isOpen, sendSearchQuery, saveOrDelArticle, setInfoOpen, newsResults }) {
+  const [preLoader, setPreloader] = useState({ isLoading: false, stillSearching: true });
   const { isLoggedIn } = useContext(AuthContext);
   const articleList = Object.values(newsData);
   const { userData } = useContext(UserContext);
 
-  function getArticleList() { 
-    setHasResults(false);
-    setIsLoading(false);
-  }
+  useEffect (() => {
+    if (newsResults) {setPreloader((prev) => ({...prev, isLoading: false }));}
+  }, [newsResults]);
 
   return (
     <>
       <main className="main">
         <HomeProvider>
-        <Routes>
-          <Route path='/'
-            element={<>
-              <div className="main__header-search-container">
-                <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                <SearchForm getArticleList={getArticleList} setInfoOpen={setInfoOpen} />
-              </div>
-              <Preloader isLoading={isLoading} hasResults={hasResults} />
-              <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle}/>
-              <About />
-            </>} />
-          {isLoggedIn && (
-            <Route path='/saved-news'
+          <Routes>
+            <Route path='/'
               element={<>
-                <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                <SavedNewsHeader articleList={articleList} username={userData.name} />
+                <div className="main__header-search-container">
+                  <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
+                  <SearchForm sendSearchQuery={sendSearchQuery} setInfoOpen={setInfoOpen} setPreLoader={setPreloader} />
+                </div>
+                <Preloader isLoading={preLoader.isLoading} hasResults={preLoader.hasResults} />
+                <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle} />
+                <About />
               </>} />
-          )}
-        </Routes>
+            {isLoggedIn && (
+              <Route path='/saved-news'
+                element={<>
+                  <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
+                  <SavedNewsHeader articleList={articleList} username={userData.name} />
+                </>} />
+            )}
+          </Routes>
         </HomeProvider>
       </main>
     </>
