@@ -14,7 +14,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 function Main({ openAuthPopup, newsData, isOpen, sendSearchQuery, saveOrDelArticle, setInfoOpen, newsResults }) {
-  const [preLoader, setPreloader] = useState({ isLoading: false, stillSearching: true });
+  const [preLoader, setPreloader] = useState({ isLoading: newsResults.waiting || (newsResults.waiting && !newsResults.data), stillSearching: newsResults.waiting });
   const { isLoggedIn } = useContext(AuthContext);
   const articleList = Object.values(newsData);
   const { userData } = useContext(UserContext);
@@ -34,7 +34,7 @@ function Main({ openAuthPopup, newsData, isOpen, sendSearchQuery, saveOrDelArtic
                   <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
                   <SearchForm sendSearchQuery={sendSearchQuery} setInfoOpen={setInfoOpen} setPreLoader={setPreloader} />
                 </div>
-                <Preloader isLoading={preLoader.isLoading} hasResults={preLoader.hasResults} />
+                <Preloader isLoading={preLoader.isLoading} stillSearching={preLoader.stillSearching} />
                 <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle} />
                 <About />
               </>} />

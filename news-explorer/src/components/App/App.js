@@ -23,7 +23,7 @@ function App() {
   });
   const { setIsLoggedIn } = useContext(AuthContext);
   const [newsData, setNewsData] = useState([]); // from saved
-  const [newsResults, setNewsResults] = useState([]); // from newsApi
+  const [newsResults, setNewsResults] = useState({data: [], waiting: true}); // from newsApi
   const navigate = useNavigate();
 
   function handleAuthSubmit(data) {
@@ -124,12 +124,12 @@ function App() {
       .then((data) => {
         if (data.totalResults !== 0) {
           localStorage.setItem('searchResults', data.articles);
-          setNewsResults(localStorage.getItem, 'searchResults');
+          setNewsResults({waiting: false, data: localStorage.getItem('searchResults')});
         }
         else { setNewsResults([]); }
       }).catch((error) => {
         localStorage.removeItem('searchResults');
-        setNewsResults([]);
+        setNewsResults({waiting: false, data:[]});
         setInfoPopup({  isInfoOpen: true,
           msg: 'error: ' + error.message,
           displayLink: false})
