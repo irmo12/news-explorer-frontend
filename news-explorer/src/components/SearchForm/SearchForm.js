@@ -11,7 +11,6 @@ const SearchForm = ({ sendSearchQuery, setInfoPopup, setPreLoader }) => {
   } = useFormValidation();
 
   function handleSubmit(e) {
-    console.log(e.target.value);
     e.preventDefault();
     const q = values.newsSearch.trim();
     if (q === '') { setInfoPopup({ isInfoOpen: true, msg: 'Please enter a keyword', displayLink: false }); return; }
