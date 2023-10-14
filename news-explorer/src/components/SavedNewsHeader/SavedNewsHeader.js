@@ -2,7 +2,7 @@ import React from 'react';
 import './SavedNewsHeader.css';
 import NewsCardList from '../NewsCardList/NewsCardList';
 
-function SavedNewsHeader({ articleList, username = 'Elise' }) {
+function SavedNewsHeader({ articleList }) {
   const numberOfSavedArticles = articleList.length;
 
   const distinctKeywords = [...new Set(articleList.map(news => capitalizeKeyword(news.keyword)))];

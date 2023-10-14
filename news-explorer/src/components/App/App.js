@@ -23,7 +23,7 @@ function App() {
   });
   const { setIsLoggedIn } = useContext(AuthContext);
   const [newsData, setNewsData] = useState([]); // from saved
-  const [newsResults, setNewsResults] = useState({data: [], waiting: true}); // from newsApi
+  const [newsResults, setNewsResults] = useState({ data: [], waiting: true, errMsg: '' }); // from newsApi
   const navigate = useNavigate();
 
   function handleAuthSubmit(data) {
@@ -124,17 +124,23 @@ function App() {
       .then((data) => {
         if (data.totalResults !== 0) {
           localStorage.setItem('searchResults', data.articles);
-          setNewsResults({waiting: false, data: localStorage.getItem('searchResults')});
+          setNewsResults({
+            waiting: false,
+            data: localStorage.getItem('searchResults'),
+            errMsg: ''
+          });
         }
         else { setNewsResults([]); }
       }).catch((error) => {
         localStorage.removeItem('searchResults');
-        setNewsResults({waiting: false, data:[]});
-        setInfoPopup({  isInfoOpen: true,
-          msg: 'error: ' + error.message,
-          displayLink: false})
+        setNewsResults({
+          waiting: false,
+          data: [],
+          errMsg: 'error: ' + error.message
+        });
       });
   }
+
 
 
   function saveOrDelArticle(article, isSaved) {
@@ -227,6 +233,7 @@ function App() {
           isOpen={isAuthPopupOpen}
           saveOrDelArticle={saveOrDelArticle}
           setInfoPopup={setInfoPopup}
+          sendSearchQuery={sendSearchQuery}
           newsResults={newsResults} />
         <Footer />
       </page>

@@ -1,7 +1,7 @@
 .news-card-list {
   color: #1a1b22;
   background: #f5f6f7;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -25,11 +25,6 @@
   flex-wrap: wrap;
   overflow: hidden;
   max-height: 600px;
-}
-
-.news-card-list__grid_show-more {
-  overflow: visible;
-  max-height: none;
 }
 
 .news-card-list__button {

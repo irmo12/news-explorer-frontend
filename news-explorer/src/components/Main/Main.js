@@ -35,7 +35,7 @@ function Main({ openAuthPopup, newsData, isOpen, sendSearchQuery, saveOrDelArtic
                   <SearchForm sendSearchQuery={sendSearchQuery} setInfoOpen={setInfoOpen} setPreLoader={setPreloader} />
                 </div>
                 <Preloader isLoading={preLoader.isLoading} stillSearching={preLoader.stillSearching} />
-                <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle} />
+                <NewsCardList newsResults={newsResults} saveOrDelArticle={saveOrDelArticle} />
                 <About />
               </>} />
             {isLoggedIn && (
