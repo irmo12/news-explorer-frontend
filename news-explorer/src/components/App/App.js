@@ -219,7 +219,7 @@ function App() {
 
   return (
     <SmallScreenProvider>
-      <page className="page">
+      <main className="page">
         <AuthPopup
           isSignIn={isSignIn}
           isOpen={isAuthPopupOpen}
@@ -236,7 +236,7 @@ function App() {
           sendSearchQuery={sendSearchQuery}
           newsResults={newsResults} />
         <Footer />
-      </page>
+      </main>
     </SmallScreenProvider>
   );
 }
