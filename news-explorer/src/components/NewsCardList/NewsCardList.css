@@ -23,8 +23,6 @@
   gap: 16px;
   margin: 4.2% 7.3%;
   flex-wrap: wrap;
-  overflow: hidden;
-  max-height: 600px;
 }
 
 .news-card-list__button {
@@ -64,7 +62,6 @@
     margin-right: 40px;
     grid-template-columns: repeat(3, minmax(224px, 1fr));
     gap: 8px;
-    max-height: 1200px;
   }
 
   .news-card-list__grid_show-more {
@@ -119,12 +116,6 @@
     gap: 10px;
     margin-left: 16px;
     margin-right: 16px;
-    max-height: 1700px;
-  }
-
-  .news-card-list__grid_show-more {
-    overflow: visible;
-    max-height: none;
   }
 
   .news-card-list__button {
