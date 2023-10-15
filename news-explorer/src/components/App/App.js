@@ -122,12 +122,11 @@ function App() {
     newsApi
       .searchArticles(q)
       .then((data) => {
-        console.log(data);
         if (data.totalResults !== 0) {
-          localStorage.setItem('searchResults', data.articles);
+          localStorage.setItem('searchResults', JSON.stringify(data.articles));
           setNewsResults({
             waiting: false,
-            data: localStorage.getItem('searchResults'),
+            data: JSON.parse(localStorage.getItem('searchResults')),
             errMsg: ''
           });
         }

@@ -10,7 +10,7 @@ class NewsApi {
   }
 
   _processResponse = (res) => {
-    return res.ok ? res : Promise.reject(`Error: ${res.statusText}`);
+    return res.ok ? res.json() : Promise.reject(`Error: ${res.statusText}`);
   };
 
   searchArticles(q) {
@@ -29,7 +29,7 @@ fromDate.setDate(currentDate.getDate() - 7);
 fromDate = fromDate.toISOString().split('T')[0];
 
 const newsApi = new NewsApi({
-  baseURL: 'https://nomoreparties.co/news/',
+  baseURL: 'https://nomoreparties.co/news/v2/everything',
   headers: { 'Content-Type': 'application/json' },
   apiKey: '1d69077a4808446e9ba0af576fa91c61',
   from: fromDate,

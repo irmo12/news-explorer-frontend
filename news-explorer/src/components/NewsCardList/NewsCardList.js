@@ -4,7 +4,7 @@ import NewsCard from '../NewsCard/NewsCard';
 import { useLocation } from 'react-router-dom';
 
 function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
-  articleList = articleList ? articleList : Object.values(newsResults.data);
+  articleList = articleList ? articleList : (newsResults.data ? Object.values(newsResults.data) : articleList);
   const [visibleCount, setVisibleCount] = useState(3);
   const location = useLocation();
 
@@ -15,7 +15,6 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
       setVisibleCount(visibleCount + 3);
     }
   }
-
   return (
     <div className="news-card-list">
       {location.pathname === '/' && (
