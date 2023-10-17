@@ -19,12 +19,12 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
     <div className="news-card-list">
       {location.pathname === '/' && (
         <>
-          <h2 className='news-card-list__heading'>Search results</h2>
+          {!newsResults.waiting && (<h2 className='news-card-list__heading'>Search results</h2>)}
           {newsResults.errMsg !== '' && (
-            <p className='news-card-list__error'>
+            <><p className='news-card-list__error'>
               Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.
-              {`'error': ${newsResults.errMsg}`}
-            </p>
+            </p><span className='news-card-list__error-msg'>{`'error': ${newsResults.errMsg}`}</span></>
+
           )}
           <ul className={'news-card-list__grid'}>
             {articleList.slice(0, visibleCount).map((article) => (
@@ -39,7 +39,7 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
         </>
       )}
       {location.pathname === '/saved-news' && (
-        <div className='news-card-list__grid news-card-list__grid_show-more'>
+        <div className='news-card-list__grid'>
           {articleList.map((article) =>
           (<NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} />
           ))}

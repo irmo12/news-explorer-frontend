@@ -119,11 +119,18 @@ function App() {
   }
 
   function sendSearchQuery(q) {
+    setNewsResults({ waiting: true, data: [], errMsg: '' });
+    let words = q.split(" ");
+    let keyWord = words.shift();
+  
     newsApi
       .searchArticles(q)
       .then((data) => {
         if (data.totalResults !== 0) {
-          localStorage.setItem('searchResults', JSON.stringify(data.articles));
+          let newArticles = data.articles.map(obj => {
+            return { ...obj, keyword: keyWord };
+          })
+          localStorage.setItem('searchResults', JSON.stringify(newArticles));
           setNewsResults({
             waiting: false,
             data: JSON.parse(localStorage.getItem('searchResults')),
