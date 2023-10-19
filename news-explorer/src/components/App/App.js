@@ -73,16 +73,18 @@ function App() {
         }));
         setIsLoggedIn(true);
         navigate('/saved-news');
+      }).catch((err) => {
+        console.log(err.code, err.message);
       });
-      mainApi
-        .getArticles(localStorage.getItem('token'))
-        .then((data) => {
-          setNewsData(data);
-          console.log(data);
-        })
-        .catch((err) => {
-          console.log(err.code, err.message);
-        });
+
+      // mainApi
+      //   .getArticles(localStorage.getItem('token'))
+      //   .then((data) => {
+      //     setNewsData(data);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err.code, err.message);
+      //   });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -122,14 +124,17 @@ function App() {
     setNewsResults({ waiting: true, data: [], errMsg: '' });
     let words = q.split(" ");
     let keyWord = words.shift();
-  
+
     newsApi
       .searchArticles(q)
       .then((data) => {
         if (data.totalResults !== 0) {
           let newArticles = data.articles.map(obj => {
-            return { ...obj, keyword: keyWord };
-          })
+            return { ...obj, keyword: keyWord, _id: crypto.randomUUID() };
+          });
+
+
+
           localStorage.setItem('searchResults', JSON.stringify(newArticles));
           setNewsResults({
             waiting: false,
@@ -148,10 +153,33 @@ function App() {
       });
   }
 
+  function preSendArticle(article) {
+    const keyMap = {
+      keyword: 'keyword',
+      title: 'title',
+      description: 'text',
+      publishedAt: 'date',
+      source: 'source',
+      url: 'link',
+      urlToImage: 'image'
+    };
+
+    return Object.keys(article).reduce((obj, key) => {
+      if (key in keyMap) {
+        if (key === 'source') {
+          obj[key] = article[key].name;
+        } else {
+          obj[keyMap[key]] = article[key];
+        }
+      }
+      return obj;
+    }, {});
+  }
 
 
   function saveOrDelArticle(article, isSaved) {
     if (!isSaved) {
+      article = preSendArticle(article);
       mainApi
         .saveNewArticle(article, localStorage.getItem('token'))
         .then((res) => {

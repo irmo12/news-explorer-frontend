@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import './NewsCard.css';
+import { AuthContext } from "../../contexts/AuthContext";
 
 function NewsCard({ article, saveOrDelArticle }) {
   const location = useLocation();
   const isSaved = location.pathname === '/saved-news';
+  const { isLoggedIn } = useContext(AuthContext);
 
   function handleButtonClick(e) {
     e.preventDefault();
@@ -28,14 +30,14 @@ function NewsCard({ article, saveOrDelArticle }) {
             alt={article.title}
           />
           <div className='news-card__header'>
-            <h3 className='news-card__keyword'>{article.keyword}</h3>
-            <abbr className='news-card__tooltip'>{isSaved ? 'Remove from saved' : 'Sign in to save articles'}</abbr>
             <button
               className={`news-card__save-del ${buttonClasses}`}
               type="button"
               aria-label="save/delete"
               onClick={handleButtonClick}
             />
+            <abbr className={`news-card__tooltip ${(isLoggedIn && !isSaved) ? 'news-card__tooltip_hidden' : ''}`}>{isSaved ? 'Remove from saved' : 'Sign in to save articles'}</abbr>
+            <h3 className='news-card__keyword'>{article.keyword}</h3>
           </div>
           <div className='news-card__texts'>
             <h4 className="news-card__date">{formattedDate}</h4>

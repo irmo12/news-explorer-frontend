@@ -20,6 +20,7 @@
 
 .news-card__header {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   padding: 23px;
   position: absolute;
@@ -74,8 +75,16 @@
   white-space: nowrap;
 }
 
-.news-card__tooltip_hide {
+.news-card__tooltip {
   display: none;
+}
+
+.news-card__tooltip_hidden {
+  display: none !important;
+}
+
+.news-card__save-del:hover + .news-card__tooltip {
+  display: flex;
 }
 
 .news-card__save-del {
@@ -93,6 +102,7 @@
   box-shadow: none;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .news-card__save-del_results:disabled {

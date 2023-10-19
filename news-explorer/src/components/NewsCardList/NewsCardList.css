@@ -49,14 +49,23 @@
 .news-card-list__button:hover {
   background-color: #e8e8e8;
 }
+
 .news-card-list__error {
   font-family: "Roboto Slab", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 115%;
-  
+  margin: 24px 24px;
+}
 
+.news-card-list__error-msg {
+  font-family: "Roboto Slab", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 115%;
+  margin: 24px 24px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -89,7 +98,7 @@
   .news-card-list {
     height: unset;
   }
-  
+
   .news-card-list__heading {
     font-size: 30px;
     line-height: 34px;
