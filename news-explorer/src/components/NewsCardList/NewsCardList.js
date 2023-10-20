@@ -15,6 +15,7 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
       setVisibleCount(visibleCount + 3);
     }
   }
+
   return (
     <div className="news-card-list">
       {location.pathname === '/' && (

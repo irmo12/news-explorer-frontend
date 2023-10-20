@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SavedNewsHeader.css';
 import NewsCardList from '../NewsCardList/NewsCardList';
+import { UserContext } from '../../contexts/UserContext';
 
 function SavedNewsHeader({ articleList }) {
+  const { userData } = useContext(UserContext);
   const numberOfSavedArticles = articleList.length;
-
   const distinctKeywords = [...new Set(articleList.map(news => capitalizeKeyword(news.keyword)))];
   const displayedKeywords = distinctKeywords.slice(0, 2);
   const remainingKeywordsCount = Math.max(0, distinctKeywords.length - 2);
@@ -14,7 +15,7 @@ function SavedNewsHeader({ articleList }) {
       <div className='saved-news'>
         <div className='saved-news__content'>
           <h2 className='saved-news__heading'>Saved articles</h2>
-          <h3 className='saved-news__user-message'>{'Elise'}, you have {numberOfSavedArticles} saved articles</h3>
+          <h3 className='saved-news__user-message'>{userData.name}, you have {numberOfSavedArticles} saved articles</h3>
           <p className='saved-news__saved-summary'>
             <span className='saved-news__saved-by'>By keywords:</span><span className='saved-news__summary-string'> {displayedKeywords.join(', ')}
               {remainingKeywordsCount > 0 ? `, and ${remainingKeywordsCount} other${remainingKeywordsCount > 1 ? 's' : ''}` : ''}

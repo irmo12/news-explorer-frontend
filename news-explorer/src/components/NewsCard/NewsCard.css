@@ -54,6 +54,10 @@
   overflow: hidden;
 }
 
+.news-card__keyword_hidden {
+  display: none;
+}
+
 .news-card__tooltip {
   border-radius: 10px;
   max-width: fit-content;
@@ -109,7 +113,8 @@
   background-image: url(../../images/save-disabled.svg);
 }
 
-.news-card__save-del_results:hover {
+.news-card__save-del_results:hover,
+.news-card__save-del_results {
   background-image: url(../../images/save-ready.svg);
 }
 
@@ -119,7 +124,7 @@
 }
 
 .news-card__save-del_del {
-  background-image: url(../../images/trash-black.svg);
+  background-image: url(../../images/trash-grey.svg);
   background-color: #e5e5e5;
 }
 
