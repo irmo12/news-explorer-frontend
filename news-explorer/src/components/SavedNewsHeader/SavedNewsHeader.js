@@ -35,7 +35,7 @@ function SavedNewsHeader({ articleList, saveOrDelArticle }) {
             </span></p>
         </div>
       </div>
-      <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle} />
+      {articleList.length!==0 && <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle} />}
     </>
   );
 }

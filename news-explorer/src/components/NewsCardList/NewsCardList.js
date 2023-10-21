@@ -20,7 +20,7 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
     <div className="news-card-list">
       {location.pathname === '/' && (
         <>
-          {!newsResults.waiting && (<h2 className='news-card-list__heading'>Search results</h2>)}
+          {(<h2 className='news-card-list__heading'>Search results</h2>)}
           {newsResults.errMsg !== '' && (
             <><p className='news-card-list__error'>
               Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.

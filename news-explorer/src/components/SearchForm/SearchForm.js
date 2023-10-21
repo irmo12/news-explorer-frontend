@@ -14,7 +14,7 @@ const SearchForm = ({ sendSearchQuery, setInfoPopup, setPreLoader }) => {
     e.preventDefault();
     const q = values.newsSearch.trim();
     if (q === '') { setInfoPopup({ isInfoOpen: true, msg: 'Please enter a keyword', displayLink: false }); return; }
-    setPreLoader({ isLoading: true, stillSearching: true });
+    setPreLoader({ isLoading: true, hasResults: true });
     sendSearchQuery(q);
   };
 

@@ -126,7 +126,6 @@
 
 .news-card__save-del_del {
   background-image: url(../../images/trash-grey.svg);
-  background-color: #e5e5e5;
 }
 
 .news-card__save-del_del:hover {

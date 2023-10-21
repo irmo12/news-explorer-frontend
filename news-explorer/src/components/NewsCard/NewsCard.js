@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import './NewsCard.css';
 import { AuthContext } from "../../contexts/AuthContext";
@@ -7,7 +7,7 @@ function NewsCard({ article, saveOrDelArticle }) {
   const location = useLocation();
   const isSaved = location.pathname === '/saved-news';
   const { isLoggedIn } = useContext(AuthContext);
-  const [isArticleSaved] = useState(article.saved ?? false);
+  const [isArticleSaved, setIsArticleSaved] = useState(article.saved ?? false);
 
   function handleButtonClick(e) {
     e.preventDefault();
@@ -20,6 +20,10 @@ function NewsCard({ article, saveOrDelArticle }) {
 
   let buttonClasses = isSaved ? 'news-card__save-del_del'
    : (isArticleSaved ? 'news-card__save-del_saved' : 'news-card__save-del_results');
+
+   useEffect(() => {
+    setIsArticleSaved(article.saved ?? false);
+  }, [article.saved]);
 
   return (
     <li className="news-card-li">

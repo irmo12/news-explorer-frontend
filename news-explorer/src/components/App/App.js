@@ -23,8 +23,9 @@ function App() {
   });
   const { setIsLoggedIn } = useContext(AuthContext);
   const [newsData, setNewsData] = useState([]); // from saved
-  const [newsResults, setNewsResults] = useState({ data: [], waiting: true, errMsg: '' }); // from newsApi
+  const [newsResults, setNewsResults] = useState({ data: [], errMsg: '' }); // from newsApi
   const navigate = useNavigate();
+  const [preLoader, setPreloader] = useState({ isLoading: false, hasResults: true });
 
   function handleAuthSubmit(data) {
     const { email, password } = data;
@@ -120,7 +121,7 @@ function App() {
   }
 
   function sendSearchQuery(q) {
-    setNewsResults({ waiting: true, data: [], errMsg: '' });
+    setNewsResults({ data: [], errMsg: '' });
     let words = q.split(" ");
     let keyWord = words.shift();
 
@@ -135,24 +136,21 @@ function App() {
             return preSendArticle(obj);
           });
           newArticles = newArticles.map(obj => {
-            return { ...obj, _id: crypto.randomUUID() };
+            return { ...obj, key: crypto.randomUUID() };
           });
           localStorage.setItem('searchResults', JSON.stringify(newArticles));
           setNewsResults({
-            waiting: false,
             data: JSON.parse(localStorage.getItem('searchResults')),
             errMsg: ''
           });
+          setPreloader({ isLoading: false, hasResults: true });
         }
-        else { setNewsResults({
-          waiting: false,
-          data: [],
-          errMsg: ''
-        }); }
-      }).catch((error) => {
+        else if (data.totalResults === 0) { setPreloader({ isLoading: true, hasResults: false }); }
+      })
+      .catch((error) => {
         localStorage.removeItem('searchResults');
+        setPreloader({ isLoading: false, hasResults: true });
         setNewsResults({
-          waiting: false,
           data: [],
           errMsg: 'error: ' + error.message
         });
@@ -185,12 +183,15 @@ function App() {
 
   function saveOrDelArticle(article, isSaved) {
     if (!isSaved) {
-      delete article._id;
+      delete article.key;
       mainApi
         .saveNewArticle(article, localStorage.getItem('token'))
         .then((res) => {
           article.saved = true;
-          setNewsData([res, ...newsData]);
+          const { _id: key, ...rest } = res;
+          const newRes = { key, ...rest };
+          console.log(newRes);
+          setNewsData([newRes, ...newsData]);
         })
         .catch((err) => console.log(err));
     } else {
@@ -222,7 +223,9 @@ function App() {
           saveOrDelArticle={saveOrDelArticle}
           setInfoPopup={setInfoPopup}
           sendSearchQuery={sendSearchQuery}
-          newsResults={newsResults} />
+          newsResults={newsResults}
+          preLoader={preLoader}
+          setPreloader={setPreloader} />
         <Footer />
       </main>
     </SmallScreenProvider>
