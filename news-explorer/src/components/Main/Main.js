@@ -9,6 +9,7 @@ import About from '../About/About';
 import { AuthContext } from '../../contexts/AuthContext';
 import { HomeProvider } from '../../contexts/HomeContext';
 import { Route, Routes } from 'react-router-dom';
+import { ProtectedRoute } from '../../utils/protectedRoute';
 
 function Main({ openAuthPopup, newsData, isOpen, sendSearchQuery, saveOrDelArticle, setInfoOpen, newsResults, preLoader, setPreloader }) {
   const { isLoggedIn } = useContext(AuthContext);
@@ -25,17 +26,20 @@ function Main({ openAuthPopup, newsData, isOpen, sendSearchQuery, saveOrDelArtic
                   <SearchForm sendSearchQuery={sendSearchQuery} setInfoOpen={setInfoOpen} setPreLoader={setPreloader} />
                 </div>
                 <Preloader preLoader={preLoader} />
-                {(!preLoader.isLoading && newsResults.data.length!==0) &&
+                {(!preLoader.isLoading && newsResults.data.length !== 0) &&
                   <NewsCardList newsResults={newsResults} saveOrDelArticle={saveOrDelArticle} preLoader={preLoader} />}
                 <About />
               </>} />
-            {isLoggedIn && (
-              <Route path='/saved-news'
-                element={<>
+            <ProtectedRoute isLoggedIn={isLoggedIn} path='/saved-news'>
+              {isLoggedIn ? (
+                <>
                   <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
                   <SavedNewsHeader articleList={articleList} saveOrDelArticle={saveOrDelArticle} />
-                </>} />
-            )}
+                </>
+              ) : (
+                <Route to={"/"} />
+              )}
+            </ProtectedRoute>
           </Routes>
         </HomeProvider>
       </main>
