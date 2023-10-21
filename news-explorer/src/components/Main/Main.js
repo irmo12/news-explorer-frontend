@@ -7,7 +7,6 @@ import NewsCardList from '../NewsCardList/NewsCardList';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import About from '../About/About';
 import { AuthContext } from '../../contexts/AuthContext';
-import { UserContext } from '../../contexts/UserContext';
 import { HomeProvider } from '../../contexts/HomeContext';
 import { Route, Routes } from 'react-router-dom';
 
@@ -17,10 +16,11 @@ function Main({ openAuthPopup, newsData, isOpen, sendSearchQuery, saveOrDelArtic
   const [preLoader, setPreloader] = useState({ isLoading: newsResults.waiting || (newsResults.waiting && !newsResults.data), stillSearching: newsResults.waiting });
   const { isLoggedIn } = useContext(AuthContext);
   const articleList = Object.values(newsData);
-  const { userData } = useContext(UserContext);
 
-  useEffect (() => {
-    if (newsResults) {setPreloader((prev) => ({...prev, isLoading: false }));}
+  useEffect(() => {
+    console.log(newsResults.data)
+    if (!newsResults.waiting && newsResults.data.length!==0) { setPreloader((prev) => ({ ...prev, isLoading: false })); }
+    if (!newsResults.waiting && newsResults.data.length===0) { setPreloader((prev) => ({ ...prev, stillSearching: false })); }
   }, [newsResults]);
 
   return (
@@ -35,14 +35,14 @@ function Main({ openAuthPopup, newsData, isOpen, sendSearchQuery, saveOrDelArtic
                   <SearchForm sendSearchQuery={sendSearchQuery} setInfoOpen={setInfoOpen} setPreLoader={setPreloader} />
                 </div>
                 <Preloader isLoading={preLoader.isLoading} stillSearching={preLoader.stillSearching} />
-                {!newsResults.waiting && <NewsCardList newsResults={newsResults} saveOrDelArticle={saveOrDelArticle} />}
+                {newsResults.data && <NewsCardList newsResults={newsResults} saveOrDelArticle={saveOrDelArticle} />}
                 <About />
               </>} />
             {isLoggedIn && (
               <Route path='/saved-news'
                 element={<>
                   <Header openAuthPopup={openAuthPopup} isOpen={isOpen} />
-                  <SavedNewsHeader articleList={articleList} username={userData.name} />
+                  <SavedNewsHeader articleList={articleList} saveOrDelArticle={saveOrDelArticle} />
                 </>} />
             )}
           </Routes>

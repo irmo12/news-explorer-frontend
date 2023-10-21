@@ -76,15 +76,14 @@ function App() {
       }).catch((err) => {
         console.log(err.code, err.message);
       });
-
-      // mainApi
-      //   .getArticles(localStorage.getItem('token'))
-      //   .then((data) => {
-      //     setNewsData(data);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err.code, err.message);
-      //   });
+      mainApi
+        .getArticles(localStorage.getItem('token'))
+        .then((data) => {
+          setNewsData(data);
+        })
+        .catch((err) => {
+          console.log(err.code, err.message);
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -145,7 +144,11 @@ function App() {
             errMsg: ''
           });
         }
-        else { setNewsResults([]); }
+        else { setNewsResults({
+          waiting: false,
+          data: [],
+          errMsg: ''
+        }); }
       }).catch((error) => {
         localStorage.removeItem('searchResults');
         setNewsResults({
@@ -186,13 +189,13 @@ function App() {
       mainApi
         .saveNewArticle(article, localStorage.getItem('token'))
         .then((res) => {
-          setNewsData([res, ...newsData]);
           article.saved = true;
+          setNewsData([res, ...newsData]);
         })
         .catch((err) => console.log(err));
     } else {
       mainApi
-        .deleteCard(article._id, localStorage.getItem('token'))
+        .deleteArticle(article._id, localStorage.getItem('token'))
         .then(() => {
           setNewsData((current) =>
             current.filter((newsCard) => newsCard._id !== article._id),

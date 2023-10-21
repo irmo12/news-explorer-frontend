@@ -1,7 +1,4 @@
 .news-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
@@ -16,6 +13,9 @@
 .news-card__redirect {
   z-index: 1;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .news-card__header {
@@ -111,6 +111,7 @@
 
 .news-card__save-del_results:disabled {
   background-image: url(../../images/save-disabled.svg);
+  cursor: not-allowed;
 }
 
 .news-card__save-del_results:hover,

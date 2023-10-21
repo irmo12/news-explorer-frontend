@@ -7,8 +7,7 @@ function NewsCard({ article, saveOrDelArticle }) {
   const location = useLocation();
   const isSaved = location.pathname === '/saved-news';
   const { isLoggedIn } = useContext(AuthContext);
-  const [isArticleSaved, setArticleSaved] = useState(article.saved ?? false);
-
+  const [isArticleSaved] = useState(article.saved ?? false);
 
   function handleButtonClick(e) {
     e.preventDefault();

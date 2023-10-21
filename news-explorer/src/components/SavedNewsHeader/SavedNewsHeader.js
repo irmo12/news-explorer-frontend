@@ -3,12 +3,25 @@ import './SavedNewsHeader.css';
 import NewsCardList from '../NewsCardList/NewsCardList';
 import { UserContext } from '../../contexts/UserContext';
 
-function SavedNewsHeader({ articleList }) {
+function SavedNewsHeader({ articleList, saveOrDelArticle }) {
   const { userData } = useContext(UserContext);
+
+  const keywordsMap = new Map();
+
+  articleList.forEach((news) => {
+    const keyword = capitalizeKeyword(news.keyword);
+    if (keywordsMap.has(keyword)) {
+      keywordsMap.set(keyword, keywordsMap.get(keyword) + 1);
+    } else {
+      keywordsMap.set(keyword, 1);
+    }
+  });
+
+  const sortedKeywords = [...keywordsMap.entries()].sort((a, b) => b[1] - a[1]).map((entry) => entry[0]);
+
   const numberOfSavedArticles = articleList.length;
-  const distinctKeywords = [...new Set(articleList.map(news => capitalizeKeyword(news.keyword)))];
-  const displayedKeywords = distinctKeywords.slice(0, 2);
-  const remainingKeywordsCount = Math.max(0, distinctKeywords.length - 2);
+  const displayedKeywords = sortedKeywords.slice(0, 2);
+  const remainingKeywordsCount = Math.max(0, sortedKeywords.length - 2);
 
   return (
     <>
@@ -22,7 +35,7 @@ function SavedNewsHeader({ articleList }) {
             </span></p>
         </div>
       </div>
-      <NewsCardList articleList={articleList} />
+      <NewsCardList articleList={articleList} saveOrDelArticle={saveOrDelArticle} />
     </>
   );
 }
