@@ -1,10 +1,10 @@
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Route, Navigate, Outlet } from 'react-router-dom';
 
-function ProtectedRoute({ children, loggedIn, ...props }) {
+function ProtectedRoute({ loggedIn }) {
   return (
-    <Route {...props}>
-      {loggedIn ? children : <Navigate to={"/"} />}
+    <Route>
+      {loggedIn ? <Outlet /> : <Navigate to={"/"} />}
     </Route>
   );
 }
