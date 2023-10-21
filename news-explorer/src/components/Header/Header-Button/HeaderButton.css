@@ -1,0 +1,141 @@
+.header__button-logic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  padding: 0.1% 4.5%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  max-width: 176px;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.header__button-logic_logged-in {
+  padding: 0 15px;
+  margin-left: 8px;
+}
+
+.header__button-logic_saved-news {
+  color: #000;
+}
+
+.header__log-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 133%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  flex-grow: 1;
+  flex-shrink: 1;
+  box-sizing: content-box;
+  padding: 10px 0;
+  padding-left: calc(2% + 4px);
+  padding-right: calc(2% + 4px);
+  color: #fff;
+  fill: #fff;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.header__log-button_home {
+  color: #000;
+}
+
+.header__username {
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.header__username_black {
+  color: #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.header__logout-icon {
+  margin-right: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .header__button-logic {
+    padding: 0 16px;
+    font-size: 16px;
+    width: 50%;
+    max-width: 22%;
+  }
+
+  .header__button-logic_home {
+    padding: 0 2%;
+  }
+
+  .header__button-logic_logged-in {
+    width: unset;
+  }
+  
+  .header__log-button {
+    padding: 8px 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .header__button-logic {
+    max-width: 288px;
+    max-height: 56px;
+    padding: 9px 142px;
+    margin: 43px 0 15px;
+  }
+}
+
+
+
+
+
+
+
+/* NOT LOGGED IN 768/
+
+
+
+@media screen and (max-width: 768px) {
+  .header__button-logic {
+      padding: 0 16px;
+    max-width: 150px;
+    width: 50%;
+    max-width: 22%;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .nav-link {
+    /* margin-right: 16px; */
+  
+  /* .nav-container { */
+    /* margin-right: 8%; */
+  
+
+
+

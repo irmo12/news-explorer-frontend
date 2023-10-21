@@ -1,0 +1,154 @@
+.header {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  gap: 64px;
+  align-items: center;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.8);
+  box-sizing: border-box;
+  padding: 0 7.25%;
+  color: #fff;
+  height: 80px;
+  padding-top: 4px;
+}
+
+.header__content {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 auto;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.header_saved-news {
+  color: #1a1b22;
+  background-color: #fff;
+}
+
+.header__title {
+  text-decoration: none;
+  font-family: "Roboto slab", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 120%;
+  margin-right: auto;
+  color: #fff;
+}
+
+.header__title_saved-news {
+  color: #1a1b22;
+}
+
+.header__nav {
+  justify-self: end;
+}
+
+.header__auth-email {
+  color: #000;
+}
+
+.header__username {
+  margin-right: 16px;
+}
+
+.header__phone-button {
+  background-image: url("../../images/phonemenu.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+  box-sizing: content-box;
+  background-color: transparent;
+  transition: visibility 0ms ease-in 0.4s;
+  box-sizing: content-box;
+  width: 100%;
+  height: 24px;
+}
+
+.header__phone-button_black {
+  background-image: url("../../images/phonemenue_black.svg");
+}
+
+.header__phone-button_X {
+  background-image: url("../../images/close.svg");
+  max-width: 24px;
+  max-height: 24px;
+}
+
+.header__phone-button_invis {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    margin: 0 40px;
+    gap: 4%;
+    padding: 0 5%;
+    max-height: 66px;
+    min-height: 56px;
+  }
+
+  .header__content {
+    justify-content: unset;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .header {
+    background-color: transparent;
+    padding: 0 0 0;
+    width: 100%;
+    flex-flow: column nowrap;
+    border-bottom: none;
+    justify-content: space-between;
+    height: 56px;
+    margin: 0;
+  }
+
+  .header_show-nav {
+    max-height: unset;
+    height: 230px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #1a1b22;
+    color: #fff;
+    gap: 0;
+    justify-content: normal;
+  }
+
+  .header__content {
+    display: flex;
+    flex-flow: row nowrap;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.8);
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+    margin-top: 0px;
+    height: 56px;
+    box-sizing: border-box;
+  }
+
+  .header__title {
+    font-size: 16px;
+    margin: 0 50% 0 16px;
+    color: #fff;
+  }
+
+  .header__title_home {
+    color: #fff;
+  }
+
+  .header__title_saved-news {
+    color: #1a1b22;
+  }
+
+  .header__phone-button {
+    margin-right: 19px;
+    width: 4%;
+  }
+}
