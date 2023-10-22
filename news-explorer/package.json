@@ -16,7 +16,8 @@
       "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
-      "eject": "react-scripts eject"
+      "eject": "react-scripts eject",
+      "deploy": "scp -r ./build/* omriws@34.165.8.161:/home/omriws/news-explorer-FE"
     },
     "eslintConfig": {
       "extends": [
