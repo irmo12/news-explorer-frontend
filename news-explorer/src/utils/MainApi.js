@@ -54,7 +54,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseURL: 'http://newsexplorer.mooo.com',
+  baseURL: 'http://api.newsexplorer.mooo.com',
   headers: {
     'Content-Type': 'application/json',
   },
