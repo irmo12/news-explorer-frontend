@@ -190,7 +190,6 @@ function App() {
           article.saved = true;
           const { _id: key, ...rest } = res;
           const newRes = { key, ...rest };
-          console.log(newRes);
           setNewsData([newRes, ...newsData]);
         })
         .catch((err) => console.log(err));
