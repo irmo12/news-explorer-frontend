@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import './NewsCard.css';
 import { AuthContext } from "../../contexts/AuthContext";
 
-function NewsCard({ article, saveOrDelArticle }) {
+function NewsCard({ article, saveOrDelArticle, openAuthPopup, setIsSignIn }) {
   const location = useLocation();
   const isSaved = location.pathname === '/saved-news';
   const { isLoggedIn } = useContext(AuthContext);
@@ -11,7 +11,9 @@ function NewsCard({ article, saveOrDelArticle }) {
 
   function handleButtonClick(e) {
     e.preventDefault();
-    saveOrDelArticle(article, isSaved);
+    if (isLoggedIn) { return saveOrDelArticle(article, isSaved); }
+    setIsSignIn(false);
+    openAuthPopup();
   }
 
   let date = new Date(article.date);
@@ -19,9 +21,9 @@ function NewsCard({ article, saveOrDelArticle }) {
   let formattedDate = date.toLocaleDateString('en-US', options);
 
   let buttonClasses = isSaved ? 'news-card__save-del_del'
-   : (isArticleSaved ? 'news-card__save-del_saved' : 'news-card__save-del_results');
+    : (isArticleSaved ? 'news-card__save-del_saved' : (isLoggedIn ? 'news-card__save-del_loggedin' : 'news-card__save-del_results'));
 
-   useEffect(() => {
+  useEffect(() => {
     setIsArticleSaved(article.saved ?? false);
   }, [article.saved]);
 
@@ -40,7 +42,6 @@ function NewsCard({ article, saveOrDelArticle }) {
               type="button"
               aria-label="save/delete"
               onClick={handleButtonClick}
-              disabled={!isLoggedIn}
             />
             <abbr className={`news-card__tooltip ${(isLoggedIn && !isSaved) ? 'news-card__tooltip_hidden' : ''}`}>{isSaved ? 'Remove from saved' : 'Sign in to save articles'}</abbr>
             <h3 className={isSaved ? 'news-card__keyword' : 'news-card__keyword_hidden'}>{article.keyword}</h3>

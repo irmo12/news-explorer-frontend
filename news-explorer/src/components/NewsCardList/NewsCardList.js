@@ -3,7 +3,7 @@ import './NewsCardList.css';
 import NewsCard from '../NewsCard/NewsCard';
 import { useLocation } from 'react-router-dom';
 
-function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
+function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn, openAuthPopup }) {
   articleList = articleList ? articleList : (newsResults.data ? Object.values(newsResults.data) : []);
   const [visibleCount, setVisibleCount] = useState(3);
   const location = useLocation();
@@ -29,7 +29,7 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
           )}
           <ul className={'news-card-list__grid'}>
             {articleList.slice(0, visibleCount).map((article) => (
-              <NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} />
+              <NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} setIsSignIn={setIsSignIn} openAuthPopup={openAuthPopup} />
             ))}
           </ul>
           {articleList.length > 3 && (
@@ -42,7 +42,7 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList }) {
       {location.pathname === '/saved-news' && (
         <div className='news-card-list__grid'>
           {articleList.map((article) =>
-          (<NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} />
+          (<NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} setIsSignIn={setIsSignIn} openAuthPopup={openAuthPopup} />
           ))}
         </div>
       )}

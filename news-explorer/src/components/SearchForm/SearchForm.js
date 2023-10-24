@@ -33,6 +33,7 @@ const SearchForm = ({ sendSearchQuery, setInfoPopup, setPreLoader }) => {
             id='search'
             name='newsSearch'
             onChange={handleChange}
+            value={values.newsSearch} 
           />
           <button className='search-form__submit'
             type='submit'
@@ -47,6 +48,7 @@ const SearchForm = ({ sendSearchQuery, setInfoPopup, setPreLoader }) => {
             id="search"
             name='newsSearch'
             onChange={handleChange}
+            value={values.newsSearch}
           />
         </div>
         <button className='search-form__submit search-form__submit_stacked'

@@ -28,6 +28,7 @@ function App() {
   const [preLoader, setPreloader] = useState({ isLoading: false, hasResults: true });
 
   function handleAuthSubmit(data) {
+    console.log(data);
     const { email, password } = data;
     if (isSignIn) {
       auth
@@ -37,7 +38,7 @@ function App() {
           auth.checkToken(localStorage.getItem('token')).then((resData) => {
             setUserData((prevUserData) => ({
               ...prevUserData,
-              name: resData.data.name,
+              name: resData.data.name, _id: resData.data._id
             }));
             setIsLoggedIn(true);
           });
@@ -70,7 +71,7 @@ function App() {
       auth.checkToken(localStorage.getItem('token')).then((resData) => {
         setUserData((prevUserData) => ({
           ...prevUserData,
-          name: resData.data.name,
+          name: resData.data.name, _id: resData.data.name
         }));
         setIsLoggedIn(true);
         navigate('/saved-news');
@@ -136,7 +137,7 @@ function App() {
             return preSendArticle(obj);
           });
           newArticles = newArticles.map(obj => {
-            return { ...obj, key: crypto.randomUUID() };
+            return { ...obj, key: crypto.randomBytes(16).toString('hex') };
           });
           localStorage.setItem('searchResults', JSON.stringify(newArticles));
           setNewsResults({
@@ -182,7 +183,7 @@ function App() {
 
 
   function saveOrDelArticle(article, isSaved) {
-    if (!isSaved) {
+    if (!isSaved&&!article.saved) {
       delete article.key;
       mainApi
         .saveNewArticle(article, localStorage.getItem('token'))
@@ -193,7 +194,7 @@ function App() {
           setNewsData([newRes, ...newsData]);
         })
         .catch((err) => console.log(err));
-    } else {
+    } else { console.log(article);
       mainApi
         .deleteArticle(article._id, localStorage.getItem('token'))
         .then(() => {
@@ -217,6 +218,7 @@ function App() {
         <InfoPopup infoPopup={infoPopup} onClose={closePopups} handleInfoLinkClick={handleInfoLinkClick} />
         <Main
           openAuthPopup={openAuthPopup}
+          setIsSignIn={setIsSignIn}
           newsData={newsData}
           isOpen={isAuthPopupOpen}
           saveOrDelArticle={saveOrDelArticle}
