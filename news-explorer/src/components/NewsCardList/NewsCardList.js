@@ -28,9 +28,16 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn,
 
           )}
           <ul className={'news-card-list__grid'}>
-            {articleList.slice(0, visibleCount).map((article) => (
-              <NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} setIsSignIn={setIsSignIn} openAuthPopup={openAuthPopup} />
-            ))}
+            {articleList.slice(0, visibleCount).map((article, index) => {
+              return (
+                <NewsCard
+                  article={article}
+                  key={index}
+                  saveOrDelArticle={saveOrDelArticle}
+                  setIsSignIn={setIsSignIn}
+                  openAuthPopup={openAuthPopup} />
+              );
+            })}
           </ul>
           {articleList.length > 3 && (
             <button className='news-card-list__button' onClick={handleShowMoreClick}>
@@ -41,8 +48,12 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn,
       )}
       {location.pathname === '/saved-news' && (
         <div className='news-card-list__grid'>
-          {articleList.map((article) =>
-          (<NewsCard article={article} key={article._id} saveOrDelArticle={saveOrDelArticle} setIsSignIn={setIsSignIn} openAuthPopup={openAuthPopup} />
+          {articleList.map((article, index) =>
+          (<NewsCard article={article} 
+            key={index} 
+            saveOrDelArticle={saveOrDelArticle} 
+            setIsSignIn={setIsSignIn} 
+            openAuthPopup={openAuthPopup} />
           ))}
         </div>
       )}

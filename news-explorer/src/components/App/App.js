@@ -22,8 +22,8 @@ function App() {
     displayLink: false
   });
   const { setIsLoggedIn } = useContext(AuthContext);
-  const [newsData, setNewsData] = useState([]); // from saved
-  const [newsResults, setNewsResults] = useState({ data: [], errMsg: '' }); // from newsApi
+  const [newsData, setNewsData] = useState([]);
+  const [newsResults, setNewsResults] = useState({ data: [], errMsg: '' });
   const navigate = useNavigate();
   const [preLoader, setPreloader] = useState({ isLoading: false, hasResults: true });
 
@@ -136,9 +136,6 @@ function App() {
           newArticles = newArticles.map(obj => {
             return preSendArticle(obj);
           });
-          newArticles = newArticles.map(obj => {
-            return { ...obj, key: crypto.randomBytes(16).toString('hex') };
-          });
           localStorage.setItem('searchResults', JSON.stringify(newArticles));
           setNewsResults({
             data: JSON.parse(localStorage.getItem('searchResults')),
@@ -181,26 +178,38 @@ function App() {
     }, {});
   }
 
-
-  function saveOrDelArticle(article, isSaved) {
-    if (!isSaved&&!article.saved) {
-      delete article.key;
+  function saveOrDelArticle(article, isSaved, isArticleSaved, setIsArticleSaved) {
+    if (!isSaved && !isArticleSaved) {
       mainApi
         .saveNewArticle(article, localStorage.getItem('token'))
         .then((res) => {
-          article.saved = true;
-          const { _id: key, ...rest } = res;
-          const newRes = { key, ...rest };
-          setNewsData([newRes, ...newsData]);
+          console.log(res);
+          setNewsData([res, ...newsData]);
+          setIsArticleSaved(true);
         })
         .catch((err) => console.log(err));
-    } else { console.log(article);
+    } else if (!isSaved && isArticleSaved) {
+      const matchingArticle = newsData.find((item) => item.url === article.url);
+      if (matchingArticle) {
+        mainApi
+          .deleteArticle(matchingArticle._id, localStorage.getItem('token'))
+          .then(() => {
+            setNewsData((current) =>
+              current.filter((newsCard) => newsCard._id !== matchingArticle._id),
+            );
+            setIsArticleSaved(false);
+          })
+          .catch((err) => console.log(err));
+      }
+    }
+    else {
       mainApi
         .deleteArticle(article._id, localStorage.getItem('token'))
         .then(() => {
           setNewsData((current) =>
             current.filter((newsCard) => newsCard._id !== article._id),
           );
+          setIsArticleSaved(false);
         })
         .catch((err) => console.log(err));
     }
@@ -215,7 +224,9 @@ function App() {
           onClose={closePopups}
           onSubmit={handleAuthSubmit}
           toggleSignInUp={toggleSignInUp} />
-        <InfoPopup infoPopup={infoPopup} onClose={closePopups} handleInfoLinkClick={handleInfoLinkClick} />
+        <InfoPopup infoPopup={infoPopup}
+          onClose={closePopups}
+          handleInfoLinkClick={handleInfoLinkClick} />
         <Main
           openAuthPopup={openAuthPopup}
           setIsSignIn={setIsSignIn}
@@ -226,7 +237,8 @@ function App() {
           sendSearchQuery={sendSearchQuery}
           newsResults={newsResults}
           preLoader={preLoader}
-          setPreloader={setPreloader} />
+          setPreloader={setPreloader}
+        />
         <Footer />
       </main>
     </SmallScreenProvider>

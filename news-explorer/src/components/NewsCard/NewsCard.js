@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import './NewsCard.css';
 import { AuthContext } from "../../contexts/AuthContext";
@@ -7,11 +7,12 @@ function NewsCard({ article, saveOrDelArticle, openAuthPopup, setIsSignIn }) {
   const location = useLocation();
   const isSaved = location.pathname === '/saved-news';
   const { isLoggedIn } = useContext(AuthContext);
-  const [isArticleSaved, setIsArticleSaved] = useState(article.saved ?? false);
+  const [isArticleSaved, setIsArticleSaved] = useState(false);
+
 
   function handleButtonClick(e) {
     e.preventDefault();
-    if (isLoggedIn) { return saveOrDelArticle(article, isSaved); }
+    if (isLoggedIn) { return saveOrDelArticle(article, isSaved, isArticleSaved, setIsArticleSaved); }
     setIsSignIn(false);
     openAuthPopup();
   }
@@ -23,13 +24,9 @@ function NewsCard({ article, saveOrDelArticle, openAuthPopup, setIsSignIn }) {
   let buttonClasses = isSaved ? 'news-card__save-del_del'
     : (isArticleSaved ? 'news-card__save-del_saved' : (isLoggedIn ? 'news-card__save-del_loggedin' : 'news-card__save-del_results'));
 
-  useEffect(() => {
-    setIsArticleSaved(article.saved ?? false);
-  }, [article.saved]);
-
   return (
     <li className="news-card-li">
-      <article className="news-card" id={article._id}>
+      <article className="news-card" key={article._id}>
         <a href={article.link} className="news-card__redirect" target="_blank" rel="noopener noreferrer">
           <img
             className="news-card__img"
