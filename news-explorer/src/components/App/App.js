@@ -60,7 +60,7 @@ function App() {
         })
         .catch((err) => {
           closePopups();
-          console.log(err);
+          console.log(err, err.message);
         });
     }
   }

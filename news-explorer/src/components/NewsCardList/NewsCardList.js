@@ -9,7 +9,7 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn,
   const location = useLocation();
 
   function handleShowMoreClick() {
-    if (visibleCount >= articleList.length) {
+    if (visibleCount >= searchResults.length) {
       setVisibleCount(3);
     } else {
       setVisibleCount(visibleCount + 3);
