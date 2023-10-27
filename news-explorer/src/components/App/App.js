@@ -90,15 +90,16 @@ function App() {
               }
               return result;
             });
-  
+
             return { ...prevNewsResults, data: updatedData };
-        })})
+          });
+        })
         .catch((err) => {
           console.log(err.code, err.message);
         });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [newsResults]);
+  }, []);
 
 
   function openAuthPopup() {
@@ -150,8 +151,7 @@ function App() {
           localStorage.setItem('searchResults', JSON.stringify(newArticles));
 
           const storedResults = JSON.parse(localStorage.getItem('searchResults'));
-          const forState = storedResults.map((article) => { return { ...article, isSaved: false }; });
-
+          const forState = storedResults.map((article) => { return { article: article, isSaved: false }; });
           for (const result of forState) {
             const matchedArticle = newsData.find((article) => article.link === result.article.link);
             if (matchedArticle) {
@@ -202,6 +202,7 @@ function App() {
   function saveOrDelArticle(article, isSaved) {
     const matchingArticle = newsData.find((saved) => saved.link === article.link);
     if (!isSaved && !matchingArticle) {
+
       mainApi
         .saveNewArticle(article, localStorage.getItem('token'))
         .then((res) => {
@@ -216,7 +217,7 @@ function App() {
           setNewsData((current) =>
             current.filter((newsCard) => newsCard._id !== matchingArticle._id),
           );
-          toggleSavedState(matchingArticle.link)
+          toggleSavedState(matchingArticle.link);
         })
         .catch((err) => console.log(err));
     }
@@ -227,13 +228,14 @@ function App() {
           setNewsData((current) =>
             current.filter((newsCard) => newsCard._id !== article._id),
           );
+          toggleSavedState(article.link);
         })
         .catch((err) => console.log(err));
     }
   }
 
   function toggleSavedState(url) {
-    const articleToUpdate = newsResults.data.find(article => article.url === url);
+    const articleToUpdate = newsResults.data.find(obj => obj.article.link === url);
 
     if (articleToUpdate) {
       articleToUpdate.isSaved = !articleToUpdate.isSaved;
@@ -243,6 +245,7 @@ function App() {
       }));
     }
   }
+
 
 
 

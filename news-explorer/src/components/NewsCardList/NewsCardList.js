@@ -15,7 +15,6 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn,
       setVisibleCount(visibleCount + 3);
     }
   }
-
   return (
     <div className="news-card-list">
       {location.pathname === '/' && (
@@ -42,7 +41,7 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn,
           </ul>
           {searchResults.length > 3 && (
             <button className='news-card-list__button' onClick={handleShowMoreClick}>
-              {visibleCount >= articleList.length ? 'Show Less' : 'Show more'}
+              {visibleCount >= searchResults.length ? 'Show Less' : 'Show more'}
             </button>
           )}
         </>
