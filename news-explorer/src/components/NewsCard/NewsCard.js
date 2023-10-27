@@ -1,18 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import './NewsCard.css';
 import { AuthContext } from "../../contexts/AuthContext";
 
-function NewsCard({ article, saveOrDelArticle, openAuthPopup, setIsSignIn }) {
+function NewsCard({ article, saveOrDelArticle, openAuthPopup, setIsSignIn, isArticleSaved }) {
   const location = useLocation();
   const isSaved = location.pathname === '/saved-news';
   const { isLoggedIn } = useContext(AuthContext);
-  const [isArticleSaved, setIsArticleSaved] = useState(false);
 
 
   function handleButtonClick(e) {
     e.preventDefault();
-    if (isLoggedIn) { return saveOrDelArticle(article, isSaved, isArticleSaved, setIsArticleSaved); }
+    if (isLoggedIn) { return saveOrDelArticle(article, isSaved); }
     setIsSignIn(false);
     openAuthPopup();
   }

@@ -4,7 +4,7 @@ import NewsCard from '../NewsCard/NewsCard';
 import { useLocation } from 'react-router-dom';
 
 function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn, openAuthPopup }) {
-  articleList = articleList ? articleList : (newsResults.data ? Object.values(newsResults.data) : []);
+  const searchResults = newsResults ? Object.values(newsResults.data) : [];
   const [visibleCount, setVisibleCount] = useState(3);
   const location = useLocation();
 
@@ -28,10 +28,11 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn,
 
           )}
           <ul className={'news-card-list__grid'}>
-            {articleList.slice(0, visibleCount).map((article, index) => {
+            {searchResults.slice(0, visibleCount).map((obj, index) => {
               return (
                 <NewsCard
-                  article={article}
+                  article={obj.article}
+                  isArticleSaved={obj.isSaved}
                   key={index}
                   saveOrDelArticle={saveOrDelArticle}
                   setIsSignIn={setIsSignIn}
@@ -39,7 +40,7 @@ function NewsCardList({ newsResults, saveOrDelArticle, articleList, setIsSignIn,
               );
             })}
           </ul>
-          {articleList.length > 3 && (
+          {searchResults.length > 3 && (
             <button className='news-card-list__button' onClick={handleShowMoreClick}>
               {visibleCount >= articleList.length ? 'Show Less' : 'Show more'}
             </button>

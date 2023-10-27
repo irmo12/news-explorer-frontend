@@ -74,6 +74,8 @@
   flex-grow: 0;
   flex-shrink: 1;
   flex-basis: auto;
+  height: 24px;
+  width: 24px;
 }
 
 @media screen and (max-width: 768px) {

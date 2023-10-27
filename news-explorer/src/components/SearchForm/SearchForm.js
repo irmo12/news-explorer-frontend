@@ -6,9 +6,7 @@ import { useFormValidation } from '../../utils/useFormValidation.js';
 
 const SearchForm = ({ sendSearchQuery, setInfoPopup, setPreLoader }) => {
   const { isSmallScreen } = useContext(SmallScreenContext);
-  const {
-    values, handleChange,
-  } = useFormValidation();
+  const { values, handleChange } = useFormValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,7 +31,7 @@ const SearchForm = ({ sendSearchQuery, setInfoPopup, setPreLoader }) => {
             id='search'
             name='newsSearch'
             onChange={handleChange}
-            value={values.newsSearch} 
+            value={values.newsSearch ?? ''} 
           />
           <button className='search-form__submit'
             type='submit'
@@ -48,7 +46,7 @@ const SearchForm = ({ sendSearchQuery, setInfoPopup, setPreLoader }) => {
             id="search"
             name='newsSearch'
             onChange={handleChange}
-            value={values.newsSearch}
+            value={values.newsSearch ?? ''}
           />
         </div>
         <button className='search-form__submit search-form__submit_stacked'

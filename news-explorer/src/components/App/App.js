@@ -28,7 +28,6 @@ function App() {
   const [preLoader, setPreloader] = useState({ isLoading: false, hasResults: true });
 
   function handleAuthSubmit(data) {
-    console.log(data);
     const { email, password } = data;
     if (isSignIn) {
       auth
@@ -82,13 +81,24 @@ function App() {
         .getArticles(localStorage.getItem('token'))
         .then((data) => {
           setNewsData(data);
-        })
+
+          setNewsResults((prevNewsResults) => {
+            const updatedData = prevNewsResults.data.map((result) => {
+              const matchedArticle = data.find((article) => article.url === result.article.url);
+              if (matchedArticle) {
+                return { ...result, isSaved: true };
+              }
+              return result;
+            });
+  
+            return { ...prevNewsResults, data: updatedData };
+        })})
         .catch((err) => {
           console.log(err.code, err.message);
         });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [newsResults]);
 
 
   function openAuthPopup() {
@@ -136,9 +146,20 @@ function App() {
           newArticles = newArticles.map(obj => {
             return preSendArticle(obj);
           });
+
           localStorage.setItem('searchResults', JSON.stringify(newArticles));
+
+          const storedResults = JSON.parse(localStorage.getItem('searchResults'));
+          const forState = storedResults.map((article) => { return { ...article, isSaved: false }; });
+
+          for (const result of forState) {
+            const matchedArticle = newsData.find((article) => article.link === result.article.link);
+            if (matchedArticle) {
+              result.isSaved = true;
+            }
+          }
           setNewsResults({
-            data: JSON.parse(localStorage.getItem('searchResults')),
+            data: forState,
             errMsg: ''
           });
           setPreloader({ isLoading: false, hasResults: true });
@@ -178,29 +199,26 @@ function App() {
     }, {});
   }
 
-  function saveOrDelArticle(article, isSaved, isArticleSaved, setIsArticleSaved) {
-    if (!isSaved && !isArticleSaved) {
+  function saveOrDelArticle(article, isSaved) {
+    const matchingArticle = newsData.find((saved) => saved.link === article.link);
+    if (!isSaved && !matchingArticle) {
       mainApi
         .saveNewArticle(article, localStorage.getItem('token'))
         .then((res) => {
-          console.log(res);
           setNewsData([res, ...newsData]);
-          setIsArticleSaved(true);
+          toggleSavedState(res.link);
         })
         .catch((err) => console.log(err));
-    } else if (!isSaved && isArticleSaved) {
-      const matchingArticle = newsData.find((item) => item.url === article.url);
-      if (matchingArticle) {
-        mainApi
-          .deleteArticle(matchingArticle._id, localStorage.getItem('token'))
-          .then(() => {
-            setNewsData((current) =>
-              current.filter((newsCard) => newsCard._id !== matchingArticle._id),
-            );
-            setIsArticleSaved(false);
-          })
-          .catch((err) => console.log(err));
-      }
+    } else if (!isSaved && matchingArticle) {
+      mainApi
+        .deleteArticle(matchingArticle._id, localStorage.getItem('token'))
+        .then(() => {
+          setNewsData((current) =>
+            current.filter((newsCard) => newsCard._id !== matchingArticle._id),
+          );
+          toggleSavedState(matchingArticle.link)
+        })
+        .catch((err) => console.log(err));
     }
     else {
       mainApi
@@ -209,11 +227,24 @@ function App() {
           setNewsData((current) =>
             current.filter((newsCard) => newsCard._id !== article._id),
           );
-          setIsArticleSaved(false);
         })
         .catch((err) => console.log(err));
     }
   }
+
+  function toggleSavedState(url) {
+    const articleToUpdate = newsResults.data.find(article => article.url === url);
+
+    if (articleToUpdate) {
+      articleToUpdate.isSaved = !articleToUpdate.isSaved;
+      setNewsResults(prevState => ({
+        ...prevState,
+        data: [...prevState.data]
+      }));
+    }
+  }
+
+
 
   return (
     <SmallScreenProvider>
