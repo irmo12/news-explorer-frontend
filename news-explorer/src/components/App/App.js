@@ -44,7 +44,7 @@ function App() {
           navigate('/saved-news');
         })
         .catch((err) => {
-          console.log(err.code, err.message);
+          console.log(err);
         });
     }
     else {

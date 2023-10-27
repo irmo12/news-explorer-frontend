@@ -54,7 +54,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseURL:'http://localhost:3000',//https://api.newsexplorer.mooo.com',
+  baseURL:'api.newsexplorer.mooo.com',
   headers: {
     'Content-Type': 'application/json',
   },
