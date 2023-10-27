@@ -15,8 +15,6 @@ function HeaderButton({ openAuthPopup, isShowNav }) {
   const { isHome } = useContext(HomeContext);
   const navigate = useNavigate();
 
-  userData.name = 'Elise';//tmp
-
   function signOut() {
     setIsLoggedIn(false);
     navigate('/');

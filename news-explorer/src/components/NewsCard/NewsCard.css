@@ -1,7 +1,4 @@
 .news-card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
@@ -13,8 +10,17 @@
   list-style: none;
 }
 
+.news-card__redirect {
+  z-index: 1;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .news-card__header {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   padding: 23px;
   position: absolute;
@@ -27,6 +33,7 @@
   justify-content: space-between;
   max-height: 40px;
   height: 40px;
+  z-index: 2;
 }
 
 .news-card__keyword {
@@ -45,6 +52,10 @@
   margin-right: 4px;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.news-card__keyword_hidden {
+  display: none;
 }
 
 .news-card__tooltip {
@@ -68,8 +79,16 @@
   white-space: nowrap;
 }
 
-.news-card__tooltip_hide {
+.news-card__tooltip {
   display: none;
+}
+
+.news-card__tooltip_hidden {
+  display: none !important;
+}
+
+.news-card__save-del:hover + .news-card__tooltip {
+  display: flex;
 }
 
 .news-card__save-del {
@@ -87,13 +106,16 @@
   box-shadow: none;
   border: none;
   outline: none;
+  cursor: pointer;
+  z-index: 2;
 }
 
-.news-card__save-del:disabled {
+.news-card__save-del_results {
   background-image: url(../../images/save-disabled.svg);
 }
 
-.news-card__save-del:hover {
+.news-card__save-del_results:hover,
+.news-card__save-del_loggedin {
   background-image: url(../../images/save-ready.svg);
 }
 
@@ -102,18 +124,16 @@
 }
 
 .news-card__save-del_del {
-  background-image: url(../../images/trash-black.svg);
-  background-color: #e5e5e5;
+  background-image: url(../../images/trash-grey.svg);
 }
 
-.news-card__save-del:hover {
+.news-card__save-del_del:hover {
   background-image: url(../../images/trash-black.svg);
 }
 
 .news-card__img {
   width: 100%;
-  max-height: 272px;
-  height: 47.22%;
+  height: 272px;
   background-color: #000;
   align-self: flex-start;
   display: block;
@@ -195,10 +215,6 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .news-card__texts {
-    margin: 20px 7% 16px;
-  }
-
   .news-card__date {
     margin: 0;
   }
@@ -275,8 +291,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    align-self: self-end;
+    align-self: unset;
     margin: 0 0 0;
+    padding-bottom: 16px;
   }
 }
 

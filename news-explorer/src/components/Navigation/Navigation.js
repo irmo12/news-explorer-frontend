@@ -26,8 +26,8 @@ function Navigation({ isShowNav }) {
         <>
           <NavLink
             className={linkClasses}
-            activeClassName='active'
-            exact
+            activeclassname='active'
+            exact='true'
             to='/'
           >
             Home
@@ -35,7 +35,7 @@ function Navigation({ isShowNav }) {
           {isLoggedIn && (
             <NavLink
               className={linkClasses}
-              activeClassName='active'
+              activeclassname='active'
               to='/saved-news'
             >
               Saved&nbsp;articles
@@ -48,7 +48,7 @@ function Navigation({ isShowNav }) {
             && isLoggedIn ? (
             <NavLink
               className={linkClasses}
-              activeClassName='active'
+              activeclassname='active'
               to='/saved-news'
             >
               Saved&nbsp;articles
@@ -56,8 +56,8 @@ function Navigation({ isShowNav }) {
           ) : (
             <NavLink
               className={linkClasses}
-              activeClassName='active'
-              exact
+              activeclassname='active'
+              exact='true'
               to='/'
             >
               Home

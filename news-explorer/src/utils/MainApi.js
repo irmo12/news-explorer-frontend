@@ -1,4 +1,4 @@
-class Api {
+class MainApi {
   constructor({ baseURL, headers }) {
     this._baseURL = baseURL;
     this._headers = headers;
@@ -53,11 +53,11 @@ class Api {
   }
 }
 
-const api = new Api({
-  baseURL: 'http://localhost:3000',
+const mainApi = new MainApi({
+  baseURL:'https://api.newsexplorer.mooo.com',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-export { api };
+export { mainApi };
