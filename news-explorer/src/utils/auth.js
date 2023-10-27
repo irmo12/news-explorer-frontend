@@ -3,7 +3,6 @@ import { mainApi } from './MainApi';
 const auth = {
 
   signin: (data) => {
-    console.log(data)
     return mainApi.authorizationParams(data)
       .then((data) => { localStorage.setItem('token', data.token); });
   },
